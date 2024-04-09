@@ -15,6 +15,7 @@
       let
         defaultModules = [
           inputs.home-manager.nixosModules.default
+          ./modules/nixvim.nix
         ];
       in
       {
