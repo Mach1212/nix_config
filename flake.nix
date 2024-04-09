@@ -18,6 +18,7 @@
     nixosConfigurations =
       let
         defaultModules = [
+          ./defaultConfig.nix
           inputs.home-manager.nixosModules.home-manager
           ./modules/home-manager.nix
           inputs.nixvim.nixosModules.nixvim
@@ -25,22 +26,24 @@
         ];
       in
       {
-        default = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
-          modules = defaultModules ++ [
-            nixos-wsl.nixosModules.wsl
-            ./hosts/default/configuration.nix
-          ];
-        };
-        laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          system = "x86_64-linux";
-          modules = defaultModules ++ [
-            nixos-wsl.nixosModules.wsl
-            ./hosts/laptop/configuration.nix
-          ];
-        };
+        default = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; };
+            system = "x86_64-linux";
+            modules = defaultModules ++ [
+              nixos-wsl.nixosModules.wsl
+              ./hosts/default/configuration.nix
+            ];
+          };
+        laptop = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; };
+            system = "x86_64-linux";
+            modules = defaultModules ++ [
+              nixos-wsl.nixosModules.wsl
+              ./hosts/laptop/configuration.nix
+            ];
+          };
       };
   };
 }
