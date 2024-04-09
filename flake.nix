@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, nixos-wsl, ... }@inputs: {
     nixosConfigurations =
       let
         defaultModules = [
@@ -18,7 +18,6 @@
         ];
       in
       {
-
         default = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
