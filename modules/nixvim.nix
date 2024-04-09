@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  nixvim.enable = true;
+  programs.nixvim.enable = true;
 }
