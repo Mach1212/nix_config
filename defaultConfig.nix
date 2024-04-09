@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = [
-    pkgs.nixfmt
+    pkgs.nixfmt-classic
   ];
 }
