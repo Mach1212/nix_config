@@ -21,7 +21,7 @@
         default = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
-          modules = defaultModules // [
+          modules = defaultModules ++ [
             nixos-wsl.nixosModules.wsl
             ./hosts/default/configuration.nix
           ];
@@ -29,7 +29,7 @@
         laptop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           system = "x86_64-linux";
-          modules = defaultModules // [
+          modules = defaultModules ++ [
             nixos-wsl.nixosModules.wsl
             ./hosts/laptop/configuration.nix
           ];

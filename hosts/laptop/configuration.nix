@@ -21,10 +21,10 @@
 
   # ********************************************************************** #
 
-   imports = [
-     ./hardware-configuration.nix
-     inputs.home-manager.nixosModules.default
-   ];
+  imports = [
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
