@@ -8,21 +8,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, nixos-wsl, ... }@inputs: {
     nixosConfigurations =
       let
         defaultModules = [
-          ./defaultConfig.nix
+          ./modules/defaultConfig.nix
           inputs.home-manager.nixosModules.home-manager
           ./modules/home-manager.nix
-          inputs.nixvim.nixosModules.nixvim
-          ./modules/nixvim.nix
+          ./modules/users/mach12.nix
+          ./modules/programs/neovim.nix
         ];
       in
       {
