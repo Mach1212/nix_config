@@ -19,6 +19,7 @@
           ./modules/home-manager.nix
           ./modules/users/mach12.nix
           ./modules/programs/neovim.nix
+          ./modules/programs/git.nix
         ];
       in
       {
