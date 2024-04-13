@@ -12,7 +12,12 @@
     viAlias = true;
     vimAlias = true;
     configure = {
-      customRC = builtins.readFile ~/.config/nvim/init.vim;
+      customRC = builtins.fetchGit {
+        url = "https://github.com/Mach1212/astro_config.git";
+        ref = "main";
+        rev = "commithash";
+        allRefs = true;
+      };
     };
   };
 }
