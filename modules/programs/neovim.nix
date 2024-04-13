@@ -3,11 +3,6 @@
 {
 
 home-manager.users."nixos" = {
-
-  home.packages = [
-    pkgs.neovim
-  ];
-  
   programs.neovim = {
     enable = true;
     defaultEditor = true;
