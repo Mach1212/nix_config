@@ -10,16 +10,16 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... }@inputs: {
     nixosConfigurations =
       let
         defaultModules = [
           ./modules/defaultConfig.nix
-          inputs.home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager
           ./modules/home-manager.nix
           ./modules/users/mach12.nix
-          ./modules/programs/neovim.nix
-          ./modules/programs/git.nix
+	  ./modules/programs/neovim.nix
+	  ./modules/programs/git.nix
         ];
       in
       {

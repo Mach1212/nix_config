@@ -2,22 +2,23 @@
 
 {
 
-  environment.systemPackages = [
+home-manager.users."nixos" = {
+
+  home.packages = [
     pkgs.neovim
   ];
-
+  
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
-    configure = {
-      customRC = builtins.fetchGit {
-        url = "https://github.com/Mach1212/astro_config.git";
-        ref = "main";
-        rev = "commithash";
-        allRefs = true;
-      };
-    };
+    vimdiffAlias = true;
   };
+  xdg.configFile."nvim".source = builtins.fetchGit {
+    url = "https://github.com/Mach1212/astro_config";
+    rev = "bf28d19a876131295b75dde0a44bfa407164133a";
+  };
+};
+
 }
