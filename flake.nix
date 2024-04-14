@@ -14,31 +14,34 @@
     nixosConfigurations =
       let
         defaultModules = [
-          ./modules/defaultConfig.nix
           home-manager.nixosModules.home-manager
-          ./modules/home-manager.nix
-          ./modules/users/mach12.nix
-	  ./modules/programs/neovim.nix
-	  ./modules/programs/git.nix
+          ./modules/users
+          ./modules/programs/bash.nix
+          ./modules/programs/git.nix
+          ./modules/programs/neovim.nix
+          ./modules/programs/starship.nix
+          ./modules/programs/zellij.nix
         ];
       in
       {
         default = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs; primaryUser = "mach12"; };
             system = "x86_64-linux";
             modules = defaultModules ++ [
               nixos-wsl.nixosModules.wsl
               ./hosts/default/configuration.nix
+              ./modules/programs/rust.nix
             ];
           };
         laptop = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs; primaryUser = "mach12"; };
             system = "x86_64-linux";
             modules = defaultModules ++ [
               nixos-wsl.nixosModules.wsl
               ./hosts/laptop/configuration.nix
+              ./modules/programs/rust.nix
             ];
           };
       };
