@@ -8,10 +8,23 @@
 { config, lib, pkgs, inputs, primaryUser, ... }:
 
 {
-  wsl.enable = true;
-  wsl.defaultUser = "${primaryUser}";
-  wsl.docker-desktop.enable = true;
-  wsl.startMenuLaunchers = false;
+  wsl = {
+    enable = true;
+    defaultUser = "${primaryUser}";
+    docker-desktop.enable = true;
+    startMenuLaunchers = false;
+    nativeSystemd = true;
+    extraBin = with pkgs; [
+      # Binaries for Docker Desktop wsl-distro-proxy
+      { src = "${coreutils}/bin/mkdir"; }
+      { src = "${coreutils}/bin/cat"; }
+      { src = "${coreutils}/bin/whoami"; }
+      { src = "${coreutils}/bin/ls"; }
+      { src = "${busybox}/bin/addgroup"; }
+      { src = "${su}/bin/groupadd"; }
+      { src = "${su}/bin/usermod"; }
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
