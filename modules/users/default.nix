@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, primaryUser, ... }:
 
 {
-  users.mutableUsers = true;
+  users.mutableUsers = false;
 
   users.users.${primaryUser} = {
     "mach12" = {

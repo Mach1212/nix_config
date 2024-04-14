@@ -10,6 +10,8 @@
 {
   wsl.enable = true;
   wsl.defaultUser = "${primaryUser}";
+  wsl.docker-desktop.enable = true;
+  wsl.startMenuLaunchers = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
