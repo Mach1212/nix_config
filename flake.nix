@@ -14,6 +14,9 @@
   outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
     nixosConfigurations =
       let
+        wslModules = [
+          nixos-wsl.nixosModules.wsl
+        ];
         defaultModules = [
           home-manager.nixosModules.home-manager
           ./modules/users
@@ -29,17 +32,16 @@
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; };
             system = "x86_64-linux";
-            modules = defaultModules ++ [
-              nixos-wsl.nixosModules.wsl
+            modules = defaultModules ++ wslModules ++ [
               ./hosts/default/configuration.nix
-              # ./modules/programs/rust.nix
+              ./modules/programs/rust.nix
             ];
           };
         laptop = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; };
             system = "x86_64-linux";
-            modules = defaultModules ++ [
+            modules = defaultModules ++ wslModules ++ [
               nixos-wsl.nixosModules.wsl
               ./hosts/laptop/configuration.nix
               ./modules/programs/rust.nix
