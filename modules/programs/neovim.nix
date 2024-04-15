@@ -1,4 +1,4 @@
-{ config, pkgs, primaryUser, ... }:
+{ config, pkgs, inputs, primaryUser, ... }:
 
 {
   home-manager.users."${primaryUser}" = {
@@ -7,9 +7,18 @@
       pkgs.wget
       pkgs.unzip
       pkgs.lazygit
-      pkgs.python3
+      (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.pip
+        python-pkgs.numpy
+        python-pkgs.pandas
+        python-pkgs.requests
+      ]))
       pkgs.ripgrep
       pkgs.nodejs_21
+      pkgs.lua54Packages.luarocks-nix
+      pkgs.go
+      pkgs.php83Packages.composer
+      pkgs.jdk22
     ];
 
     programs.neovim = {

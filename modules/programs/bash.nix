@@ -13,6 +13,7 @@
 
     programs.bash = {
       enable = true;
+      enableCompletion = true;
       bashrcExtra = ''
         if [[ -z "$ZELLIJ" ]]; then
         	if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then

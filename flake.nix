@@ -8,9 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
     nixosConfigurations =
       let
         defaultModules = [
@@ -31,7 +32,7 @@
             modules = defaultModules ++ [
               nixos-wsl.nixosModules.wsl
               ./hosts/default/configuration.nix
-              ./modules/programs/rust.nix
+              # ./modules/programs/rust.nix
             ];
           };
         laptop = nixpkgs.lib.nixosSystem
