@@ -36,6 +36,7 @@
         npm set prefix ~/.npm-global
       '';
       shellAliases = {
+        cd = "z ";
         unzip = "ripunzip";
         grep = "rg";
         cat = "bat";
