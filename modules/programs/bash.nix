@@ -9,6 +9,7 @@
       pkgs.kubectl
       pkgs.htop
       pkgs.ripunzip
+      pkgs.gum
     ];
 
     programs.bash = {
@@ -28,6 +29,8 @@
         fi
 
         eval "$(starship init bash)"
+
+        export PATH=$HOME/scripts:$PATH
       '';
       shellAliases = {
         unzip = "ripunzip";
