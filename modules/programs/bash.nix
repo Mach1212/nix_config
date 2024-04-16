@@ -18,6 +18,18 @@
       enable = true;
       enableCompletion = true;
       bashrcExtra = ''
+        if [[ -z "$ZELLIJ" ]]; then
+        	if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+        		zellij attach -c
+        	else
+        		zellij a
+        	fi
+
+        	if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+        		exit
+        	fi
+        fi
+
         export PATH=$HOME/scripts:$PATH
         export PATH=$HOME/.npm-global:$PATH
         
