@@ -30,6 +30,7 @@
         fi
 
         eval "$(starship init bash)"
+        eval "$(zoxide init bash)"
 
         export PATH=$HOME/scripts:$PATH
       '';
