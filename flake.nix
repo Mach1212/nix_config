@@ -36,6 +36,7 @@
               ./hosts/default/configuration.nix
               ./modules/programs/rust.nix
               ./modules/programs/kubernetes.nix
+              ./modules/programs/mqtt.nix
             ];
           };
         laptop = nixpkgs.lib.nixosSystem
