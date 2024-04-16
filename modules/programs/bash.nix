@@ -12,6 +12,8 @@
       pkgs.zoxide
     ];
 
+    programs.zoxide.enableBashIntegration = true;
+
     programs.bash = {
       enable = true;
       enableCompletion = true;
@@ -28,13 +30,14 @@
         	fi
         fi
 
-        eval "$(starship init bash)"
-        eval "$(zoxide init bash)"
-
         export PATH=$HOME/scripts:$PATH
+        export PATH=$HOME/.npm-global:$PATH
+        
+        npm set prefix ~/.npm-global
+
+        eval "$(starship init bash)"
       '';
       shellAliases = {
-        cd = "z ";
         unzip = "ripunzip";
         grep = "rg";
         cat = "bat";
