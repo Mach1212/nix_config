@@ -10,6 +10,7 @@
       pkgs.htop
       pkgs.ripunzip
       pkgs.gum
+      pkgs.zoxide
     ];
 
     programs.bash = {
@@ -33,6 +34,7 @@
         export PATH=$HOME/scripts:$PATH
       '';
       shellAliases = {
+        cd = "z ";
         unzip = "ripunzip";
         grep = "rg";
         cat = "bat";
