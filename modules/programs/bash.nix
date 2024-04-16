@@ -34,8 +34,6 @@
         export PATH=$HOME/.npm-global:$PATH
         
         npm set prefix ~/.npm-global
-
-        eval "$(starship init bash)"
       '';
       shellAliases = {
         unzip = "ripunzip";
