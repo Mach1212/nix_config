@@ -6,7 +6,6 @@
       pkgs.eza
       pkgs.bat
       pkgs.procs
-      pkgs.kubectl
       pkgs.htop
       pkgs.ripunzip
       pkgs.gum

@@ -35,6 +35,7 @@
             modules = defaultModules ++ wslModules ++ [
               ./hosts/default/configuration.nix
               ./modules/programs/rust.nix
+              ./modules/programs/kubernetes.nix
             ];
           };
         laptop = nixpkgs.lib.nixosSystem
@@ -45,6 +46,7 @@
               nixos-wsl.nixosModules.wsl
               ./hosts/laptop/configuration.nix
               ./modules/programs/rust.nix
+              ./modules/programs/kubernetes.nix
             ];
           };
       };
