@@ -33,7 +33,7 @@
         export PATH=$HOME/scripts:$PATH
         export PATH=$HOME/.npm-global:$PATH
         
-        npm set prefix ~/.npm-global
+        npm set prefix $HOME/.npm-global
       '';
       shellAliases = {
         cd = "z ";

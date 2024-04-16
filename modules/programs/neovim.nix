@@ -12,6 +12,7 @@
         python-pkgs.numpy
         python-pkgs.pandas
         python-pkgs.requests
+        python-pkgs.paho-mqtt
       ]))
       pkgs.ripgrep
       pkgs.nodejs_21
