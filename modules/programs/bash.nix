@@ -12,8 +12,6 @@
       pkgs.zoxide
     ];
 
-    programs.zoxide.enableBashIntegration = true;
-
     programs.bash = {
       enable = true;
       enableCompletion = true;
@@ -34,6 +32,8 @@
         export PATH=$HOME/.npm-global:$PATH
         
         npm set prefix $HOME/.npm-global
+
+        eval "$(zoxide init bash)"
       '';
       shellAliases = {
         cd = "z ";
