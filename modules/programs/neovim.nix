@@ -7,6 +7,7 @@
       pkgs.wget
       pkgs.unzip
       pkgs.lazygit
+      pkgs.gitflow
       (pkgs.python3.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.numpy
