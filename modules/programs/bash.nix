@@ -12,6 +12,11 @@
       pkgs.zoxide
     ];
 
+    home.file.".pip/pip.conf".text = ''
+      [global]
+      target=$HOME
+    '';
+
     programs.bash = {
       enable = true;
       enableCompletion = true;
