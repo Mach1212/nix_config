@@ -8,7 +8,6 @@
       pkgs.procs
       pkgs.htop
       pkgs.ripunzip
-      pkgs.gum
       pkgs.zoxide
       pkgs.ripgrep
     ];

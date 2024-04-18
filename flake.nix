@@ -34,9 +34,7 @@
             system = "x86_64-linux";
             modules = defaultModules ++ wslModules ++ [
               ./hosts/default/configuration.nix
-              ./modules/programs/rust.nix
               ./modules/programs/kubernetes.nix
-              ./modules/programs/mqtt.nix
             ];
           };
         laptop = nixpkgs.lib.nixosSystem
@@ -46,7 +44,6 @@
             modules = defaultModules ++ wslModules ++ [
               nixos-wsl.nixosModules.wsl
               ./hosts/laptop/configuration.nix
-              ./modules/programs/rust.nix
               ./modules/programs/kubernetes.nix
             ];
           };

@@ -18,6 +18,7 @@
         python-pkgs.setuptools
       ]))
       pkgs.poetry
+      pkgs.gum
       pkgs.ripgrep
       pkgs.nodejs_21
       pkgs.lua54Packages.luarocks-nix
