@@ -48,7 +48,9 @@
         in
         builtins.readFile (complete_alias_path)
         +
-        ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"'';
+        ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"
+        echo "hellow this ran"
+        '';
     };
   };
 }
