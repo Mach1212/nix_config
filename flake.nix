@@ -22,6 +22,7 @@
         defaultModules = [
           home-manager.nixosModules.home-manager
           ./hosts/users.nix
+          ./hosts/hostname.nix
           ./modules/programs/home-manager.nix
           ./modules/programs/bash.nix
           ./modules/programs/git.nix
@@ -33,22 +34,16 @@
       {
         default = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "machine"; };
             system = "x86_64-linux";
             modules = defaultModules ++ [
-              ({pkgs, ...}: {
-                networking.hostName = "mach12nixos";
-              })
             ];
           };
         mach12 = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; };
+            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
             system = "x86_64-linux";
             modules = defaultModules ++ wslModules ++ [
-              ({pkgs, ...}: {
-                networking.hostName = "mach12laptop";
-              })
               ./modules/programs/kubernetes.nix
               ./modules/programs/ssh.nix
             ];
