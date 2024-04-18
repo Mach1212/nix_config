@@ -36,6 +36,9 @@
             specialArgs = { inherit inputs; primaryUser = "nixos"; };
             system = "x86_64-linux";
             modules = defaultModules ++ [
+              ({pkgs, ...}: {
+                networking.hostName = "mach12nixos";
+              })
             ];
           };
         mach12 = nixpkgs.lib.nixosSystem
@@ -43,6 +46,9 @@
             specialArgs = { inherit inputs; primaryUser = "mach12"; };
             system = "x86_64-linux";
             modules = defaultModules ++ wslModules ++ [
+              ({pkgs, ...}: {
+                networking.hostName = "mach12laptop";
+              })
               ./modules/programs/kubernetes.nix
               ./modules/programs/ssh.nix
             ];
