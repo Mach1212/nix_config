@@ -13,9 +13,11 @@
         python-pkgs.numpy
         python-pkgs.pandas
         python-pkgs.requests
+        python-pkgs.matplotlib
         python-pkgs.seaborn
         python-pkgs.setuptools
       ]))
+      pkgs.poetry
       pkgs.ripgrep
       pkgs.nodejs_21
       pkgs.lua54Packages.luarocks-nix
