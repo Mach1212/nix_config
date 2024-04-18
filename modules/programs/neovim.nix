@@ -26,7 +26,7 @@
 
     home.file.".pip/pip.conf".text = ''
       [global]
-      target=/home/${primaryUser}/.pip-global
+      prefix=/home/${primaryUser}/.pip-global
     '';
 
     programs.bash = {
@@ -34,7 +34,7 @@
         npm set prefix $HOME/.npm-global
         
         export PATH=$HOME/.npm-global/bin:$PATH
-        export PATH="$HOME/.local/bin:$PATH"
+        export PATH=$HOME/.local/bin:$PATH
       '';
     };
 
