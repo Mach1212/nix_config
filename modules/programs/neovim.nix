@@ -1,6 +1,7 @@
 { config, pkgs, inputs, primaryUser, ... }:
 
 {
+  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   home-manager.users."${primaryUser}" = {
     home.packages = [
       pkgs.gcc
@@ -17,6 +18,7 @@
         python-pkgs.seaborn
         python-pkgs.setuptools
       ]))
+      pkgs.rustup
       pkgs.poetry
       pkgs.gum
       pkgs.ripgrep
