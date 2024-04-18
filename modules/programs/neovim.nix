@@ -13,7 +13,6 @@
         python-pkgs.numpy
         python-pkgs.pandas
         python-pkgs.requests
-        python-pkgs.paho-mqtt
         python-pkgs.seaborn
       ]))
       pkgs.ripgrep
