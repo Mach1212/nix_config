@@ -26,14 +26,15 @@
 
     home.file.".pip/pip.conf".text = ''
       [global]
-      target=~/pip
+      target=/home/${primaryUser}/.pip-global
     '';
 
     programs.bash = {
       bashrcExtra = ''
-        export PATH=$HOME/.npm-global/bin:$PATH
-        
         npm set prefix $HOME/.npm-global
+        
+        export PATH=$HOME/.npm-global/bin:$PATH
+        export PATH=$HOME/.pip-global/bin:$PATH
       '';
     };
 
