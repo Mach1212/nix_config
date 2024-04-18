@@ -35,6 +35,7 @@
         
         export PATH=$HOME/.npm-global/bin:$PATH
         export PATH=$HOME/.pip-global/bin:$PATH
+        export PYTHONPATH='/home/${primaryUser}/.pip-global/lib/python3.11/site-packages/'
       '';
     };
 
