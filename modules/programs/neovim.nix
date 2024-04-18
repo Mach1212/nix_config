@@ -24,6 +24,19 @@
       pkgs.jdk22
     ];
 
+    home.file.".pip/pip.conf".text = ''
+      [global]
+      target=$HOME
+    '';
+
+    programs.bash = {
+      bashrcExtra = ''
+        export PATH=$HOME/.npm-global/bin:$PATH
+        
+        npm set prefix $HOME/.npm-global
+      '';
+    };
+
     programs.neovim = {
       enable = true;
       defaultEditor = true;

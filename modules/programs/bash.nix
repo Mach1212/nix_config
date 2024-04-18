@@ -12,11 +12,6 @@
       pkgs.zoxide
     ];
 
-    home.file.".pip/pip.conf".text = ''
-      [global]
-      target=$HOME
-    '';
-
     programs.bash = {
       enable = true;
       enableCompletion = true;
@@ -34,10 +29,7 @@
         fi
 
         export PATH=$HOME/scripts:$PATH
-        export PATH=$HOME/.npm-global/bin:$PATH
         
-        npm set prefix $HOME/.npm-global
-
         eval "$(zoxide init bash)"
       '';
       shellAliases = {
