@@ -29,7 +29,7 @@
         fi
 
         export PATH=$HOME/scripts:$PATH
-        export PATH=$HOME/.npm-global:$PATH
+        export PATH=$HOME/.npm-global/bin:$PATH
         
         npm set prefix $HOME/.npm-global
 
