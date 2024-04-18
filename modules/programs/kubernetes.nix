@@ -10,7 +10,6 @@
     programs.bash = {
       bashrcExtra = ''
         source <(kubectl completion bash)
-        complete -F _complete_alias "''${!BASH_ALIASES[@]}"
       '';
       shellAliases = {
         ic = "istioctl";
