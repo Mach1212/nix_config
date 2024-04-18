@@ -26,7 +26,7 @@
 
     home.file.".pip/pip.conf".text = ''
       [global]
-      prefix=/home/${primaryUser}/.pip-global
+      prefix=$HOME/.pip-global
     '';
 
     programs.bash = {
