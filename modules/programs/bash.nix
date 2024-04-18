@@ -39,7 +39,7 @@
         watch = "watch ";
         sudo = "sudo ";
       };
-      profileExtra =
+      initExtra =
         let complete_alias_path = builtins.fetchGit
           {
             url = "https://github.com/cykerway/complete-alias.git";
@@ -48,9 +48,7 @@
         in
         builtins.readFile (complete_alias_path)
         +
-        ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"
-        echo "hellow this ran"
-        '';
+        ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"'';
     };
   };
 }
