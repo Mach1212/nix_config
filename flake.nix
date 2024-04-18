@@ -16,6 +16,7 @@
       let
         wslModules = [
           nixos-wsl.nixosModules.wsl
+          ./modules/programs/wsl.nix
         ];
         defaultModules = [
           home-manager.nixosModules.home-manager
