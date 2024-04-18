@@ -17,8 +17,7 @@
         wslModules = [
           nixos-wsl.nixosModules.wsl
           ./modules/programs/wsl.nix
-          ./hosts/default_configuration.nix
-          ./hosts/wsl/hardware-configuration.nix
+          ./hosts/wsl/configuration.nix
         ];
         defaultModules = [
           home-manager.nixosModules.home-manager
