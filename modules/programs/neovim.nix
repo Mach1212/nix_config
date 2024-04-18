@@ -18,7 +18,7 @@
         python-pkgs.seaborn
         python-pkgs.setuptools
       ]))
-      pkgs.rustup
+      pkgs.rust-bin.stable.latest.default
       pkgs.poetry
       pkgs.gum
       pkgs.ripgrep
