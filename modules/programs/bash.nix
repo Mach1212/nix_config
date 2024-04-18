@@ -8,16 +8,20 @@
       pkgs.procs
       pkgs.htop
       pkgs.ripunzip
-      pkgs.zoxide
       pkgs.ripgrep
     ];
+
+    programs.zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+    };
 
     programs.bash = {
       enable = true;
       enableCompletion = true;
-      bashrcExtra = ''
-        eval "$(zoxide init bash)"
-      '';
+      # bashrcExtra = ''
+      #   eval "$(zoxide init bash)"
+      # '';
       shellAliases = {
         cd = "z ";
         unzip = "ripunzip";
@@ -35,6 +39,13 @@
         watch = "watch ";
         sudo = "sudo ";
       };
+      profileExtra = builtins.fetchGit
+        {
+          url = "https://github.com/cykerway/complete-alias.git";
+          rev = "7f2555c2fe7a1f248ed2d4301e46c8eebcbbc4e2";
+        } + ''
+        complete -F _complete_alias "''${!BASH_ALIASES[@]}"
+      '';
     };
   };
 }

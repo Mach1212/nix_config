@@ -10,14 +10,7 @@
     programs.bash = {
       bashrcExtra = ''
         source <(kubectl completion bash)
-        complete -o default -F __start_kubectl kc
-        complete -o default -F __start_kubectl kg
-        complete -o default -F __start_kubectl ka
-        complete -o default -F __start_kubectl kd
-        complete -o default -F __start_kubectl kl
-        complete -o default -F __start_kubectl klf
-        complete -o default -F __start_kubectl ke
-        complete -o default -F __start_kubectl kdesc
+        complete -F _complete_alias "''${!BASH_ALIASES[@]}"
       '';
       shellAliases = {
         ic = "istioctl";
