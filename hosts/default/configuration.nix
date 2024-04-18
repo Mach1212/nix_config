@@ -42,17 +42,5 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs; primaryUser = primaryUser;
-    };
-    users = {
-      "${primaryUser}" = import ./home.nix;
-    };
-  };
-
-  environment.systemPackages = [
-  ];
-
   nixpkgs.config.allowUnfree = true;
 }

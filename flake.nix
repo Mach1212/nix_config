@@ -19,6 +19,7 @@
         ];
         defaultModules = [
           home-manager.nixosModules.home-manager
+          ./modules/programs/home-manager.nix
           ./modules/users
           ./modules/programs/bash.nix
           ./modules/programs/git.nix
