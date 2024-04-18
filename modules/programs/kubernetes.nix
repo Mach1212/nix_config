@@ -8,10 +8,13 @@
     ];
 
     programs.bash = {
+      bashrcExtra = ''
+        source <(kubectl completion bash)
+        complete -o default -F __start_kubectl kc
+      '';
       shellAliases = {
         ic = "istioctl";
         kc = "kubectl";
-        kubectl = ''echo 'complete -o default -F __start_kubectl k' >>~/.bashrc'';
         kg = "kc get";
         ka = "kc apply";
         kaf = "ka -f";
