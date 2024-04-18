@@ -35,6 +35,7 @@
             modules = defaultModules ++ wslModules ++ [
               ./hosts/default/configuration.nix
               ./modules/programs/kubernetes.nix
+              ./modules/programs/ssh.nix
             ];
           };
         laptop = nixpkgs.lib.nixosSystem

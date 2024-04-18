@@ -19,9 +19,6 @@
     programs.bash = {
       enable = true;
       enableCompletion = true;
-      # bashrcExtra = ''
-      #   eval "$(zoxide init bash)"
-      # '';
       shellAliases = {
         cd = "z ";
         unzip = "ripunzip";
