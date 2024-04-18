@@ -26,7 +26,7 @@
 
     home.file.".pip/pip.conf".text = ''
       [global]
-      target=$HOME
+      target=~/pip
     '';
 
     programs.bash = {
