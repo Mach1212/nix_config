@@ -6,10 +6,10 @@
   home-manager.users."${primaryUser}" = {
     programs.ssh = {
       enable = true;
-      extraConfig = ''
-        PasswordAuthentication no
-        PubkeyAuthentication yes
-      '';
+      extraOptionOverrides = {
+        PasswordAuthentication = "no";
+        PubkeyAuthentication = "yes";
+      };
     };
   };
 }
