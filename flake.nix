@@ -33,20 +33,18 @@
       {
         default = nixpkgs.lib.nixosSystem
           {
+            specialArgs = { inherit inputs; primaryUser = "nixos"; };
+            system = "x86_64-linux";
+            modules = defaultModules ++ [
+            ];
+          };
+        mach12 = nixpkgs.lib.nixosSystem
+          {
             specialArgs = { inherit inputs; primaryUser = "mach12"; };
             system = "x86_64-linux";
             modules = defaultModules ++ wslModules ++ [
               ./modules/programs/kubernetes.nix
               ./modules/programs/ssh.nix
-            ];
-          };
-        laptop = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; };
-            system = "x86_64-linux";
-            modules = defaultModules ++ wslModules ++ [
-              nixos-wsl.nixosModules.wsl
-              ./modules/programs/kubernetes.nix
             ];
           };
       };
