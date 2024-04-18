@@ -14,6 +14,7 @@
         python-pkgs.pandas
         python-pkgs.requests
         python-pkgs.seaborn
+        python-pkgs.setuptools
       ]))
       pkgs.ripgrep
       pkgs.nodejs_21
