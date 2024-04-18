@@ -34,6 +34,7 @@
         npm set prefix $HOME/.npm-global
         
         export PATH=$HOME/.npm-global/bin:$PATH
+        export PATH="$HOME/.local/bin:$PATH"
       '';
     };
 
