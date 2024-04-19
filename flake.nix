@@ -36,13 +36,23 @@
         ];
       in
       {
-        default = nixpkgs.lib.nixosSystem
+        wsl = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "machine"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "wsl"; };
             system = "x86_64-linux";
-            modules = defaultModules ++ [
+            modules = defaultModules
+              ++ wslModules
+              ++ [
             ];
           };
+        # linux = nixpkgs.lib.nixosSystem
+        #   {
+        #     specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
+        #     system = "x86_64-linux";
+        #     modules = defaultModules
+        #       ++ [
+        #     ];
+        #   };
         mach12laptop = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
