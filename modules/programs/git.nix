@@ -20,7 +20,7 @@
           branch = { autosetuprebase = "always"; };
         };
       };
-      "nixos" = { };
+      _ = { };
     }."${primaryUser}";
   };
 }
