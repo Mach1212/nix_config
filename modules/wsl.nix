@@ -5,15 +5,13 @@
     pkgs.wslu
   ];
 
-  config = lib.mkIf (config.specialisation != { }) {
-    # Config that should only apply to the default system, not the specialised ones
+  environment.systemPackages = lib.mkDefault [
+    (import ./win32yank.nix { inherit pkgs; })
+  ];
 
-    environment.systemPackages = [
-      (import ./win32yank.nix { inherit pkgs; })
-    ];
+  specialization.nonLocalYank.configuration = {
+    environment.systemPackages = [ ];
   };
-
-  specialization.nonLocalYank.configuration = { };
 
   wsl = {
     enable = true;
