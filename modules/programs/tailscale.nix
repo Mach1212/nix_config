@@ -3,9 +3,10 @@
 {
   services.tailscale = {
     enable = true;
-    specialization.github.configuration = {
-      hi = "hi";
-    };
+  };
+
+  specialization.github.configuration = {
+    hi = "hi";
   };
 
 }
