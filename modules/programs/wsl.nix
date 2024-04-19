@@ -1,7 +1,7 @@
 { config, pkgs, primaryUser, ... }:
 
 {
-  home-manager.users."${primaryUser}".packages = [
+  home-manager.users."${primaryUser}".home.packages = [
     pkgs.wslu
   ];
 
