@@ -5,7 +5,7 @@
     enable = true;
   };
 
-  specialization.github.configuration = {
+  specialisation.github.configuration = {
     hi = "hi";
   };
 
