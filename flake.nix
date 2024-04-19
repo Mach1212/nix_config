@@ -14,25 +14,29 @@
   outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
     nixosConfigurations =
       let
+        system = [
+          home-manager.nixosModules.home-manager
+          ./hosts/users.nix
+          ./hosts/hostname.nix
+          ./modules/home-manager.nix
+          ./modules/bash.nix
+          ./modules/git.nix
+          ./modules/starship.nix
+        ];
         wslModules = [
           nixos-wsl.nixosModules.wsl
           ./modules/programs/wsl.nix
           ./hosts/wsl/configuration.nix
         ];
-        defaultModules = [
-          home-manager.nixosModules.home-manager
-          ./hosts/users.nix
-          ./hosts/hostname.nix
-          ./modules/programs/home-manager.nix
-          ./modules/programs/bash.nix
-          ./modules/programs/git.nix
-          ./modules/programs/neovim.nix
-          ./modules/programs/starship.nix
-          ./modules/programs/zellij.nix
+        devModules = [
+          ./modules/neovim.nix
+          ./modules/zellij.nix
         ];
         sshModules = [
-          ./modules/programs/ssh.nix
-          ./modules/programs/tailscale.nix
+          ./modules/ssh.nix
+          ./modules/tailscale.nix
+        ];
+        guiModules = [
         ];
       in
       {
@@ -40,8 +44,9 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "wsl"; };
             system = "x86_64-linux";
-            modules = defaultModules
+            modules = system
               ++ wslModules
+              ++ devModules
               ++ [
             ];
           };
@@ -49,7 +54,7 @@
         #   {
         #     specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
         #     system = "x86_64-linux";
-        #     modules = defaultModules
+        #     modules = system
         #       ++ [
         #     ];
         #   };
@@ -57,11 +62,23 @@
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
             system = "x86_64-linux";
-            modules = defaultModules
+            modules = system
               ++ wslModules
+              ++ devModules
               ++ sshModules
               ++ [
-              ./modules/programs/kubernetes.nix
+              ./modules/kubernetes.nix
+            ];
+          };
+        mach12read = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "booktop"; };
+            system = "x86_64-linux";
+            modules = system
+              ++ sshModules
+              ++ [
+              # ./modules/gnome.nix
+              ./modules/foliate.nix
             ];
           };
       };
