@@ -38,11 +38,7 @@
       {
         default = nixpkgs.lib.nixosSystem
           {
-            specialArgs = {
-              inherit inputs;
-              primaryUser = "nixos";
-              hostname = "machine";
-            };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "machine"; };
             system = "x86_64-linux";
             modules = defaultModules ++ [
             ];
