@@ -5,7 +5,6 @@ if [[ -z $1 ]]; then
 	exit 1
 fi
 
-specialization
 if [[ -n $2 ]]; then
 	specialization = "--specialisation $2"
 fi
