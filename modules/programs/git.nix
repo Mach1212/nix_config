@@ -7,14 +7,23 @@
     ];
     programs.git = {
       enable = true;
-      userName = "Mach1212";
-      userEmail = "maciej.pruchnik@gmail.com";
       extraConfig = {
-        credential = { helper = "store"; };
         pull = { rebase = true; };
         rebase = { autoStash = true; };
-        branch = { autosetuprebase = "always"; };
       };
     };
+  };
+  home-manager.users."${primaryUser}" = {
+    programs.git = {
+      "mach12" = {
+        userName = "Mach1212";
+        userEmail = "maciej.pruchnik@gmail.com";
+        extraConfig = {
+          credential = { helper = "store"; };
+          branch = { autosetuprebase = "always"; };
+        };
+      };
+      "nixos" = { };
+    }."${primaryUser}";
   };
 }
