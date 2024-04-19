@@ -20,4 +20,5 @@
       password = "ChangeMe@1";
     };
   }."${primaryUser}";
+  # Modify git username and email
 }

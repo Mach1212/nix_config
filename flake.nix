@@ -39,7 +39,7 @@
             modules = defaultModules ++ [
             ];
           };
-        mach12 = nixpkgs.lib.nixosSystem
+        mach12laptop = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
             system = "x86_64-linux";

@@ -2,6 +2,9 @@
 
 {
   home-manager.users."${primaryUser}" = {
+    home.packages = [
+      pkgs.gh
+    ];
     programs.git = {
       enable = true;
       userName = "Mach1212";
@@ -14,5 +17,4 @@
       };
     };
   };
-
 }
