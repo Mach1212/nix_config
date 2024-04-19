@@ -11,9 +11,9 @@
   };
 
   system.userActivationScripts.personalSetup.text = ''
-    $(pkgs.git) git clone https://github.com/Mach1212/nix_config.git ~/nix_config
-    $(pkgs.git) git clone https://github.com/Mach1212/astro_config.git ~/.config/astro_config
-    $(pkgs.git) git clone https://github.com/Mach1212/scripts.git ~/scripts
+    ''$(pkgs.git) git clone https://github.com/Mach1212/nix_config.git ~/nix_config
+    ''$(pkgs.git) git clone https://github.com/Mach1212/astro_config.git ~/.config/astro_config
+    ''$(pkgs.git) git clone https://github.com/Mach1212/scripts.git ~/scripts
     mkdir -p ~/clones ~/projects
   '';
 }
