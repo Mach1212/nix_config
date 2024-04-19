@@ -30,11 +30,19 @@
           ./modules/programs/starship.nix
           ./modules/programs/zellij.nix
         ];
+        sshModules = [
+          ./modules/programs/ssh.nix
+          ./modules/programs/tailscale.nix
+        ];
       in
       {
         default = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "machine"; };
+            specialArgs = {
+              inherit inputs;
+              primaryUser = "nixos";
+              hostname = "machine";
+            };
             system = "x86_64-linux";
             modules = defaultModules ++ [
             ];
@@ -43,9 +51,11 @@
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
             system = "x86_64-linux";
-            modules = defaultModules ++ wslModules ++ [
+            modules = defaultModules
+              ++ wslModules
+              ++ sshModules
+              ++ [
               ./modules/programs/kubernetes.nix
-              ./modules/programs/ssh.nix
             ];
           };
       };
