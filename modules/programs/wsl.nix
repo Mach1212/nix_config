@@ -1,6 +1,14 @@
 { config, pkgs, primaryUser, ... }:
 
 {
+  home-manager.users."${primaryUser}".packages = [
+    pkgs.wslu
+  ];
+
+  environment.systemPackages = [
+    (import ./win32yank.nix { inherit pkgs; })
+  ];
+
   wsl = {
     enable = true;
     defaultUser = "${primaryUser}";
