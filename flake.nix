@@ -68,6 +68,7 @@
               ++ sshModules
               ++ [
               ./modules/kubernetes.nix
+              ./modules/personal.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem
@@ -77,7 +78,7 @@
             modules = system
               ++ sshModules
               ++ [
-              # ./modules/gnome.nix
+              ./modules/gui.nix
               ./modules/foliate.nix
             ];
           };

@@ -27,6 +27,7 @@
       pkgs.go
       pkgs.php83Packages.composer
       pkgs.jdk22
+      pkgs.gnumake
     ];
 
     home.file.".pip/pip.conf".text = ''
