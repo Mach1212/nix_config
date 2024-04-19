@@ -1,4 +1,4 @@
-{ config, pkgs, primaryUser, ... }:
+{ config, pkgs, lib, primaryUser, ... }:
 
 {
   home-manager.users."${primaryUser}".home.packages = [
