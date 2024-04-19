@@ -12,5 +12,5 @@ fi
 sudo chown -R $USER .git &&
 	sudo git add * &&
 	git commit -am "[Bot] Automated commit" &&
-	(sudo nixos-rebuild switch --flake .#"$1" "$specialization" || exit 1) &&
+	(sudo nixos-rebuild switch --flake .#"$1" $specialization || exit 1) &&
 	git push
