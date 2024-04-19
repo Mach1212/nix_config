@@ -9,7 +9,7 @@
     (import ./win32yank.nix { inherit pkgs; })
   ];
 
-  specialisation.nonLocalYank = {
+  specialisation.nonLocalYank.configuration = {
     environment.systemPackages = [ ];
   };
 
