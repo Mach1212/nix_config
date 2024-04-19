@@ -6,7 +6,11 @@
   };
 
   specialisation.github.configuration = {
-    hi = "hi";
+    services.tailscale = {
+      extraUpFlags = [
+        ""
+      ];
+    };
   };
 
 }
