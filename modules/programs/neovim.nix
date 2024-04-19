@@ -84,7 +84,7 @@
     };
     xdg.configFile."nvim".source = builtins.fetchGit {
       url = "https://github.com/Mach1212/astro_config";
-      rev = "bf28d19a876131295b75dde0a44bfa407164133a";
+      rev = "f3ccb0e7ff3bd4a590e7ae3496caacbe6b53b0d6";
     };
   };
 }
