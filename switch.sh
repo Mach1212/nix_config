@@ -6,7 +6,7 @@ if [[ -z $1 ]]; then
 fi
 
 if [[ -n $2 ]]; then
-	specialization = "--specialisation $2"
+	specialization="--specialisation $2"
 fi
 
 sudo chown -R $USER .git &&
