@@ -2,10 +2,12 @@
 
 {
 
-  programs.bash = {
-    bashrcExtra = ''
-      export NVIM_APPNAME=astro_config
-    '';
+  home-manager.users.${primaryUser} = {
+    programs.bash = {
+      bashrcExtra = ''
+        export NVIM_APPNAME=astro_config
+      '';
+    };
   };
   system.userActivationScripts.personalSetup.text = ''
     git clone https://github.com/Mach1212/nix_config.git ~/nix_config
