@@ -11,10 +11,7 @@
         pull = { rebase = true; };
         rebase = { autoStash = true; };
       };
-    };
-  };
-  home-manager.users."${primaryUser}" = {
-    programs.git = {
+    } // {
       "mach12" = {
         userName = "Mach1212";
         userEmail = "maciej.pruchnik@gmail.com";
