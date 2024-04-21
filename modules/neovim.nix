@@ -26,22 +26,6 @@
       pkgs.gnumake
     ];
 
-    home.file.".pip/pip.conf".text = ''
-      [global]
-      prefix=/home/${primaryUser}/.pip-global
-    '';
-
-    environment.etc =
-      {
-        sysctl.conf = {
-          text = ''
-            net.ipv6.conf.all.disable_ipv6 = 1 
-            net.ipv6.conf.default.disable_ipv6 = 1
-            net.ipv6.conf.lo.disable_ipv6 = 1
-          '';
-        };
-      };
-
     programs.bash = {
       bashrcExtra = ''
         if [[ -z "$ZELLIJ" ]]; then
@@ -59,13 +43,10 @@
         npm set prefix $HOME/.npm-global
         
         export PATH=$HOME/.npm-global/bin:$PATH
-        export PATH=$HOME/.pip-global/bin:$PATH
-        export PYTHONPATH='/home/${primaryUser}/.pip-global/lib/python3.11/site-packages/'
         export PATH=$HOME/scripts:$PATH
         export NVIM_APPNAME=astro_config
       '';
       shellAliases = {
-        python = "python3";
         docker = "sudo docker";
         dc = "docker compose";
         dk = "docker kill";
