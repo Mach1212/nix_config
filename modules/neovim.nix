@@ -24,11 +24,11 @@
       pkgs.php83Packages.composer
       pkgs.jdk22
       pkgs.gnumake
+      pkgs.llvmPackages_17.clang-unwrapped
       (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs."clang-format"
         python-pkgs.black
         python-pkgs.isort
-        python-pkgs."ansible-lint"
+        # python-pkgs.ansible-lint
       ]))
     ];
 
