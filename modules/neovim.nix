@@ -9,7 +9,6 @@
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      pkgs.clang-tools_17
       pkgs.gcc
       pkgs.wget
       pkgs.unzip
@@ -25,6 +24,12 @@
       pkgs.php83Packages.composer
       pkgs.jdk22
       pkgs.gnumake
+      (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.clang-format
+        python-pkgs.black
+        python-pkgs.isort
+        python-pkgs.ansible-lint
+      ]))
     ];
 
     programs.bash = {
