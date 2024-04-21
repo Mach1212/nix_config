@@ -9,6 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
+    astro-config = {
+      url = "github:Mach1212/astro_config";
+      flake = false;
+    };
+    nix-config = {
+      url = "github:Mach1212/nix_config";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
@@ -68,7 +76,7 @@
               ++ sshModules
               ++ [
               ./modules/kubernetes.nix
-              ./modules/personal.nix
+              ./modules/git_clones.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem
