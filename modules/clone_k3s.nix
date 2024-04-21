@@ -3,11 +3,11 @@
 {
   system.userActivationScripts.setup_astro_config.text =
     let
-      path = "~/nix_config";
+      path = "~/k3s";
     in
     ''
       if [ ! -d ${path} ]; then
-        cp -r ${inputs.nix-config} ${path}
+        cp -r ${inputs.k3s} ${path}
       fi
     '';
 }

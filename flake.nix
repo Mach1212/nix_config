@@ -17,6 +17,10 @@
       url = "github:Mach1212/nix_config";
       flake = false;
     };
+    k3s = {
+      url = "github:Mach1212/k3s";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
