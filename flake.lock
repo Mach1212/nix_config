@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "astro-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713506314,
+        "narHash": "sha256-Zg2KyipicepOd3RPDm1nrnTtju58OGciFAAT3y5fE1c=",
+        "owner": "Mach1212",
+        "repo": "astro_config",
+        "rev": "f3ccb0e7ff3bd4a590e7ae3496caacbe6b53b0d6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mach1212",
+        "repo": "astro_config",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -69,6 +85,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nix-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713561279,
+        "narHash": "sha256-zZEjNWlgZKJCEF/zOwZ3S+3vqXmcqBeVd936dhXGIo0=",
+        "owner": "Mach1212",
+        "repo": "nix_config",
+        "rev": "c7c0499daaab1396d02188518b0b77641ca8c724",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mach1212",
+        "repo": "nix_config",
         "type": "github"
       }
     },
@@ -142,7 +174,9 @@
     },
     "root": {
       "inputs": {
+        "astro-config": "astro-config",
         "home-manager": "home-manager",
+        "nix-config": "nix-config",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
         "rust-overlay": "rust-overlay"
