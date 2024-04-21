@@ -1,10 +1,8 @@
-{ config, pkgs, lib, primaryUser, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  home-manager.users."${primaryUser}" = {
-    programs.nix-ld.enable = true;
-    programs.nix-ld.libraries = with pkgs; [
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
 
-    ];
-  };
+  ];
 }
