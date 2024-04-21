@@ -1,6 +1,11 @@
 { config, pkgs, inputs, primaryUser, ... }:
 
 {
+  imports = [
+    ./python.nix
+    ./clone_astro_config.nix
+  ];
+
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   home-manager.users."${primaryUser}" = {
     home.packages = [
@@ -9,15 +14,6 @@
       pkgs.unzip
       pkgs.lazygit
       pkgs.gitflow
-      (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs.pip
-        python-pkgs.numpy
-        python-pkgs.pandas
-        python-pkgs.requests
-        python-pkgs.matplotlib
-        python-pkgs.seaborn
-        python-pkgs.setuptools
-      ]))
       pkgs.rust-bin.stable.latest.default
       pkgs.poetry
       pkgs.gum
@@ -55,6 +51,7 @@
         export PATH=$HOME/.pip-global/bin:$PATH
         export PYTHONPATH='/home/${primaryUser}/.pip-global/lib/python3.11/site-packages/'
         export PATH=$HOME/scripts:$PATH
+        export NVIM_APPNAME=astro_config
       '';
       shellAliases = {
         python = "python3";

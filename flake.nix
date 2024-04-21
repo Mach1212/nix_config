@@ -30,6 +30,8 @@
           ./modules/bash.nix
           ./modules/git.nix
           ./modules/starship.nix
+          ./modules/auto_update.nix
+          ./modules/clone_nix_config.nix
         ];
         wslModules = [
           nixos-wsl.nixosModules.wsl
@@ -45,9 +47,18 @@
           ./modules/tailscale.nix
         ];
         guiModules = [
+          ./modules/gui.nix
         ];
       in
       {
+        mach12rpi = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "rpi"; hostname = "mach12rpi"; };
+            system = "aarch32-linux";
+            modules = system
+              ++ [
+            ];
+          };
         wsl = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "wsl"; };
@@ -76,7 +87,6 @@
               ++ sshModules
               ++ [
               ./modules/kubernetes.nix
-              ./modules/git_clones.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem
@@ -85,8 +95,8 @@
             system = "x86_64-linux";
             modules = system
               ++ sshModules
+              ++ guiModules
               ++ [
-              ./modules/gui.nix
               ./modules/foliate.nix
             ];
           };
