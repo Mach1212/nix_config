@@ -5,6 +5,7 @@
     home.packages = [
       pkgs.kubectl
       pkgs.kubernetes-helm
+      pkgs.ansible-lint
     ];
 
     programs.bash = {

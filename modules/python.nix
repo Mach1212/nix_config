@@ -13,6 +13,8 @@
 
   home-manager.users."${primaryUser}" = {
     home.packages = [
+      pkgs.black
+      pkgs.isort
       (pkgs.python3.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.numpy
