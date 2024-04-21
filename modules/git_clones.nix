@@ -5,7 +5,7 @@
     if [! -d "~/astro_config"]; then
       mkdir ~/wut
       echo '${inputs.astro-config}' >~/inputs
-      cp ${inputs.astro-config} '~/.config/astro_config'
+      cp ${inputs.astro-config} ~/.config/astro_config
     fi
   '';
 }
