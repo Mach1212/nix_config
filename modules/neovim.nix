@@ -25,10 +25,10 @@
       pkgs.jdk22
       pkgs.gnumake
       (pkgs.python3.withPackages (python-pkgs: [
-        # python-pkgs.clang-format
+        python-pkgs."clang-format"
         python-pkgs.black
         python-pkgs.isort
-        python-pkgs.ansible-lint
+        python-pkgs."ansible-lint"
       ]))
     ];
 
