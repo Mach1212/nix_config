@@ -9,7 +9,7 @@
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      pkgs.clang-tools_9
+      pkgs.clang-tools_17
       pkgs.gcc
       pkgs.wget
       pkgs.unzip
