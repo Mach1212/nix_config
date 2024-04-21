@@ -1,8 +1,24 @@
-{ config, pkgs, lib, primaryUser, ... }:
+{ config, pkgs, lib, inputs, primaryUser, ... }:
 
 {
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.flake = "github:Mach1212/nix_config";
-  system.autoUpgrade.flake = "github:Mach1212/astro_config";
-  system.autoUpgrade.flags = [ "--update-input" "nixpkgs" "--commit-lock-file" "-L" ];
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "--update-input"
+      "nixos-wsl"
+      "--update-input"
+      "home-manager"
+      "--update-input"
+      "rust-overlay"
+      "--update-input"
+      "astro-config"
+      "--update-input"
+      "nix-config "
+      "--commit-lock-file"
+      "-L"
+    ];
+  };
 }
