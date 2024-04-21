@@ -58,7 +58,7 @@
         iso = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "booktop"; };
-            system = "aarch32-linux";
+            system = "aarch64-linux";
             modules = system
               ++ [
               ./hosts/iso/configuration.nix
@@ -67,7 +67,7 @@
         mach12rpi = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "rpi"; hostname = "mach12rpi"; };
-            system = "aarch32-linux";
+            system = "aarch64-linux";
             modules = system
               ++ [
             ];
