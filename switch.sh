@@ -2,7 +2,8 @@
 
 if [[ -z $1 ]]; then
 	echo "Must select a configuration!"
-	exit 1
+else
+	1 = $(echo $HOSTNAME)
 fi
 
 if [[ -n $2 ]]; then
