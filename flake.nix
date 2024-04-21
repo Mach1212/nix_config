@@ -100,6 +100,7 @@
               ++ sshModules
               ++ [
               ./modules/kubernetes.nix
+              ./modules/dynamic_linking.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem
