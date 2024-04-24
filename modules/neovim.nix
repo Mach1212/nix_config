@@ -25,6 +25,10 @@
       pkgs.jdk22
       pkgs.gnumake
       pkgs.shellcheck
+      (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.isort
+        python-pkgs.black
+      ]))
     ];
 
     programs.bash = {

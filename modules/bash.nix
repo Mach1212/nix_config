@@ -9,6 +9,7 @@
       pkgs.htop
       pkgs.ripunzip
       pkgs.ripgrep
+      pkgs.fd
     ];
 
     programs.zoxide = {
@@ -23,6 +24,7 @@
         cd = "z ";
         unzip = "ripunzip";
         grep = "rg";
+        find = "fd";
         cat = "bat";
         ls = "exa";
         ps = "procs";
