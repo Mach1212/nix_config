@@ -25,10 +25,6 @@
       pkgs.jdk22
       pkgs.gnumake
       pkgs.shellcheck
-      (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs.isort
-        python-pkgs.black
-      ]))
     ];
 
     programs.bash = {
@@ -76,6 +72,7 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+      extraPython3Packages = pyPkgs: with pyPkgs; [ black isort ];
     };
     xdg.configFile."nvim".source = builtins.fetchGit {
       url = "https://github.com/Mach1212/astro_config";
