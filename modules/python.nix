@@ -32,7 +32,7 @@
     programs.bash = {
       bashrcExtra = ''
         export PATH=$HOME/.pip-global/bin:$PATH
-        export PYTHONPATH='/home/${primaryUser}/.pip-global/lib/python3.11/site-packages/'
+        export PYTHONPATH=$HOME/.pip-global/lib/python3.11/site-packages:$PYTHONPATH
       '';
       shellAliases = {
         python = "python3";
