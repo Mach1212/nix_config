@@ -30,9 +30,6 @@
       prefix=/home/${primaryUser}/.pip-global
     '';
     programs.bash = {
-      bashrcExtra = ''
-        export PATH=$HOME/.pip-global/bin:$PATH
-      '';
       shellAliases = {
         python = "python3";
       };
