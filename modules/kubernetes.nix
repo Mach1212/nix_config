@@ -6,6 +6,7 @@
       pkgs.kubectl
       pkgs.kubernetes-helm
       pkgs.ansible-lint
+      pkgs.kompose
     ];
 
     programs.bash = {
