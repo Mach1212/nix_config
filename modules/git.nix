@@ -25,5 +25,10 @@
         "nixos" = { };
       }."${primaryUser}"
     ];
+    programs.bash = {
+      bashrcExtra = ''
+        eval "$(gh completion -s bash)"
+      '';
+    };
   };
 }
