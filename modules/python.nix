@@ -14,6 +14,7 @@
   home-manager.users."${primaryUser}" = {
     home.packages = [
       (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.pip
         python-pkgs.setuptools
         python-pkgs.numpy
         python-pkgs.pandas
@@ -24,10 +25,10 @@
     ];
 
 
-    home.file.".pip/pip.conf".text = ''
-      [global]
-      # prefix=/home/${primaryUser}/.pip-global
-    '';
+    # home.file.".pip/pip.conf".text = ''
+    #   [global]
+    #   prefix=/home/${primaryUser}/.pip-global
+    # '';
     programs.bash = {
       shellAliases = {
         python = "python3";
