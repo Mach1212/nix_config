@@ -8,7 +8,8 @@
     ''
       if [ ! -d ${path} ]; then
         cp -r ${inputs.astro-config} ${path}
-        sudo chmod -R u-rwx ${path}
+        sudo chown -R ${primaryUser} ${path}
+        chmod -R a-rwx ${path}
       fi
     '';
 }
