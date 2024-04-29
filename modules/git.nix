@@ -27,7 +27,7 @@
     ];
     programs.bash = {
       bashrcExtra = ''
-        eval "$(gh completion -s bash)"
+        source <(gh completion -s bash)
       '';
     };
   };
