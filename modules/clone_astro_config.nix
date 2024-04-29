@@ -12,7 +12,7 @@
         mkdir ~/here
         # sudo chown -R ${primaryUser} ${path}
         mkdir ~/here2
-        chmod -R a-rwx ${path}
+        ${pkgs.uutils-coreutils-noprefix.chmod} -R a-rwx ${path}
         mkdir ~/here3
       fi
     '';
