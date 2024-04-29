@@ -101,6 +101,7 @@
               ++ [
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
+              ./modules/clone_k3s.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem

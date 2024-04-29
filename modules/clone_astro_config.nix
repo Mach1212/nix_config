@@ -7,7 +7,6 @@
     in
     ''
       if [ ! -d ${path} ]; then
-        rm -rf ~/here*
         cp -r ${inputs.astro-config} ${path}
         chmod -R 777 ${path}
       fi
