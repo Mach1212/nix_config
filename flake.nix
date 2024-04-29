@@ -17,10 +17,10 @@
       url = "github:Mach1212/nix_config";
       flake = false;
     };
-    k3s = {
-      url = "git+ssh://git@github.com/Mach1212/k3s.git";
-      flake = false;
-    };
+    # k3s = {
+    #   url = "git+ssh://git@github.com/Mach1212/k3s.git";
+    #   flake = false;
+    # };
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
@@ -101,7 +101,7 @@
               ++ [
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
-              ./modules/clone_k3s.nix
+              # ./modules/clone_k3s.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem
