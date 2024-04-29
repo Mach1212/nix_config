@@ -19,7 +19,8 @@
       home = "/home/nixos";
       description = "Default user. Specify a user in users/default.nix in configuration.";
       extraGroups = [ "wheel" ];
-      password = "ChangeMe@1";
+      # ChangeMe@1
+      hashedPassword = "$y$j9T$LOM1REn8tupcoWQD4duTf/$LSM9nMj2dhJ11rbchxxwudBscbmaaQqge4j5LK7p5G6";
     };
   }."${primaryUser}";
   # Modify git username and email

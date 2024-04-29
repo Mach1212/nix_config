@@ -55,10 +55,10 @@
         ];
       in
       {
-        iso = nixpkgs.lib.nixosSystem
+        iso_x86 = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "booktop"; };
-            system = "aarch64-linux";
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
+            system = "x86_64-linux";
             modules = system
               ++ [
               ./hosts/iso/configuration.nix
