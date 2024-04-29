@@ -12,7 +12,7 @@
         # mkdir ~/here
         # sudo chown -R ${primaryUser} ${path}
         mkdir ~/here2
-        sudo chmod -R 777 ${path}
+        chmod -R 777 ${path}
         mkdir ~/here3
       fi
     '';
