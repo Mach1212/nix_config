@@ -78,9 +78,5 @@
       vimdiffAlias = true;
       withPython3 = true;
     };
-    xdg.configFile."nvim".source = builtins.fetchGit {
-      url = "https://github.com/Mach1212/astro_config";
-      rev = "f3ccb0e7ff3bd4a590e7ae3496caacbe6b53b0d6";
-    };
   };
 }
