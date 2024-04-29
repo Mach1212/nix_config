@@ -11,9 +11,9 @@
         cp -r ${inputs.astro-config} ${path}
         # mkdir ~/here
         # sudo chown -R ${primaryUser} ${path}
-        # mkdir ~/here2
-        # chmod -R a-rwx ${path}
-        # mkdir ~/here3
+        mkdir ~/here2
+        sudo chmod -R 777 ${path}
+        mkdir ~/here3
       fi
     '';
 }

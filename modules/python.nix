@@ -25,10 +25,10 @@
     ];
 
 
-    home.file.".pip/pip.conf".text = ''
-      [global]
-      prefix=/home/${primaryUser}/.pip-global
-    '';
+    # home.file.".pip/pip.conf".text = ''
+    #   [global]
+    #   prefix=/home/${primaryUser}/.pip-global
+    # '';
     programs.bash = {
       shellAliases = {
         python = "python3";
