@@ -18,7 +18,7 @@
       flake = false;
     };
     k3s = {
-      url = "ssh+git://git@github.com:Mach1212/k3s.git";
+      url = "git+ssh://git@github.com:Mach1212/k3s.git";
       flake = false;
     };
   };
