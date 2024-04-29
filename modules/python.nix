@@ -13,6 +13,7 @@
 
   home-manager.users."${primaryUser}" = {
     home.packages = [
+      pkgs.python3
       (pkgs.python3.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.setuptools
@@ -26,9 +27,8 @@
 
 
     home.file.".pip/pip.conf".text = ''
-        [global]
-        root=/home/${primaryUser}/.pip-global
-      #   prefix=/home/${primaryUser}/.pip-global
+      [global]
+      # prefix=/home/${primaryUser}/.pip-global
     '';
     programs.bash = {
       shellAliases = {
