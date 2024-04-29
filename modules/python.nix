@@ -13,7 +13,6 @@
 
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      pkgs.python3
       (pkgs.python3.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.setuptools
