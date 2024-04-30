@@ -18,7 +18,7 @@
       pkgs.poetry
       pkgs.gum
       pkgs.ripgrep
-      pkgs.nodejs_21
+      pkgs.nodejs_22
       pkgs.lua54Packages.luarocks-nix
       pkgs.go
       pkgs.php83Packages.composer
