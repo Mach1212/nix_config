@@ -26,10 +26,12 @@
   outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
     nixosConfigurations =
       let
-        system = [
-          home-manager.nixosModules.home-manager
+        base = [
           ./hosts/users.nix
           ./hosts/hostname.nix
+        ];
+        system = base ++ [
+          home-manager.nixosModules.home-manager
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
@@ -53,15 +55,40 @@
         guiModules = [
           ./modules/gui.nix
         ];
+        kubeModules = base ++ sshModules ++ [
+          ({ pkgs, ... }: {
+            environment.systemPackages = [
+              pkgs.k3s
+            ];
+          })
+        ];
+        iso = [
+          ./hosts/iso/configuration.nix
+        ];
       in
       {
         iso_x86 = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
             system = "x86_64-linux";
-            modules = system
+            modules = iso ++ system
               ++ [
-              ./hosts/iso/configuration.nix
+            ];
+          };
+        kube_x86_worker = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
+            system = "x86_64-linux";
+            modules = iso ++ kubeModules
+              ++ [
+            ];
+          };
+        kube_x86_master = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; };
+            system = "x86_64-linux";
+            modules = iso ++ kubeModules
+              ++ [
             ];
           };
         mach12rpi = nixpkgs.lib.nixosSystem
