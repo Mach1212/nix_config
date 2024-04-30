@@ -25,6 +25,7 @@
       pkgs.jdk22
       pkgs.gnumake
       pkgs.shellcheck
+      pkgs.cmake
     ];
 
     programs.bash = {
