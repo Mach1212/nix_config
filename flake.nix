@@ -55,7 +55,7 @@
         guiModules = [
           ./modules/gui.nix
         ];
-        kubeModules = base ++ sshModules ++ [
+        kubeModules = [
           ({ pkgs, ... }: {
             environment.systemPackages = [
               pkgs.k3s
@@ -71,7 +71,10 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
             system = "x86_64-linux";
-            modules = iso ++ system
+            modules = iso
+              ++ system
+              ++ sshModules
+              ++ kubeModules
               ++ [
             ];
           };
@@ -79,7 +82,10 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
             system = "x86_64-linux";
-            modules = iso ++ kubeModules
+            modules = iso
+              ++ system
+              ++ sshModules
+              ++ kubeModules
               ++ [
             ];
           };
@@ -87,7 +93,10 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; };
             system = "x86_64-linux";
-            modules = iso ++ kubeModules
+            modules = iso
+              ++ system
+              ++ sshModules
+              ++ kubeModules
               ++ [
             ];
           };
