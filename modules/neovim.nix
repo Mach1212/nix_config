@@ -15,7 +15,7 @@
       pkgs.lazygit
       pkgs.gitflow
       pkgs.rust-bin.stable.latest.default
-      pkgs.poetry
+      # pkgs.poetry
       pkgs.gum
       pkgs.ripgrep
       pkgs.nodejs_22
