@@ -10,7 +10,6 @@
       pkgs.ripunzip
       pkgs.ripgrep
       pkgs.fd
-      pkgs.fzf
     ];
 
     programs.zoxide = {
