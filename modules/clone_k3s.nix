@@ -1,7 +1,7 @@
 { config, pkgs, primaryUser, inputs, ... }:
 
 {
-  system.activationScripts.setup_astro_config.text =
+  system.userActivationScripts.setup_astro_config.text =
     let
       path = "~/k3s";
     in
