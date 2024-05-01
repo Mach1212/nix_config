@@ -22,13 +22,18 @@
 
 
     home.file.".pip/pip.conf".text = ''
-      [user]
+      [global]
       target=/home/${primaryUser}/.pip-global
     '';
+
     programs.bash = {
       shellAliases = {
         python = "python3";
       };
+
+      bashrcExtra = ''
+        export PYTHONPATH=$HOME/.pip-global
+      '';
     };
   };
 }
