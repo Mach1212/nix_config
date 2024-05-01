@@ -22,7 +22,7 @@
 
 
     home.file.".pip/pip.conf".text = ''
-      [global]
+      [user]
       target=/home/${primaryUser}/.pip-global
     '';
     programs.bash = {
