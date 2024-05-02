@@ -22,7 +22,7 @@
 
     home.file.".config/pip/pip.conf".text = ''
       [global]
-      target=/home/${primaryUser}/.pip-global
+      # target=/home/${primaryUser}/.pip-global
     '';
 
     programs.bash = {
@@ -32,8 +32,8 @@
 
       bashrcExtra = ''
         export PIP_DOWNLOAD_CACHE=$HOME/.pip-global/cache:$PIP_DOWNLOAD_CACHE
-        export PYTHONPATH=$HOME/.pip-global:$PYTHONPATH
-        export PATH=$HOME/.pip-global/bin:$PATH
+        # export PYTHONPATH=$HOME/.pip-global:$PYTHONPATH
+        # export PATH=$HOME/.pip-global/bin:$PATH
       '';
     };
   };
