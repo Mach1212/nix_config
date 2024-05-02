@@ -9,6 +9,7 @@
       if [ ! -d ${path} ]; then
         cp -r ${inputs.astro-config} ${path}
         chmod -R 777 ${path}
+        rm -rf ~/.pip-global
       fi
     '';
 }
