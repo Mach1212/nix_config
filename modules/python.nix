@@ -21,8 +21,8 @@
     ];
 
     home.file.".config/pip/pip.conf".text = ''
-      # [global]
-      # user = true
+      [global]
+      prefix=/home/${primaryUser}/.python
     '';
 
     programs.bash = {
@@ -32,6 +32,7 @@
 
       bashrcExtra = ''
         export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache:$PIP_DOWNLOAD_CACHE
+        export PYTHONPATH=$HOME/.python/lib/python3.11/site-packages
       '';
     };
   };
