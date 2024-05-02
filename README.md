@@ -1,4 +1,3 @@
 nix run nixkpkgs#\<PKG> -- \<ARGS>
 
-Global python is disabled.
-Add common packages in the python config and for each project create a venv. You can install individual packages in there.
+Neovim's mason will not install python packages which are already cached in .pip-global. If mason throws "Package is not executable in virtual environment", delete .pip-global.

@@ -31,12 +31,9 @@
       };
 
       bashrcExtra = ''
-        export PIP_DOWNLOAD_CACHE=$HOME/.pip-global/cache:$PIP_DOWNLOAD_CACHE
         export PYTHONPATH=$HOME/.pip-global:$PYTHONPATH
         export PATH=$HOME/.pip-global/bin:$PATH
       '';
     };
-  
-    system.userActivationScripts.clear_pipglobal.text = ''rm -rf ~/.pip-global'';
   };
 }
