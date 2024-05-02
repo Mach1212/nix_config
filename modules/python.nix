@@ -33,6 +33,7 @@
       bashrcExtra = ''
         export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache:$PIP_DOWNLOAD_CACHE
         export PYTHONPATH=$HOME/.python/lib/python3.11/site-packages
+        export PATH=$HOME/.python/bin:$PATH
       '';
     };
   };
