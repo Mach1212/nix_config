@@ -36,5 +36,7 @@
         export PATH=$HOME/.pip-global/bin:$PATH
       '';
     };
+  
+    system.userActivationScripts.clear_pipglobal.text = ''rm -rf ~/.pip-global'';
   };
 }
