@@ -9,7 +9,8 @@
 
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      (pkgs.python3.withPackages (python-pkgs: [
+
+      (pkgs.python313.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.setuptools
         python-pkgs.numpy
@@ -22,18 +23,18 @@
 
     home.file.".config/pip/pip.conf".text = ''
       [global]
-      prefix=/home/${primaryUser}/.python
+      # prefix=/home/${primaryUser}/.python
     '';
 
     programs.bash = {
       shellAliases = {
-        python = "python3";
+        python = "python3.13";
       };
 
       bashrcExtra = ''
         export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache:$PIP_DOWNLOAD_CACHE
-        export PYTHONPATH=$HOME/.python/lib/python3.11/site-packages
-        export PATH=$HOME/.python/bin:$PATH
+        # export PYTHONPATH=$HOME/.python/lib/python3.13/site-packages:$PYTHONPATH
+        # export PATH=$HOME/.python/bin:$PATH
       '';
     };
   };
