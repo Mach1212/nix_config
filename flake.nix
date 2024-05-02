@@ -48,6 +48,9 @@
           ./modules/neovim.nix
           ./modules/zellij.nix
         ];
+        hackModules = [
+          ./modules/hack/aircrack-ng.nix
+        ];
         sshModules = [
           ./modules/ssh.nix
           ./modules/tailscale.nix
@@ -134,6 +137,7 @@
               ++ wslModules
               ++ devModules
               ++ sshModules
+              ++ hackModules
               ++ [
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
