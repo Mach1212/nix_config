@@ -9,7 +9,7 @@
 
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      (pkgs.python313.withPackages (python-pkgs: [
+      (pkgs.python312.withPackages (python-pkgs: [
         python-pkgs.pip
         python-pkgs.setuptools
         python-pkgs.numpy
@@ -27,12 +27,12 @@
 
     programs.bash = {
       shellAliases = {
-        python = "python3.13";
+        python = "python3.12";
       };
 
       bashrcExtra = ''
         export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache:$PIP_DOWNLOAD_CACHE
-        # export PYTHONPATH=$HOME/.python/lib/python3.13/site-packages:$PYTHONPATH
+        # export PYTHONPATH=$HOME/.python/lib/python3.12/site-packages:$PYTHONPATH
         # export PATH=$HOME/.python/bin:$PATH
       '';
     };
