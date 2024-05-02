@@ -20,14 +20,19 @@
       ]))
     ];
 
+    home.file.".config/pip/pip.conf".text = ''
+      [global]
+      user = true
+    '';
+
     programs.bash = {
       shellAliases = {
         python = "python3";
-        pip = "sudo pip";
       };
 
       bashrcExtra = ''
-        export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache
+        export PYTHONPATH=$HOME/.pip-global:$PYTHONPATH
+        export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache:$PIP_DOWNLOAD_CACHE
       '';
     };
   };
