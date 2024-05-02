@@ -21,8 +21,8 @@
     ];
 
     home.file.".config/pip/pip.conf".text = ''
-      [global]
-      user = true
+      # [global]
+      # user = true
     '';
 
     programs.bash = {
