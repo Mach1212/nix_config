@@ -31,7 +31,6 @@
       };
 
       bashrcExtra = ''
-        export PYTHONPATH=$HOME/.pip-global:$PYTHONPATH
         export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache:$PIP_DOWNLOAD_CACHE
       '';
     };
