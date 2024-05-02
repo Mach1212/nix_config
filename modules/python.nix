@@ -22,7 +22,7 @@
 
     home.file.".config/pip/pip.conf".text = ''
       [global]
-      user
+      user = true
     '';
 
     programs.bash = {
