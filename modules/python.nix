@@ -22,7 +22,7 @@
 
     home.file.".config/pip/pip.conf".text = ''
       [global]
-      prefix=/home/${primaryUser}/.python
+      # prefix=/home/${primaryUser}/.python
     '';
 
     programs.bash = {
@@ -32,8 +32,8 @@
 
       bashrcExtra = ''
         export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache:$PIP_DOWNLOAD_CACHE
-        export PYTHONPATH=$HOME/.python/lib/python3.12/site-packages:$PYTHONPATH
-        export PATH=$HOME/.python/bin:$PATH
+        # export PYTHONPATH=$HOME/.python/lib/python3.12/site-packages:$PYTHONPATH
+        # export PATH=$HOME/.python/bin:$PATH
       '';
     };
   };
