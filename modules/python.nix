@@ -20,10 +20,9 @@
       ]))
     ];
 
-
-    home.file.".pip/pip.conf".text = ''
+    home.file.".config/pip/pip.conf".text = ''
       [global]
-      target=/home/${primaryUser}/.pip-global
+      prefix=/home/${primaryUser}/.pip-global
     '';
 
     programs.bash = {
@@ -33,6 +32,7 @@
 
       bashrcExtra = ''
         export PYTHONPATH=$HOME/.pip-global
+        export PIP_DOWNLOAD_CACHE=$HOME/.config/pip/cache
       '';
     };
   };
