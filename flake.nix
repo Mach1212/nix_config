@@ -137,7 +137,19 @@
               ++ wslModules
               ++ devModules
               ++ sshModules
-              ++ hackModules
+              ++ [
+              ./modules/kubernetes.nix
+              ./modules/dynamic_linking.nix
+            ];
+          };
+        mach12wsl = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "wsl"; };
+            system = "x86_64-linux";
+            modules = system
+              ++ wslModules
+              ++ devModules
+              ++ sshModules
               ++ [
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
