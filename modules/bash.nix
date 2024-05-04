@@ -7,7 +7,6 @@
       pkgs.bat
       pkgs.procs
       pkgs.htop
-      pkgs.ripunzip
       pkgs.ripgrep
       pkgs.fd
     ];
@@ -22,7 +21,6 @@
       enableCompletion = true;
       shellAliases = {
         cd = "z ";
-        unzip = "ripunzip";
         grep = "rg";
         find = "fd";
         cat = "bat";
