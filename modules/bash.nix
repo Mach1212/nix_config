@@ -33,7 +33,7 @@
         grepl = "rg -i 'warn\w*|fatal\w*|error\w*|e\d{3,4}|fail\w*'";
         greplp = "grepl --passthrough";
         grepp = "rg --passthrough";
-        grepmine= "rg '<[\w: ]+> |\[minecraft\/ServerGamePacketListenerImpl\]|\[minecraft\/PlayerList\]|\[minecraft\/DedicatedServer\]: \w+ joined|\[Server thread\/INFO\] \[minecraft\/DedicatedServer\]: \[[\w: ]+\]'";
+        grepmine = ''rg "<[\w: ]+> |\[minecraft\/ServerGamePacketListenerImpl\]|\[minecraft\/PlayerList\]|\[minecraft\/DedicatedServer\]: \w+ joined|\[Server thread\/INFO\] \[minecraft\/DedicatedServer\]: \[[\w: ]+\]"'';
 
         watch = "watch ";
         sudo = "sudo ";
