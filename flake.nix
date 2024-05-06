@@ -29,6 +29,7 @@
         base = [
           ./hosts/users.nix
           ./hosts/hostname.nix
+          ./hosts/time.nix
         ];
         system = base ++ [
           home-manager.nixosModules.home-manager

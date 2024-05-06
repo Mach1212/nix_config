@@ -55,7 +55,7 @@
         dp = "docker ps";
         db = "docker build";
         dr = "docker run";
-        await = ''function await_command() { until $1; do sleep $2; echo Attempting...; done; }; await_command'';
+        await = ''function await_command() { sleeptime=5; if [[ -n $2 ]]; then sleeptime=$2; fi; until $1; do sleep $sleeptime; echo Attempting...; done; }; await_command'';
 
         st = "ssh_to.sh";
         cn = "kubectl config set-context --current --namespace";
