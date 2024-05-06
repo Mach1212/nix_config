@@ -3,6 +3,7 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix>
+    <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
