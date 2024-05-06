@@ -67,14 +67,27 @@
           })
         ];
         iso = [
+          <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix>
+          <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
           ./hosts/iso/configuration.nix
         ];
       in
       {
-        iso_x86 = nixpkgs.lib.nixosSystem
+        amd64_iso = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
             system = "x86_64-linux";
+            modules = iso
+              ++ system
+              ++ sshModules
+              ++ kubeModules
+              ++ [
+            ];
+          };
+        arm64_iso = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
+            system = "aarch64-linux";
             modules = iso
               ++ system
               ++ sshModules
@@ -141,6 +154,7 @@
               ++ [
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
+              ./modules/emulate.nix
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem
