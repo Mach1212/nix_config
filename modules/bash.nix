@@ -9,6 +9,7 @@
       pkgs.htop
       pkgs.ripgrep
       pkgs.fd
+      pkgs.rcon
     ];
 
     programs.zoxide = {
