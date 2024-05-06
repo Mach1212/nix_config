@@ -154,7 +154,6 @@
               ++ [
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
-              ./modules/emulate.nix
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem
