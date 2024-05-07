@@ -63,6 +63,7 @@
           ./hosts/kube/configuration.nix
           ./modules/auto_login.nix
           ./modules/k3s.nix
+          ./modules/ssh/mach12_pub.nix
         ];
         iso = system 
         ++ sshModules
@@ -90,10 +91,7 @@
             system = "x86_64-linux";
             modules = system 
               ++ sshModules
-              ++ kubeModules
-              ++ [
-                ./modules/ssh/mach12.nix
-              ];
+              ++ kubeModules;
           };
         arm64_kube_worker = nixpkgs.lib.nixosSystem
           {
@@ -101,10 +99,7 @@
             system = "aarch64-linux";
             modules = system
               ++ sshModules
-              ++ kubeModules
-              ++ [
-                ./modules/ssh/mach12.nix
-              ];
+              ++ kubeModules;
           };
         arm64_kube_master = nixpkgs.lib.nixosSystem
           {
@@ -112,10 +107,7 @@
             system = "aarch64-linux";
             modules = system
               ++ sshModules
-              ++ kubeModules
-              ++ [
-                ./modules/ssh/mach12.nix
-              ];
+              ++ kubeModules;
           };
         mach12rpi = nixpkgs.lib.nixosSystem
           {
