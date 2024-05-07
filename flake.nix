@@ -61,7 +61,8 @@
         ];
         kubeModules = [
           ./hosts/kube/configuration.nix
-          ({ pkgs, ... }: {
+          ./modules/auto_login.nix
+          ({ pkgs, primaryUser, ... }: {
             environment.systemPackages = [
               pkgs.k3s
             ];
