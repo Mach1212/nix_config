@@ -60,6 +60,7 @@
           ./modules/gui.nix
         ];
         kubeModules = [
+          ./hosts/kube/configuration.nix
           ({ pkgs, ... }: {
             environment.systemPackages = [
               pkgs.k3s
