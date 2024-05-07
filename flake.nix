@@ -90,7 +90,10 @@
             system = "x86_64-linux";
             modules = system 
               ++ sshModules
-              ++ kubeModules;
+              ++ kubeModules
+              ++ [
+                ./modules/ssh/mach12.nix
+              ];
           };
         arm64_kube_worker = nixpkgs.lib.nixosSystem
           {
@@ -98,7 +101,10 @@
             system = "aarch64-linux";
             modules = system
               ++ sshModules
-              ++ kubeModules;
+              ++ kubeModules
+              ++ [
+                ./modules/ssh/mach12.nix
+              ];
           };
         arm64_kube_master = nixpkgs.lib.nixosSystem
           {
@@ -106,7 +112,10 @@
             system = "aarch64-linux";
             modules = system
               ++ sshModules
-              ++ kubeModules;
+              ++ kubeModules
+              ++ [
+                ./modules/ssh/mach12.nix
+              ];
           };
         mach12rpi = nixpkgs.lib.nixosSystem
           {
