@@ -62,13 +62,11 @@
         kubeModules = [
           ./hosts/kube/configuration.nix
           ./modules/auto_login.nix
-          ({ pkgs, primaryUser, ... }: {
-            environment.systemPackages = [
-              pkgs.k3s
-            ];
-          })
+          ./modules/k3s.nix
         ];
-        iso = [
+        iso = system 
+        ++ sshModules
+        ++ [
           <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix>
           ./hosts/iso/configuration.nix
         ];
@@ -78,44 +76,34 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
             system = "x86_64-linux";
-            modules = iso
-              # ++ system
-              # ++ sshModules
-              # ++ kubeModules
-              ++ [
-            ];
+            modules = iso;
           };
         arm64_iso = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
             system = "aarch64-linux";
-            modules = iso
-              ++ system
-              ++ sshModules
-              ++ kubeModules
-              ++ [
-            ];
+            modules = iso;
           };
-        kube_x86_worker = nixpkgs.lib.nixosSystem
+        amd64_kube_worker = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
             system = "x86_64-linux";
-            modules = system
-              ++ sshModules
-              ++ kubeModules
-              ++ [
-            ];
+            modules = iso 
+              ++ kubeModules;
           };
-        kube_x86_master = nixpkgs.lib.nixosSystem
+        arm64_kube_worker = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; };
-            system = "x86_64-linux";
+            system = "aarch64-linux";
             modules = iso
-              ++ system
-              ++ sshModules
-              ++ kubeModules
-              ++ [
-            ];
+              ++ kubeModules;
+          };
+        arm64_kube_master = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; };
+            system = "aarch64-linux";
+            modules = iso
+              ++ kubeModules;
           };
         mach12rpi = nixpkgs.lib.nixosSystem
           {
@@ -135,14 +123,6 @@
               ++ [
             ];
           };
-        # linux = nixpkgs.lib.nixosSystem
-        #   {
-        #     specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
-        #     system = "x86_64-linux";
-        #     modules = system
-        #       ++ [
-        #     ];
-        #   };
         mach12laptop = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
