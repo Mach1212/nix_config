@@ -67,8 +67,7 @@
           })
         ];
         iso = [
-          <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix>
-          <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+          <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix>
           ./hosts/iso/configuration.nix
         ];
       in
@@ -78,9 +77,9 @@
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
             system = "x86_64-linux";
             modules = iso
-              ++ system
-              ++ sshModules
-              ++ kubeModules
+              # ++ system
+              # ++ sshModules
+              # ++ kubeModules
               ++ [
             ];
           };
@@ -99,8 +98,7 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
             system = "x86_64-linux";
-            modules = iso
-              ++ system
+            modules = system
               ++ sshModules
               ++ kubeModules
               ++ [
