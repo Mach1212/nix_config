@@ -88,14 +88,14 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
             system = "x86_64-linux";
-            modules = iso 
+            modules = system 
               ++ kubeModules;
           };
         arm64_kube_worker = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; };
             system = "aarch64-linux";
-            modules = iso
+            modules = system
               ++ kubeModules;
           };
         arm64_kube_master = nixpkgs.lib.nixosSystem
