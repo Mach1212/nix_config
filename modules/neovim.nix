@@ -9,7 +9,6 @@
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      pkgs.neovim
       pkgs.gcc
       pkgs.wget
       pkgs.unzip
@@ -69,9 +68,11 @@
     };
 
     programs.neovim = {
+      enable = true;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      vimdiffAlias = true;
     };
   };
 }
