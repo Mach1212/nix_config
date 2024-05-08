@@ -10,7 +10,6 @@
       pkgs.ripgrep
       pkgs.fd
       pkgs.rcon
-      pkgs.neovim
     ];
 
     programs.zoxide = {
