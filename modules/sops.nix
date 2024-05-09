@@ -1,4 +1,4 @@
-{ pkgs, inputs, primaryUser, ... }:
+{ pkgs, inputs, config, primaryUser, ... }:
 
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
@@ -17,7 +17,7 @@
   };
 
   home-manager.users."${primaryUser}" = {
-    home.file.".ssh/id_rsa".text = builtins.readFile /run/secrets/ssh/id_rsa;
-    home.file.".secrets/tailscale".text = builtins.readFile /run/secrets/tailscale;
+    home.file.".ssh/id_rsa".text = ''${config.sops.secrets."ssh/id_rsa"}'';
+    home.file.".secrets/tailscale".text = ''${config.sops.secrets."tailscale"}'';
   };
 }
