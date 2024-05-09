@@ -17,7 +17,7 @@
   };
 
   home-manager.users."${primaryUser}" = {
-    home.file.".ssh/id_rsa".text = builtins.readFile config.sops.secrets."ssh/id_rsa";
-    home.file.".secrets/tailscale".text = builtins.readFile config.sops.secrets."tailscale";
+    home.file.".ssh/id_rsa".text = builtins.readFile config.sops.secrets."ssh/id_rsa".path;
+    home.file.".secrets/tailscale".text = builtins.readFile config.sops.secrets."tailscale".path;
   };
 }
