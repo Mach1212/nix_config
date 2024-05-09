@@ -4,4 +4,4 @@ if [[ -n $2 ]]; then
 	specialization="--specialisation $2"
 fi
 
-sudo nixos-rebuild switch --flake .#"$1" $specialization ${@:2} || exit 1
+sudo nixos-rebuild switch --flake .#"$1" $specialization ${@:2}

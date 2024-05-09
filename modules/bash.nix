@@ -54,8 +54,10 @@
           } + "/complete_alias";
         in
         builtins.readFile (complete_alias_path)
-        +
-        ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"'';
+        + ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"'';
+      bashrcExtra = ''
+        export EDITOR=nvim
+      '';
     };
   };
 }

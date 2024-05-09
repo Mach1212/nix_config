@@ -91,11 +91,11 @@
     "nix-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1715147409,
-        "narHash": "sha256-bEQ9+RfuLIa4KGq8UizmsiT5yiz76bW6Pij41XrEJuQ=",
+        "lastModified": 1715278471,
+        "narHash": "sha256-Y4Uw8eoCQVfmzQRg7m6tNjSpp61Xy3l9IKhozLYc61c=",
         "owner": "Mach1212",
         "repo": "nix_config",
-        "rev": "4b716c3166a7accd0dd1fa1090a61b1241d4853b",
+        "rev": "78aafb254fc971afa9de698ecbc427531e3cc2a9",
         "type": "github"
       },
       "original": {
@@ -140,6 +140,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1714858427,
+        "narHash": "sha256-tCxeDP4C1pWe2rYY3IIhdA40Ujz32Ufd4tcrHPSKx2M=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b980b91038fc4b09067ef97bbe5ad07eecca1e76",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1714253743,
@@ -179,7 +195,8 @@
         "nix-config": "nix-config",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
-        "rust-overlay": "rust-overlay"
+        "rust-overlay": "rust-overlay",
+        "sops-nix": "sops-nix"
       }
     },
     "rust-overlay": {
@@ -198,6 +215,27 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1715244550,
+        "narHash": "sha256-ffOZL3eaZz5Y1nQ9muC36wBCWwS1hSRLhUzlA9hV2oI=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "0dc50257c00ee3c65fef3a255f6564cfbfe6eb7f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     },

@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rust-overlay.url = "github:oxalica/rust-overlay";
     astro-config = {
       url = "github:Mach1212/astro_config";
@@ -53,6 +57,7 @@
           ./modules/hack/aircrack-ng.nix
         ];
         sshModules = [
+          ./modules/sops.nix
           ./modules/ssh.nix
           ./modules/tailscale.nix
         ];
@@ -60,6 +65,7 @@
           ./modules/gui.nix
         ];
         kubeModules = [
+          ./modules/sops.nix
           ./hosts/kube/configuration.nix
           ./modules/auto_login.nix
           ./modules/k3s.nix
