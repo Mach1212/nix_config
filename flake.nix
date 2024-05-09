@@ -95,7 +95,7 @@
           };
         arm64_kube_worker = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
             system = "aarch64-linux";
             modules = system
               ++ sshModules
