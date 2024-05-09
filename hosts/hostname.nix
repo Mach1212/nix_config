@@ -1,5 +1,5 @@
 { config, pkgs, primaryUser, hostname, ... }:
 
 {
-  networking.hostName = "${primaryUser}_${hostname}";
+  networking.hostName = "${primaryUser}-${hostname}";
 }
