@@ -6,9 +6,14 @@
   sops.defaultSopsFile = ../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
 
-  sops.age.keyFile = "~/.config/sops/age/keys.txt";
-  sops.secrets."ssh/id_rsa" = { 
-    owner = "${primaryUser}";
+  sops.age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
+  sops.secrets = {
+    "ssh/id_rsa" = { 
+      owner = "${primaryUser}";
+    };
+    "tailscale" = {
+      owner = "${primaryUser}";
+    };
   };
 
   home-manager.users."${primaryUser}" = {
