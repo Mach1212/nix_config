@@ -22,7 +22,7 @@
       pkgs.sops
     ];
     
-    home.file.".ssh/id_rsa".text = builtins.readFile config.sops.secrets."ssh/id_rsa".path;
-    home.file.".secrets/tailscale".text = builtins.readFile config.sops.secrets."tailscale".path;
+    home.file.".ssh/id_rsa".source = builtins.readFile config.sops.secrets."ssh/id_rsa".path;
+    home.file.".secrets/tailscale".source = builtins.readFile config.sops.secrets."tailscale".path;
   };
 }
