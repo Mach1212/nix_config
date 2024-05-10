@@ -10,6 +10,7 @@
     defaultSopsFormat = "yaml";
 
     age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
+    sops.secrets."tailscale" = {};
   };
   
   # home-manager.sharedModules = [
