@@ -13,6 +13,7 @@
     secrets = {
       "ssh/id_rsa" = { 
         owner = primaryUser;
+        path = "/home/${primaryUser}/.ssh/id_rsa"
       };
       "tailscale" = {
         owner = primaryUser;
@@ -29,10 +30,6 @@
       packages = [
         pkgs.sops
       ];
-      file = {
-        # ".ssh/id_rsa".source = config.sops.secrets."ssh/id_rsa".path;
-        ".ssh/id_rsa".source = config.lib.file.mkOutOfStoreSymlink "/run/secrets/ssh/id_rsa";
-      };
     };
   };
 }
