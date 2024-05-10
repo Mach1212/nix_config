@@ -16,7 +16,6 @@
   };
   
   home-manager.users."${primaryUser}" = {
-    imports = [ inputs.sops-nix.nixosModules.sops ];
 
     home.packages = [
       pkgs.sops
