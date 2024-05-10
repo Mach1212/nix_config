@@ -29,9 +29,10 @@
       packages = [
         pkgs.sops
       ];
-      # file = {
-      #   ".ssh/id_rsa".source = config.sops.secrets."ssh/id_rsa".path;
-      # };
+      file = {
+        # ".ssh/id_rsa".source = config.sops.secrets."ssh/id_rsa".path;
+        ".ssh/id_rsa".source = config.lib.file.mkOutOfStoreSymlink "/run/secrets/ssh/id_rsa";
+      };
     };
   };
 }
