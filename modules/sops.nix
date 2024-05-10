@@ -25,15 +25,5 @@
       };
     };
 
-    sops = {
-      secrets = {
-        "ssh/id_rsa" = { 
-          owner = "${primaryUser}";
-        };
-        "tailscale" = {
-          owner = "${primaryUser}";
-        };
-      };
-    };
   };
 }
