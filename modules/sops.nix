@@ -18,7 +18,10 @@
       "tailscale" = {
         owner = primaryUser;
       };
-      "k3s/token" = {
+      "k3s/token-file" = {
+        owner = primaryUser;
+      };
+      "k3s/vpn-auth-file" = {
         owner = primaryUser;
       };
     };
