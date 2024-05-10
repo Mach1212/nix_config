@@ -5,8 +5,10 @@
     enable = true;
     role = "agent";
     serverAddr = "https://k8s.mpruchn.com:6443";
-    token = builtins.readFile config.sops.secrets."tailscale".path;
-    extraFlags = '''';
+    extraFlags = ''
+      --token-file ${config.sops.secrets."k3s/token-file".path}
+      --vpn-auth-file ${config.sops.secrets."k3s/vpn-auth-file".path}
+    '';
     
     package = pkgs.k3s.overrideAttrs (oldAttrs: {
       installPhase = ''
@@ -16,9 +18,6 @@
   };
 
   sops = {
-    "tailscale" = {
-      restartUnits = ["k3s.service"];
-    };
     "k3s/token-file" = {
       restartUnits = ["k3s.service"];
     };
