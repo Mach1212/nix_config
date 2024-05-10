@@ -7,6 +7,13 @@
     inputs.sops-nix.homeManagerModules.sops
   ];
   
+  sops = {
+    defaultSopsFile = ../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+
+    age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
+  };
+  
   home-manager.users."${primaryUser}" = {
     home = {
       packages = [
@@ -19,10 +26,14 @@
     };
 
     sops = {
-      defaultSopsFile = ../secrets/secrets.yaml;
-      defaultSopsFormat = "yaml";
-
-      age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
+      secrets = {
+        "ssh/id_rsa" = { 
+          owner = "${primaryUser}";
+        };
+        "tailscale" = {
+          owner = "${primaryUser}";
+        };
+      };
     };
   };
 }
