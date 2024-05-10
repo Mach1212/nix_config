@@ -20,7 +20,7 @@
       ]))
     ];
 
-    home.file.".config/pip/pip.conf".text = ''
+    xdg.configFile."pip/pip.conf".text = ''
       [global]
       target=/home/${primaryUser}/.pip-global
     '';
