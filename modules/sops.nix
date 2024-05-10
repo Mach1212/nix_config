@@ -1,9 +1,20 @@
 { pkgs, inputs, config, primaryUser, ... }:
 
 {
-  home-manager.sharedModules = [
+  imports = [
     inputs.sops-nix.homeManagerModules.sops
   ];
+  
+  sops = {
+    defaultSopsFile = ../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+
+    age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
+  };
+  
+  # home-manager.sharedModules = [
+  #   inputs.sops-nix.homeManagerModules.sops
+  # ];
   
   home-manager.users."${primaryUser}" = {
     home = {
@@ -16,11 +27,11 @@
       };
     };
 
-    sops = {
-      defaultSopsFile = ../secrets/secrets.yaml;
-      defaultSopsFormat = "yaml";
-
-      age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
+    # sops = {
+    #   defaultSopsFile = ../secrets/secrets.yaml;
+    #   defaultSopsFormat = "yaml";
+    #
+    #   age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
       # secrets = {
       #   "ssh/id_rsa" = { 
       #     owner = primaryUser;
@@ -29,6 +40,6 @@
       #     owner = primaryUser;
       #   };
       # };
-    };
+    # };
   };
 }
