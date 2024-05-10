@@ -1,21 +1,22 @@
 { pkgs, inputs, config, primaryUser, ... }:
 
 {
-    imports = [ inputs.sops-nix.nixosModules.sops ];
-    sops.defaultSopsFile = ../secrets/secrets.yaml;
-    sops.defaultSopsFormat = "yaml";
+  imports = [ inputs.sops-nix.nixosModules.sops ];
+  sops.defaultSopsFile = ../secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
 
-  home-manager.users."${primaryUser}" = {
-  
-    sops.age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
-    sops.secrets = {
-      "ssh/id_rsa" = { 
-        owner = "${primaryUser}";
-      };
-      "tailscale" = {
-        owner = "${primaryUser}";
-      };
+  sops.age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
+  sops.secrets = {
+    "ssh/id_rsa" = { 
+      owner = "${primaryUser}";
     };
+    "tailscale" = {
+      owner = "${primaryUser}";
+    };
+  };
+  
+  home-manager.users."${primaryUser}" = {
+    imports = [ inputs.sops-nix.nixosModules.sops ];
 
     home.packages = [
       pkgs.sops
