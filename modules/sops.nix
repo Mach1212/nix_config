@@ -1,8 +1,8 @@
 { pkgs, inputs, config, primaryUser, ... }:
 
 {
-  home-manager.users."${primaryUser}" = {
     imports = [ inputs.sops-nix.nixosModules.sops ];
+  home-manager.users."${primaryUser}" = {
   
     sops.defaultSopsFile = ../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";
