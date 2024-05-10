@@ -14,4 +14,13 @@
       '';
     });
   };
+
+  sops = {
+    "tailscale" = {
+      restartUnits = ["k3s.service"];
+    };
+    "k3s/token" = {
+      restartUnits = ["k3s.service"];
+    };
+  };
 }
