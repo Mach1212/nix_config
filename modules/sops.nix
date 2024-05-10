@@ -13,7 +13,7 @@
     secrets = {
       "ssh/id_rsa" = { 
         owner = primaryUser;
-        path = "/home/${primaryUser}/.ssh/id_rsa"
+        path = "/home/${primaryUser}/.ssh/id_rsa";
       };
       "tailscale" = {
         owner = primaryUser;
