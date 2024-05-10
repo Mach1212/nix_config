@@ -17,6 +17,10 @@
   };
 
   home-manager.users."${primaryUser}" = {
+    home.packages = [
+      pkgs.sops
+    ];
+    
     home.file.".ssh/id_rsa".text = builtins.readFile config.sops.secrets."ssh/id_rsa".path;
     home.file.".secrets/tailscale".text = builtins.readFile config.sops.secrets."tailscale".path;
   };
