@@ -37,6 +37,7 @@
         ];
         system = base ++ [
           home-manager.nixosModules.home-manager
+          ./modules/sops.nix
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
@@ -57,7 +58,6 @@
           ./modules/hack/aircrack-ng.nix
         ];
         sshModules = [
-          ./modules/sops.nix
           ./modules/ssh.nix
           ./modules/tailscale.nix
         ];
@@ -65,7 +65,6 @@
           ./modules/gui.nix
         ];
         kubeModules = [
-          ./modules/sops.nix
           ./hosts/kube/configuration.nix
           ./modules/auto_login.nix
           ./modules/k3s.nix
