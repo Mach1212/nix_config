@@ -18,6 +18,9 @@
       "tailscale" = {
         owner = primaryUser;
       };
+      "k3s/token" = {
+        owner = primaryUser;
+      };
     };
   };
   
