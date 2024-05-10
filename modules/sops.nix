@@ -29,9 +29,9 @@
       packages = [
         pkgs.sops
       ];
-      file = {
-        ".ssh/id_rsa".source = config.sops.secrets."ssh/id_rsa".path;
-      };
+      # file = {
+      #   ".ssh/id_rsa".source = config.sops.secrets."ssh/id_rsa".path;
+      # };
     };
   };
 }
