@@ -11,8 +11,8 @@
         pkgs.sops
       ];
       file = {
-        ".ssh/id_rsa".source = builtins.readFile config.sops.secrets."ssh/id_rsa".path;
-        ".secrets/tailscale".source = builtins.readFile config.sops.secrets."tailscale".path;
+        ".ssh/id_rsa".source = builtins.readFile config.sops-nix.secrets."ssh/id_rsa".path;
+        ".secrets/tailscale".source = builtins.readFile config.sops-nix.secrets."tailscale".path;
       };
     };
 
