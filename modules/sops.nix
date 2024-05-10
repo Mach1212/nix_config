@@ -21,14 +21,14 @@
       defaultSopsFormat = "yaml";
 
       age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
-      secrets = {
-        "ssh/id_rsa" = { 
-          owner = primaryUser;
-        };
-        "tailscale" = {
-          owner = primaryUser;
-        };
-      };
+      # secrets = {
+      #   "ssh/id_rsa" = { 
+      #     owner = primaryUser;
+      #   };
+      #   "tailscale" = {
+      #     owner = primaryUser;
+      #   };
+      # };
     };
   };
 }
