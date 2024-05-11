@@ -20,11 +20,9 @@
       };
       "k3s/token-file" = {
         owner = primaryUser;
-        restartUnits = ["k3s.service"];
       };
       "k3s/vpn-auth-file" = {
         owner = primaryUser;
-        restartUnits = ["k3s.service"];
       };
     };
   };
