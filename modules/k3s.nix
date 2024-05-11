@@ -11,16 +11,10 @@
     '';
     
     package = pkgs.k3s.overrideAttrs (oldAttrs: {
-      installPhase = ''
-        # wildcard to match the arm64 build too
-        install -m 0755 dist/artifacts/k3s* -D $out/bin/k3s
-        wrapProgram $out/bin/k3s \
-          --prefix PATH : ${lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale ])} \
-          --prefix PATH : "$out/bin"
-        ln -s $out/bin/k3s $out/bin/kubectl
-        ln -s $out/bin/k3s $out/bin/crictl
-        ln -s $out/bin/k3s $out/bin/ctr
-      '';
+      installPhase = lib.replaceStrings 
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps)) ] 
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale ])) ]
+        oldAttrs.installPhase;
     });
   };
 }
