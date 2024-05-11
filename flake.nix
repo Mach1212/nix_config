@@ -118,9 +118,7 @@
           {
             specialArgs = { inherit inputs; primaryUser = "rpi"; hostname = "mach12rpi"; };
             system = "aarch64-linux";
-            modules = system
-              ++ [
-            ];
+            modules = system;
           };
         wsl = nixpkgs.lib.nixosSystem
           {
@@ -128,9 +126,7 @@
             system = "x86_64-linux";
             modules = system
               ++ wslModules
-              ++ devModules
-              ++ [
-            ];
+              ++ devModules;
           };
         mach12laptop = nixpkgs.lib.nixosSystem
           {
