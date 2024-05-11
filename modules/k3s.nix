@@ -1,9 +1,22 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, primaryUser, ... }:
 
 {
   imports = [
     ./sops.nix
   ];
+
+  sops = {
+    secrets = {
+      "k3s/token-file" = {
+        owner = primaryUser;
+        restartUnits = ["k3s.service"];
+      };
+      "k3s/vpn-auth-file" = {
+        owner = primaryUser;
+        restartUnits = ["k3s.service"];
+      };
+    };
+  };
 
   services.k3s = {
     enable = true;
@@ -20,16 +33,5 @@
         [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale ])) ]
         oldAttrs.installPhase;
     });
-  };
-
-  sops = {
-    secrets = {
-      "k3s/token-file" = {
-        restartUnits = ["k3s.service"];
-      };
-      "k3s/vpn-auth-file" = {
-        restartUnits = ["k3s.service"];
-      };
-    };
   };
 }

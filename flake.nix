@@ -80,13 +80,13 @@
       {
         amd64_iso = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; };
             system = "x86_64-linux";
             modules = iso;
           };
         arm64_iso = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "nixos"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; };
             system = "aarch64-linux";
             modules = iso;
           };

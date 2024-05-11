@@ -1,6 +1,25 @@
 { config, pkgs, primaryUser, ... }:
 
 {
+  imports = [
+    ./sops.nix
+  ];
+
+  sops.secrets = {
+    "k3s/server-ca-crt" = {
+      owner = primaryUser;
+      path = "/home/${primaryUser}/.kube/certs/server-ca.crt";
+    };
+    "k3s/client-admin-crt" = {
+      owner = primaryUser;
+      path = "/home/${primaryUser}/.kube/certs/client-admin.crt";
+    };
+    "k3s/client-admin-key" = {
+      owner = primaryUser;
+      path = "/home/${primaryUser}/.kube/certs/client-admin.key";
+    };
+  };
+  
   home-manager.users.${primaryUser} = {
     home.packages = [
       pkgs.kubectl
@@ -34,5 +53,28 @@
         kdfailed = ''kubectl delete pods --field-selector status.phase=Failed'';
       };
     };
+
+    home.file.".kube/config".text = ''
+      apiVersion: v1
+      clusters:
+      - cluster:
+          certificate-authority: certs/server-ca.crt
+          server: https://k8s.mpruchn.com:6443
+        name: local
+      contexts:
+      - context:
+          cluster: local
+          namespace: mach12
+          user: user
+        name: Default
+      current-context: Default
+      kind: Config
+      preferences: {}
+      users:
+      - name: user
+        user:
+          client-certificate: certs/client-admin.crt
+          client-key: certs/client-admin.key
+    '';
   };
 }
