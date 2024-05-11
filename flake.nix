@@ -37,7 +37,6 @@
         ];
         system = base ++ [
           home-manager.nixosModules.home-manager
-          ./modules/sops.nix
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
