@@ -10,15 +10,6 @@
     defaultSopsFormat = "yaml";
 
     age.keyFile = "/home/${primaryUser}/.config/sops/age/keys.txt";
-    secrets = {
-      "ssh/id_rsa" = { 
-        owner = primaryUser;
-        path = "/home/${primaryUser}/.ssh/id_rsa";
-      };
-      "tailscale" = {
-        owner = primaryUser;
-      };
-    };
   };
 
   # home-manager.sharedModules = [
