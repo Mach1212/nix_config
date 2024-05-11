@@ -1,6 +1,10 @@
 { pkgs, lib, config, ... }:
 
 {
+  imports = [
+    ./sops.nix
+  ];
+
   services.k3s = {
     enable = true;
     role = "agent";
@@ -16,5 +20,16 @@
         [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale ])) ]
         oldAttrs.installPhase;
     });
+  };
+
+  sops = {
+    secrets = {
+      "k3s/token-file" = {
+        restartUnits = ["k3s.service"];
+      };
+      "k3s/vpn-auth-file" = {
+        restartUnits = ["k3s.service"];
+      };
+    };
   };
 }
