@@ -51,7 +51,8 @@
       mkdir ~/here
       if [ ! -d ${path} ]; then
         mkdir ~/here2
-        echo ${text} >${path}
+        echo '${text}' >${path}
+        mkdir ~/here3
       fi
     '';
   
