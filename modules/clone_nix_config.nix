@@ -1,7 +1,7 @@
 { config, pkgs, primaryUser, inputs, ... }:
 
 {
-  system.userActivationScripts.setup_astro_config.text =
+  system.userActivationScripts.setup_nix_config.text =
     let
       path = "~/nix_config";
     in
