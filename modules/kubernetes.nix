@@ -20,6 +20,38 @@
     };
   };
   
+  system.userActivationScripts.setup_astro_config.text =
+    let
+      path = "~/k3s";
+      text = ''
+        apiVersion: v1
+        clusters:
+        - cluster:
+            certificate-authority: certs/server-ca.crt
+            server: https://k8s.mpruchn.com:6443
+          name: local
+        contexts:
+        - context:
+            cluster: local
+            namespace: mach12
+            user: user
+          name: Default
+        current-context: Default
+        kind: Config
+        preferences: {}
+        users:
+        - name: user
+          user:
+            client-certificate: certs/client-admin.crt
+            client-key: certs/client-admin.key
+      '';
+    in
+    ''
+      if [ ! -d ${path} ]; then
+        echo ${text} >${path}
+      fi
+    '';
+  
   home-manager.users.${primaryUser} = {
     home.packages = [
       pkgs.kubectl
@@ -54,36 +86,4 @@
       };
     };
   };
-  
-  system.userActivationScripts.setup_astro_config.text =
-    let
-      path = "~/k3s";
-      text = ''
-        apiVersion: v1
-        clusters:
-        - cluster:
-            certificate-authority: certs/server-ca.crt
-            server: https://k8s.mpruchn.com:6443
-          name: local
-        contexts:
-        - context:
-            cluster: local
-            namespace: mach12
-            user: user
-          name: Default
-        current-context: Default
-        kind: Config
-        preferences: {}
-        users:
-        - name: user
-          user:
-            client-certificate: certs/client-admin.crt
-            client-key: certs/client-admin.key
-      '';
-    in
-    ''
-      if [ ! -d ${path} ]; then
-        echo ${text} >${path}
-      fi
-    '';
 }
