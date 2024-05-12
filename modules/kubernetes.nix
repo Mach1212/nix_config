@@ -56,6 +56,7 @@
 
     home.file.".kube/config" = {
       mutable = true;
+      force = true;
       text = ''
         apiVersion: v1
         clusters:
