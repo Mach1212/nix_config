@@ -54,27 +54,30 @@
       };
     };
 
-    home.file.".kube/config".text = ''
-      apiVersion: v1
-      clusters:
-      - cluster:
-          certificate-authority: certs/server-ca.crt
-          server: https://k8s.mpruchn.com:6443
-        name: local
-      contexts:
-      - context:
-          cluster: local
-          namespace: mach12
-          user: user
-        name: Default
-      current-context: Default
-      kind: Config
-      preferences: {}
-      users:
-      - name: user
-        user:
-          client-certificate: certs/client-admin.crt
-          client-key: certs/client-admin.key
-    '';
+    home.file.".kube/config" = {
+      mutable = true;
+      text = ''
+        apiVersion: v1
+        clusters:
+        - cluster:
+            certificate-authority: certs/server-ca.crt
+            server: https://k8s.mpruchn.com:6443
+          name: local
+        contexts:
+        - context:
+            cluster: local
+            namespace: mach12
+            user: user
+          name: Default
+        current-context: Default
+        kind: Config
+        preferences: {}
+        users:
+        - name: user
+          user:
+            client-certificate: certs/client-admin.crt
+            client-key: certs/client-admin.key
+      '';
+    };
   };
 }
