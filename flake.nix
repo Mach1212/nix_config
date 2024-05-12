@@ -36,7 +36,6 @@
           ./hosts/time.nix
         ];
         system = base ++ [
-          ./nix/mutablity.nix
           home-manager.nixosModules.home-manager
           ./modules/home-manager.nix
           ./modules/bash.nix
