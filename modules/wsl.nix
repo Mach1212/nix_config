@@ -16,7 +16,7 @@
   wsl = {
     enable = true;
     defaultUser = "${primaryUser}";
-    # docker-desktop.enable = true;
+    docker-desktop.enable = true;
     startMenuLaunchers = false;
     nativeSystemd = true;
     extraBin = with pkgs; [
