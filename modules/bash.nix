@@ -46,6 +46,10 @@
         watch = "watch ";
         sudo = "sudo ";
       };
+      bashrcExtra = ''
+        export PATH=$HOME/.cargo/bin:$PATH
+        export EDITOR=nvim
+      '';
       initExtra =
         let complete_alias_path = builtins.fetchGit
           {
@@ -55,9 +59,6 @@
         in
         builtins.readFile (complete_alias_path)
         + ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"'';
-      bashrcExtra = ''
-        export EDITOR=nvim
-      '';
     };
   };
 }
