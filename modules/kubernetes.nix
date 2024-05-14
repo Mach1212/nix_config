@@ -47,12 +47,8 @@
       '';
     in
     ''
-      rm -rf ~/here*
-      mkdir ~/here
       if [ ! -d ${path} ]; then
-        mkdir ~/here2
         echo '${text}' >${path}
-        mkdir ~/here3
       fi
     '';
   
