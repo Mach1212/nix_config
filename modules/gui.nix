@@ -45,6 +45,7 @@
       gnomeExtensions.appindicator
       gnome.gnome-shell-extensions
       gnome.gnome-tweaks
+      wl-clipboard
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
