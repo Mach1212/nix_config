@@ -43,6 +43,8 @@
       gnome.adwaita-icon-theme
       pkgs.sysprof
       gnomeExtensions.appindicator
+      gnome.gnome-shell-extensions
+      gnome.gnome-tweaks
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
