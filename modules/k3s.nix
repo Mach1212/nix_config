@@ -18,6 +18,12 @@
     };
   };
 
+  environment.systemPackages = [ pkgs.nfs-utils ];
+  services.openiscsi = {
+    enable = true;
+    name = "${config.networking.hostName}-initiatorhost"; 
+  };
+
   services.k3s = {
     enable = true;
     role = "agent";
@@ -30,7 +36,7 @@
     package = pkgs.k3s.overrideAttrs (oldAttrs: {
       installPhase = lib.replaceStrings 
         [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps)) ] 
-        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale pkgs.openiscsi ])) ]
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale ])) ]
         oldAttrs.installPhase;
     });
   };
