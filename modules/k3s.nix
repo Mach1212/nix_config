@@ -1,6 +1,8 @@
 { pkgs, lib, config, primaryUser, ... }:
 
 {
+  environment.systemPackages = [ pkgs.openiscsi ];
+  
   imports = [
     ./sops.nix
   ];
