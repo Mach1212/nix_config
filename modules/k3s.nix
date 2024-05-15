@@ -18,6 +18,8 @@
     };
   };
 
+  networking.firewall.enable = false;
+
   environment.systemPackages = [ pkgs.nfs-utils ];
   services.openiscsi = {
     enable = true;
