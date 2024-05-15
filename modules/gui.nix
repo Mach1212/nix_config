@@ -50,7 +50,11 @@
   home-manager.users."${primaryUser}" = {
     dconf = {
       enable = true;
-      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      settings = {
+        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+        "/org/gnome/desktop/peripherals/mouse/speed" = 1.0;
+        "/org/gnome/desktop/peripherals/mouse/accel-profile" = "flat";
+      };
     };
 
     home.packages = [
