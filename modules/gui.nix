@@ -52,7 +52,7 @@
       enable = true;
       settings = {
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-        "/org/gnome/desktop/peripherals/mouse/" = {
+        "/org/gnome/desktop/peripherals/mouse" = {
           speed = 1.0;
           accel-profile = "flat";
         };
