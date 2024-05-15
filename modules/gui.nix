@@ -63,7 +63,10 @@
           speed = 0.285;
           tap-to-click = true;
         };
-        "org/gnome/shell/enabled-extensions" = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+        "org/gnome/shell" = {
+          disabled-extensions = [];
+          enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+        };
       };
     };
 
