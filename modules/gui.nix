@@ -47,7 +47,6 @@
       gnome.gnome-shell-extensions
       gnome.gnome-tweaks
       wl-clipboard
-      discord
       betterdiscordctl
       vesktop
     ];
