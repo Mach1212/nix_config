@@ -1,8 +1,6 @@
 { pkgs, lib, config, primaryUser, ... }:
 
 {
-  environment.systemPackages = [ pkgs.openiscsi ];
-  
   imports = [
     ./sops.nix
   ];
@@ -32,7 +30,7 @@
     package = pkgs.k3s.overrideAttrs (oldAttrs: {
       installPhase = lib.replaceStrings 
         [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps)) ] 
-        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale ])) ]
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale pkgs.openiscsi ])) ]
         oldAttrs.installPhase;
     });
   };
