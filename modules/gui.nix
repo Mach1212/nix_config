@@ -56,6 +56,10 @@
           speed = 1.0;
           accel-profile = "flat";
         };
+        "org/gnome/desktop/peripherals/touchpad" = {
+          speed = 0.285;
+          tap-to-click = true;
+        };
       };
     };
 
