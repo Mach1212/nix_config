@@ -132,10 +132,11 @@
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
             system = "x86_64-linux";
             modules = system
-              ++ wslModules
               ++ devModules
               ++ sshModules
+	            ++ guiModules
               ++ [
+	            ./hosts/mach12/configuration.nix
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
             ];
@@ -151,7 +152,6 @@
               ++ [
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
-              # ./modules/clone_k3s.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem

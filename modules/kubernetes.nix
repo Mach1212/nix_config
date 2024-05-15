@@ -22,7 +22,7 @@
   
   system.userActivationScripts.setup_kubectl_config.text =
     let
-      path = "~/.kube/config";
+      path = "/home/${primaryUser}/.kube/config";
       text = ''
         apiVersion: v1
         clusters:
@@ -48,7 +48,7 @@
     in
     ''
       if [ ! -d ${path} ]; then
-        echo '${text}' >${path}
+        sudo echo '${text}' >${path}
       fi
     '';
   
