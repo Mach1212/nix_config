@@ -1,4 +1,4 @@
-{ config, pkgs, primaryUser, ... }:
+{ config, pkgs, primaryUser, stdenvNoCC,  ... }:
 
 {
   nixpkgs.overlays = [
@@ -51,6 +51,22 @@
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   home-manager.users."${primaryUser}" = {
+    gtk.iconTheme = {
+      name = "mine";
+      package = stdenvNoCC.mkDerivation {
+        pname = "Win11 Icons";
+        version = "0.5";
+        src = fetchGit {
+          url = "https://github.com/yeyushengfan258/Win11-icon-theme";
+          hash = "9c69f73b00fdaadab946d0466430a94c3e53ff68";
+        };
+        buildInputs = [ pkgs.bash ];
+        installPhase = ''
+          patchShebangs install.sh
+          ./install.sh
+        '';
+      };
+    };
     dconf = {
       enable = true;
       settings = {
