@@ -13,6 +13,7 @@
   sops.secrets = {
     "tailscale" = {
       owner = primaryUser;
+      restartUnits = ["tailscaled.service"];
     };
   };
 }
