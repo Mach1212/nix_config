@@ -43,6 +43,7 @@
       gnome.adwaita-icon-theme
       pkgs.sysprof
       gnomeExtensions.appindicator
+      gnomeExtensions.gesture-improvements
       gnome.gnome-shell-extensions
       gnome.gnome-tweaks
       wl-clipboard
