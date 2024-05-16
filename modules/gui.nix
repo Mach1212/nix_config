@@ -50,6 +50,7 @@
       betterdiscordctl
       vesktop
       evolution
+      spotify
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
