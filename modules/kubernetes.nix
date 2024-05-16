@@ -44,11 +44,8 @@
     in
     ''
       if [ ! -d /home/${primaryUser}/.kube/config ]; then
-        rm -rf ~/herea*
-        mkdir ~/herea0
         mkdir -p /home/${primaryUser}/.kube
         echo '${text}' >/home/${primaryUser}/.kube/config
-        mkdir ~/herea1
       fi
     '';
   
