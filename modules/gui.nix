@@ -87,7 +87,7 @@
               mkdir -p $out/share/themes/fluent-gtk-theme
 
               patchShebangs install.sh
-              ./install.sh -ld $out/share/themes/fluent-gtk-theme
+              ./install.sh -l -d $out/share/themes/fluent-gtk-theme
             '';
 
             meta = with lib; {
