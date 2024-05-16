@@ -44,11 +44,16 @@
     systemPackages = with pkgs; [
       gnome.adwaita-icon-theme
       sysprof
-      gnomeExtensions.appindicator
-      gnomeExtensions.gesture-improvements
       gnome.gnome-shell
       gnome.gnome-shell-extensions
       gnome.gnome-tweaks
+      gnomeExtensions.appindicator
+      gnomeExtensions.gesture-improvements
+      gnomeExtensions.dash-to-panel
+      gnomeExtensions.arcmenu
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.date-menu-formatter
+      gnomeExtensions.media-controls
       wl-clipboard
       betterdiscordctl
       vesktop
@@ -57,8 +62,6 @@
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
-  
 
   home-manager.users."${primaryUser}" = {
       gtk = {
