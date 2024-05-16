@@ -29,6 +29,7 @@
       gedit # text editor
       xterm
     ]) ++ (with pkgs.gnome; [
+      extension
       cheese # webcam tool
       gnome-music
       epiphany # web browser
@@ -45,6 +46,7 @@
       sassc
       gnome.adwaita-icon-theme
       sysprof
+      gnome-extension-manager
       gnome.gnome-shell
       gnome.gnome-shell-extensions
       gnome.gnome-tweaks
@@ -172,6 +174,7 @@
           enabled-extensions = [
             "user-theme@gnome-shell-extensions.gcampax.github.com" 
             "drive-menu@gnome-shell-extensions.gcampax.github.com"
+            "dash-to-panel@jderose9.github.com"
           ];
         };
         "org/gnome/desktop/wm/preferences" = {
