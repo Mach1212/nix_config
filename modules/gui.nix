@@ -1,4 +1,4 @@
-{ pkgs, lib, primaryUser, ... }:
+{ pkgs, lib, primaryUser, fetchurl, ... }:
 
 {
   nixpkgs.overlays = [
@@ -195,11 +195,11 @@
       pkgs.spotify
     ];
 
-    home.file.".config/background-light".source = lib.fetchurl {
+    home.file.".config/background-light".source = fetchurl {
       url = "https://4kwallpapers.com/images/wallpapers/windows-11-blue-stock-white-background-light-official-3840x2400-5616.jpg";
       hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
     };
-    home.file.".config/background-dark".source = lib.fetchurl {
+    home.file.".config/background-dark".source = fetchurl {
       url = "https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-blue-stock-official-3840x2400-5630.jpg";
       hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
     };
