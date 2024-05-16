@@ -129,6 +129,17 @@
               mkdir -p $out/share/icons
 
               patchShebangs install.sh
+              
+              if [ ! -d /home/mach12/.config/gtk-4.0/settings.ini ]; then
+                echo Removing gtk-4.0/setings.ini
+                rm /home/${primaryUser}/.config/gtk-4.0/settings.ini
+              fi
+              
+              if [ ! -d /home/mach12/.config/gtk-3.0/settings.ini ]; then
+                echo Removing gtk-3.0/setings.ini
+                rm /home/${primaryUser}/.config/gtk-3.0/settings.ini
+              fi
+              
               ./install.sh -a -d $out/share/icons
             '';
 
