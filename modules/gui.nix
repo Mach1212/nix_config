@@ -63,8 +63,8 @@
       gtk = {
         enable = true;
         theme = {
-          name = "Fluent-Dark";
-          # name = "Fluent-Light";
+          name = "fluent-dark";
+          # name = "fluent-light";
           package = pkgs.stdenvNoCC.mkDerivation {
             pname = "fluent-gtk-theme";
             version = "2024-04-28-unstable-2024-05-14";
