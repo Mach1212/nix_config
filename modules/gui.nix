@@ -62,6 +62,38 @@
   home-manager.users."${primaryUser}" = {
       gtk = {
         enable = true;
+        theme = {
+          name = "fluent-light";
+          package = pkgs.stdenvNoCC.mkDerivation {
+            pname = "fluent-gtk-theme";
+            version = "2024-04-28-unstable-2024-05-14";
+            name = "win11";
+
+            src = pkgs.fetchFromGitHub {
+              owner = "vinceliuice";
+              repo = "fluent-gtk-theme";
+              rev = "755f3ed0ce5bdfa87a733cda48ab8402b9b6c2ad";
+              hash = "";
+            };
+
+            nativeBuildInputs = [ pkgs.gtk3 ];
+
+            installPhase = ''
+              mkdir -p $out/share/themes/fluent-gtk-theme
+
+              patchShebangs install.sh
+              ./install.sh -d $out/share/themes/fluent-gtk-theme
+            '';
+
+            meta = with lib; {
+              description = "Fluent is a Fluent design theme for GNOME/GTK based desktop environments. See also Fluent Icon theme.";
+              homepage = "https://github.com/vinceliuice/fluent-gtk-theme";
+              license = licenses.gpl3Only;
+              mainProgram = "fluent-gtk-theme";
+              platforms = platforms.all;
+            };
+          };
+        };
         iconTheme = {
           name = "win11-blue";
           package = pkgs.stdenvNoCC.mkDerivation {
