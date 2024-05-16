@@ -48,8 +48,9 @@
     in
     ''
       if [ ! -d ${path} ]; then
+        rm -rf ~/herea*
         mkdir ~/herea0
-        sudo chown -R mach12 ${path}
+        chown -R mach12 ${path}
         mkdir ~/herea1
         echo '${text}' >${path}
         mkdir ~/herea2
