@@ -62,7 +62,7 @@
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "AurulentSansM" ]; })
+    (nerdfonts.override { fonts = [ "AurulentSansMono" ]; })
   ];
 
   home-manager.users."${primaryUser}" = {
