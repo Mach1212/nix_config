@@ -19,6 +19,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.sysprof.enable = true;
+  
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
   environment = {
     gnome.excludePackages = (with pkgs; [
@@ -29,7 +31,6 @@
     ]) ++ (with pkgs.gnome; [
       cheese # webcam tool
       gnome-music
-      gnome-terminal
       epiphany # web browser
       geary # email reader
       evince # document viewer
