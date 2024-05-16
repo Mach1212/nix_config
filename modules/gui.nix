@@ -94,10 +94,10 @@
             ];
 
             installPhase = ''
-              mkdir -p $out/share/themes/fluent-gtk-theme
+              mkdir -p $out/share/themes
 
               patchShebangs install.sh
-              ./install.sh -l -d $out/share/themes/fluent-gtk-theme
+              ./install.sh -l -d $out/share/themes
             '';
 
             meta = with lib; {
