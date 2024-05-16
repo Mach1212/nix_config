@@ -8,79 +8,51 @@
   sops.secrets = {
     "k3s/server-ca-crt" = {
       owner = primaryUser;
-      path = "/home/${primaryUser}/.kube/certs/server-ca.crt";
     };
     "k3s/client-admin-crt" = {
       owner = primaryUser;
-      path = "/home/${primaryUser}/.kube/certs/client-admin.crt";
     };
     "k3s/client-admin-key" = {
       owner = primaryUser;
-      path = "/home/${primaryUser}/.kube/certs/client-admin.key";
     };
   };
 
-  # system.userActivationScripts.setup_kubectl_config.text =
-  #   let
-  #     path = "/home/${primaryUser}/.kube/config";
-  #     text = ''
-  #       apiVersion: v1
-  #       clusters:
-  #       - cluster:
-  #           certificate-authority: certs/server-ca.crt
-  #           server: https://k8s.mpruchn.com:6443
-  #         name: local
-  #       contexts:
-  #       - context:
-  #           cluster: local
-  #           namespace: mach12
-  #           user: user
-  #         name: Default
-  #       current-context: Default
-  #       kind: Config
-  #       preferences: {}
-  #       users:
-  #       - name: user
-  #         user:
-  #           client-certificate: certs/client-admin.crt
-  #           client-key: certs/client-admin.key
-  #     '';
-  #   in
-  #   ''
-  #     if [ ! -d ${path} ]; then
-  #       rm -rf ~/herea*
-  #       mkdir ~/herea0
-  #       chown -R mach12 ${path}
-  #       mkdir ~/herea1
-  #       echo '${text}' >${path}
-  #       mkdir ~/herea2
-  #     fi
-  #   '';
+  system.userActivationScripts.setup_kubectl_config.text =
+    let
+      path = "/home/${primaryUser}/.kube/config";
+      text = ''
+        apiVersion: v1
+        clusters:
+        - cluster:
+            certificate-authority: ${config.sops.secrets."k3s/server-ca-crt".path}
+            server: https://k8s.mpruchn.com:6443
+          name: local
+        contexts:
+        - context:
+            cluster: local
+            namespace: mach12
+            user: user
+          name: Default
+        current-context: Default
+        kind: Config
+        preferences: {}
+        users:
+        - name: user
+          user:
+            client-certificate: ${config.sops.secrets."k3s/client-admin-crt".path}
+            client-key: ${config.sops.secrets."k3s/client-admin-key".path}
+      '';
+    in
+    ''
+      if [ ! -d ${path} ]; then
+        rm -rf ~/herea*
+        mkdir ~/herea0
+        echo '${text}' >${path}
+        mkdir ~/herea1
+      fi
+    '';
   
   home-manager.users.${primaryUser} = {
-    home.file."/home/${primaryUser}/.kube/config".text = ''
-          apiVersion: v1
-          clusters:
-          - cluster:
-              certificate-authority: certs/server-ca.crt
-              server: https://k8s.mpruchn.com:6443
-            name: local
-          contexts:
-          - context:
-              cluster: local
-              namespace: mach12
-              user: user
-            name: Default
-          current-context: Default
-          kind: Config
-          preferences: {}
-          users:
-          - name: user
-            user:
-              client-certificate: certs/client-admin.crt
-              client-key: certs/client-admin.key
-        '';
-  
     home.packages = [
       pkgs.kubectl
       pkgs.kubernetes-helm
