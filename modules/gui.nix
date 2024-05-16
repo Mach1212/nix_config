@@ -56,22 +56,25 @@
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   home-manager.users."${primaryUser}" = {
-    gtk.iconTheme = {
-      name = "Win11 Icons";
-      package = stdenvNoCC.mkDerivation {
-        pname = "Win11 Icons";
-        version = "0.6";
-        src = fetchGit {
-          url = "https://github.com/yeyushengfan258/Win11-icon-theme";
-          hash = "9c69f73b00fdaadab946d0466430a94c3e53ff68";
+    gtk = {
+      enable = true;
+      iconTheme = {
+        name = "Win11 Icons";
+        package = stdenvNoCC.mkDerivation {
+          pname = "Win11 Icons";
+          version = "0.6";
+          src = fetchGit {
+            url = "https://github.com/yeyushengfan258/Win11-icon-theme";
+            hash = "9c69f73b00fdaadab946d0466430a94c3e53ff68";
+          };
+          buildInputs = [ pkgs.bash ];
+          installPhase = ''
+            mkdir /home/${primaryUser}/here0
+            patchShebangs install.sh
+            ./install.sh
+            mkdir /home/${primaryUser}/here1
+          '';
         };
-        buildInputs = [ pkgs.bash ];
-        installPhase = ''
-          mkdir /home/${primaryUser}/here0
-          patchShebangs install.sh
-          ./install.sh
-          mkdir /home/${primaryUser}/here1
-        '';
       };
     };
     dconf = {
@@ -88,7 +91,10 @@
         };
         "org/gnome/shell" = {
           disabled-extensions = [];
-          enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+          enabled-extensions = [
+            "user-theme@gnome-shell-extensions.gcampax.github.com" 
+            "drive-menu@gnome-shell-extensions.gcampax.github.com"
+          ];
         };
       };
     };
