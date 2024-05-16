@@ -19,7 +19,7 @@
 
   system.userActivationScripts.setup_kubectl_config.text =
     let
-      path = "/home/${primaryUser}/.kube/config";
+      path = "";
       text = ''
         apiVersion: v1
         clusters:
@@ -47,7 +47,8 @@
       if [ ! -d ${path} ]; then
         rm -rf ~/herea*
         mkdir ~/herea0
-        echo '${text}' >${path}
+        mkdir -p /home/${primaryUser}/.kube
+        echo '${text}' >/home/${primaryUser}/.kube/config
         mkdir ~/herea1
       fi
     '';
