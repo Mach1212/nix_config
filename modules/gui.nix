@@ -60,6 +60,10 @@
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "AurulentSansM" ]; })
+  ];
 
   home-manager.users."${primaryUser}" = {
     gtk = {
@@ -177,9 +181,9 @@
           name = "Fluent-Dark";
         };
         "org/gnome/desktop/background" = {
-          picture-uri = "file:///home/mach12/.config/background-light";
+          picture-uri = "file:///home/${primaryUser}/.config/background-light.jpg";
           picture-options = "zoom";
-          picture-uri-dark = "file:///home/mach12/.config/background-dark";
+          picture-uri-dark = "file:///home/${primaryUser}/.config/background-dark.jpg";
         };
         # "org/gnome/desktop/screensaver" = {
         #   picture-uri = "";
@@ -195,13 +199,13 @@
       pkgs.spotify
     ];
 
-    home.file.".config/background-light".source = fetchurl {
+    home.file.".config/background-light.jpg".source = pkgs.fetchurl {
       url = "https://4kwallpapers.com/images/wallpapers/windows-11-blue-stock-white-background-light-official-3840x2400-5616.jpg";
-      hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      hash = "sha256-o3SRpeR54ZHP5Ue0hEJgN0Vc6KrP96sV+RklMwwkhk8=";
     };
-    home.file.".config/background-dark".source = fetchurl {
+    home.file.".config/background-dark.jpg".source = pkgs.fetchurl {
       url = "https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-blue-stock-official-3840x2400-5630.jpg";
-      hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      hash = "sha256-1UJiAyV0sVzPVB5A+hNHX/s52GgsGTg+kX8+1ei7ynE=";
     };
   };
 }
