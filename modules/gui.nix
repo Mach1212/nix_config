@@ -34,6 +34,7 @@
       epiphany # web browser
       geary # email reader
       evince # document viewer
+      gnome-terminal
       gnome-characters
       totem # video player
       tali # poker game
