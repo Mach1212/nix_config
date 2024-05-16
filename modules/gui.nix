@@ -58,6 +58,7 @@
       gnomeExtensions.blur-my-shell
       gnomeExtensions.date-menu-formatter
       gnomeExtensions.media-controls
+      gnomeExtensions.gtk4-desktop-icons-ng-ding
       wl-clipboard
     ];
   };
