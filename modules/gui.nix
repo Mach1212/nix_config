@@ -24,7 +24,7 @@
 
   environment = {
     gnome.excludePackages = (with pkgs; [
-      extension
+      extensions
       gnome-photos
       gnome-tour
       gedit # text editor
