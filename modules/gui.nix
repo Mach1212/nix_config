@@ -42,11 +42,13 @@
       atomix # puzzle game
     ]);
     systemPackages = with pkgs; [
+      sassc
       gnome.adwaita-icon-theme
       sysprof
       gnome.gnome-shell
       gnome.gnome-shell-extensions
       gnome.gnome-tweaks
+      gnome.gnome-themes-extra
       gnomeExtensions.appindicator
       gnomeExtensions.gesture-improvements
       gnomeExtensions.dash-to-panel
@@ -84,6 +86,11 @@
             nativeBuildInputs = [ 
               pkgs.gtk4
               pkgs.gnome.gnome-shell
+            ];
+            
+            buildInputs = [
+              pkgs.gnome.gnome-themes-extra
+              pkgs.sassc
             ];
 
             installPhase = ''
