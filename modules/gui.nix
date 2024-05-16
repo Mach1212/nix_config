@@ -78,7 +78,10 @@
               hash = "sha256-I/U+ebpRM0sXZchs/viRmfX1ZeJgei41ax/dlcDWxu8=";
             };
 
-            nativeBuildInputs = [ pkgs.gtk4 ];
+            nativeBuildInputs = [ 
+              pkgs.gtk4
+              pkgs.gnome.gnome-shell
+            ];
 
             installPhase = ''
               mkdir -p $out/share/themes/fluent-gtk-theme
