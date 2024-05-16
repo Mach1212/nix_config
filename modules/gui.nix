@@ -24,12 +24,12 @@
 
   environment = {
     gnome.excludePackages = (with pkgs; [
-      extensions
       gnome-photos
       gnome-tour
       gedit # text editor
       xterm
     ]) ++ (with pkgs.gnome; [
+      extensions
       cheese # webcam tool
       gnome-music
       epiphany # web browser
