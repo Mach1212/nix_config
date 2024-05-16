@@ -77,13 +77,13 @@
               hash = "sha256-I/U+ebpRM0sXZchs/viRmfX1ZeJgei41ax/dlcDWxu8=";
             };
 
-            nativeBuildInputs = [ pkgs.gtk3 ];
+            nativeBuildInputs = [ pkgs.gtk4 ];
 
             installPhase = ''
               mkdir -p $out/share/themes/fluent-gtk-theme
 
               patchShebangs install.sh
-              ./install.sh -d $out/share/themes/fluent-gtk-theme
+              ./install.sh -ld $out/share/themes/fluent-gtk-theme
             '';
 
             meta = with lib; {
