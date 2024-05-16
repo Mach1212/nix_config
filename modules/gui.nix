@@ -1,4 +1,4 @@
-{ config, pkgs, primaryUser, stdenvNoCC,  ... }:
+{ config, pkgs, primaryUser, stdenv,  ... }:
 
 {
   nixpkgs.overlays = [
@@ -60,7 +60,7 @@
       enable = true;
       iconTheme = {
         name = "Win11 Icons";
-        package = stdenvNoCC.mkDerivation {
+        package = stdenv.mkDerivation {
           pname = "Win11 Icons";
           version = "0.6";
           src = fetchGit {
