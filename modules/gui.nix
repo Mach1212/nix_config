@@ -49,6 +49,7 @@
       wl-clipboard
       betterdiscordctl
       vesktop
+      evolution
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
