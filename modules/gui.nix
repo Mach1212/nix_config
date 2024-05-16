@@ -57,7 +57,7 @@
 
   home-manager.users."${primaryUser}" = {
     gtk.iconTheme = {
-      name = "mine";
+      name = "Win11 Icons";
       package = stdenvNoCC.mkDerivation {
         pname = "Win11 Icons";
         version = "0.5";
