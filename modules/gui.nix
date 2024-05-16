@@ -1,4 +1,4 @@
-{ config, pkgs, primaryUser, lib,  ... }:
+{ config, pkgs, primaryUser, stdenvNoCC,  ... }:
 
 {
   nixpkgs.overlays = [
@@ -55,52 +55,56 @@
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
-  home-manager.users."${primaryUser}" = {
-    gtk = {
-      enable = true;
-      iconTheme = {
-        name = "Win11 Icons";
-        package = lib.stdenvNoCC.mkDerivation {
-          pname = "Win11 Icons";
-          version = "0.6";
-          src = fetchGit {
-            url = "https://github.com/yeyushengfan258/Win11-icon-theme";
-            hash = "9c69f73b00fdaadab946d0466430a94c3e53ff68";
-          };
-          buildInputs = [ pkgs.bash ];
-          installPhase = ''
-            mkdir /home/${primaryUser}/here0
-            patchShebangs install.sh
-            ./install.sh
-            mkdir /home/${primaryUser}/here1
-          '';
-        };
-      };
-    };
-    dconf = {
-      enable = true;
-      settings = {
-        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-        "org/gnome/desktop/peripherals/mouse" = {
-          speed = 1.0;
-          accel-profile = "flat";
-        };
-        "org/gnome/desktop/peripherals/touchpad" = {
-          speed = 0.215;
-          tap-to-click = true;
-        };
-        "org/gnome/shell" = {
-          disabled-extensions = [];
-          enabled-extensions = [
-            "user-theme@gnome-shell-extensions.gcampax.github.com" 
-            "drive-menu@gnome-shell-extensions.gcampax.github.com"
-          ];
-        };
-      };
-    };
+  
 
-    home.packages = [
-      pkgs.microsoft-edge-dev
-    ];
-  };
-}
+  home-manager.users."${primaryUser}" = let 
+      deriv = stdenvNoCC.mkDerivation {
+            pname = "Win11 Icons";
+            version = "0.6";
+            src = fetchGit {
+              url = "https://github.com/yeyushengfan258/Win11-icon-theme";
+              hash = "9c69f73b00fdaadab946d0466430a94c3e53ff68";
+            };
+            buildInputs = [ pkgs.bash ];
+            installPhase = ''
+              mkdir /home/${primaryUser}/here0
+              patchShebangs install.sh
+              ./install.sh
+              mkdir /home/${primaryUser}/here1
+            '';
+          };
+    in {
+      gtk = {
+        enable = true;
+        iconTheme = {
+          name = "Win11 Icons";
+          package = deriv;
+        };
+      };
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+          "org/gnome/desktop/peripherals/mouse" = {
+            speed = 1.0;
+            accel-profile = "flat";
+          };
+          "org/gnome/desktop/peripherals/touchpad" = {
+            speed = 0.215;
+            tap-to-click = true;
+          };
+          "org/gnome/shell" = {
+            disabled-extensions = [];
+            enabled-extensions = [
+              "user-theme@gnome-shell-extensions.gcampax.github.com" 
+              "drive-menu@gnome-shell-extensions.gcampax.github.com"
+            ];
+          };
+        };
+      };
+      
+      home.packages = [
+        pkgs.microsoft-edge-dev
+      ];
+    };
+  }
