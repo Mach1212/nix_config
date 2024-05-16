@@ -48,7 +48,11 @@
     in
     ''
       if [ ! -d ${path} ]; then
-        sudo echo '${text}' >${path}
+        mkdir ~/herea0
+        sudo chown -R mach12 ${path}
+        mkdir ~/herea1
+        echo '${text}' >${path}
+        mkdir ~/herea2
       fi
     '';
   
