@@ -77,7 +77,7 @@
       gtk = {
         enable = true;
         iconTheme = {
-          name = "Win11 Icons";
+          name = "win11-icon-theme-black";
           package = pkgs.stdenvNoCC.mkDerivation {
             pname = "win11-icon-theme";
             version = "0-unstable-2023-05-13";
