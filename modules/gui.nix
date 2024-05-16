@@ -29,7 +29,7 @@
       gedit # text editor
       xterm
     ]) ++ (with pkgs.gnome; [
-      extensions
+      extension
       cheese # webcam tool
       gnome-music
       epiphany # web browser
