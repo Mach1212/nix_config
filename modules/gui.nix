@@ -73,7 +73,7 @@
               owner = "vinceliuice";
               repo = "fluent-gtk-theme";
               rev = "755f3ed0ce5bdfa87a733cda48ab8402b9b6c2ad";
-              hash = "";
+              hash = "sha256-I/U+ebpRM0sXZchs/viRmfX1ZeJgei41ax/dlcDWxu8=";
             };
 
             nativeBuildInputs = [ pkgs.gtk3 ];
