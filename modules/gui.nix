@@ -34,7 +34,6 @@
       epiphany # web browser
       geary # email reader
       evince # document viewer
-      gnome-terminal
       gnome-characters
       totem # video player
       tali # poker game
@@ -47,6 +46,7 @@
       sysprof
       gnomeExtensions.appindicator
       gnomeExtensions.gesture-improvements
+      gnome.gnome-shell
       gnome.gnome-shell-extensions
       gnome.gnome-tweaks
       wl-clipboard
