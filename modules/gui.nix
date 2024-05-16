@@ -24,11 +24,12 @@
     gnome.excludePackages = (with pkgs; [
       gnome-photos
       gnome-tour
+      gedit # text editor
+      x-term
     ]) ++ (with pkgs.gnome; [
       cheese # webcam tool
       gnome-music
       gnome-terminal
-      # gedit # text editor
       epiphany # web browser
       geary # email reader
       evince # document viewer
@@ -57,23 +58,7 @@
 
   
 
-  home-manager.users."${primaryUser}" = let 
-      deriv = stdenvNoCC.mkDerivation {
-            pname = "Win11 Icons";
-            version = "0.6";
-            src = fetchGit {
-              url = "https://github.com/yeyushengfan258/Win11-icon-theme";
-              hash = "9c69f73b00fdaadab946d0466430a94c3e53ff68";
-            };
-            buildInputs = [ pkgs.bash ];
-            installPhase = ''
-              mkdir /home/${primaryUser}/here0
-              patchShebangs install.sh
-              ./install.sh
-              mkdir /home/${primaryUser}/here1
-            '';
-          };
-    in {
+  home-manager.users."${primaryUser}" = {
       gtk = {
         enable = true;
         iconTheme = {
