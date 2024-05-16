@@ -25,7 +25,7 @@
       gnome-photos
       gnome-tour
       gedit # text editor
-      x-term
+      xterm
     ]) ++ (with pkgs.gnome; [
       cheese # webcam tool
       gnome-music
