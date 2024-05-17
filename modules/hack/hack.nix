@@ -10,6 +10,7 @@
       dirbuster
       sqlmap
       rustscan
+      wpscan
     ];
   };
 }
