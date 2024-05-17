@@ -29,11 +29,11 @@
       gedit # text editor
       xterm
     ]) ++ (with pkgs.gnome; [
-      gnome-shell-extensions
+      # gnome-shell-extensions
       cheese # webcam tool
       gnome-music
       epiphany # web browser
-      geary # email reader
+      # geary # email reader
       evince # document viewer
       gnome-characters
       totem # video player
@@ -48,7 +48,6 @@
       sysprof
       gnome-extension-manager
       gnome.gnome-shell
-      gnome.gnome-shell-extensions
       gnome.gnome-tweaks
       gnome.gnome-themes-extra
       gnomeExtensions.appindicator
@@ -252,6 +251,9 @@
           use-system-font = false;
           custom-font = "AurulentSansM Nerd Font Mono 10";
         };
+        "org/gnome/shell" = {
+          favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-dev.desktop" "org.gnome.Console.desktop" "vesktop.desktop"];
+        };
       };
     };
     
@@ -259,7 +261,6 @@
       pkgs.microsoft-edge-dev
       pkgs.betterdiscordctl
       pkgs.vesktop
-      pkgs.evolution
       pkgs.spotify
     ];
 
