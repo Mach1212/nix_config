@@ -52,9 +52,9 @@
       gnome.gnome-themes-extra
       gnomeExtensions.appindicator
       (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
-        src = pkgs.fetchzip {
+        src = fetchzip {
           url = "https://github.com/harshadgavali/gnome-gesture-improvements/files/12841762/gestureImprovements%40gestures.zip";
-          inherit sha256;
+          hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           stripRoot = false;
           # The download URL may change content over time. This is because the
           # metadata.json is automatically generated, and parts of it can be changed
