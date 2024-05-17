@@ -176,6 +176,7 @@
             "user-theme@gnome-shell-extensions.gcampax.github.com" 
             "drive-menu@gnome-shell-extensions.gcampax.github.com"
             "dash-to-panel@jderose9.github.com"
+            "date-menu-formatter@marcinjakubowski.github.com"
             "gtk4-ding@smedius.gitlab.com"
             "arcmenu@arcmenu.com"
             "blur-my-shell@aunetx"
