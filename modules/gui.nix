@@ -254,6 +254,12 @@
         "org/gnome/shell" = {
           favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-dev.desktop" "org.gnome.Console.desktop" "vesktop.desktop"];
         };
+        "org/gnome/nautilus/preferences" = {
+          default-folder-viewer = "list-view";
+        };
+        "org/gnome/desktop/interface" = {
+          show-battery-percentage = true;
+        };
       };
     };
     
