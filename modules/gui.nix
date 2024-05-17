@@ -1,4 +1,4 @@
-{ pkgs, lib, primaryUser, fetchurl, ... }:
+{ pkgs, lib, primaryUser, ... }:
 
 {
   nixpkgs.overlays = [
