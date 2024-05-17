@@ -256,7 +256,7 @@
     };
     home.file.".config/windows-icon.png".source = pkgs.fetchurl {
       url = "https://download2277.mediafire.com/cq84r8ivjo4ggrB3IpUNdaqKzxSM4Zuv9D4CumxKY7mxsePVAXKo7zNKIQ8Rdjgaug6wDLr3d5l9Ke7nMU5a1hFhxjl8w8_fHx_qnGGUO_1iIqnLNBZkolVsyq0pRHlHmaHbXGZSxDEYyKvwBr7FJzE9NnVaAvxHMsf8weZPzF4Fvg/ct0qkuhl5m32x26/image-199-removebg-preview.png";
-      hash = "sha256-d6QeLfjmoeqRTxhf+F8sVczKmGcXo00nhDVdqDiMvKo=";
+      hash = "ha256-d6QeLfjmoeqRTxhf+F8sVczKmGcXo00nhDVdqDiMvKo=";
     };
   };
 }
