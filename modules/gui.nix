@@ -243,6 +243,9 @@
           night-light-enabled = true;
           night-light-temperature = 2362;
         };
+        "org/gnome/mutter" = {
+          experimental-features = [ "scale-monitor-framebuffer" ];
+        };
       };
     };
     
