@@ -59,6 +59,7 @@
       gnomeExtensions.date-menu-formatter
       gnomeExtensions.media-controls
       gnomeExtensions.gtk4-desktop-icons-ng-ding
+      gnomeExtensions.unite
       wl-clipboard
     ];
   };
@@ -214,6 +215,7 @@
           status-icon-padding = 4;
           leftbox-padding = 4;
           animate-appicon-hover = true;
+          click-action = "LAUNCH";
         };
         "org/gnome/shell/extensions/arcmenu" = {
           menu-layout = "Eleven";
@@ -230,7 +232,7 @@
         };
         "org/gnome/shell/extensions/date-menu-formatter" = {
           text-align = "center";
-          pattern = ''MM/dd/yy\\nHH : mm a'';
+          pattern = ''MM/dd/yy\nHH : mm a'';
           update-level = 0;
         };
         "gnome/shell/extensions/mediacontrols" = {
@@ -245,6 +247,10 @@
         };
         "org/gnome/mutter" = {
           experimental-features = [ "scale-monitor-framebuffer" ];
+        };
+        "org/gnome/Console" = {
+          use-system-font = false;
+          custom-font = "AurulentSansM Nerd Font Mono 10";
         };
       };
     };
