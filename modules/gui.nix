@@ -262,7 +262,7 @@
     };
     home.file.".config/windows-icon.png".source = pkgs.fetchurl {
       url = "https://drive.usercontent.google.com/uc?id=1oevGvxjvQzwtgn00sbB8_kTyQ8ZGkAYn&authuser=0&export=download";
-      hash = "sha256-d6QeLfjmoeqRTxhf+F8sVczKmGcXo00nhDVdqDiMvKo=";
+      hash = "sha256-FDAOGpX9oiS18xEYbEyfEft9kbFCbRncBaHoIJ5qV3c=";
     };
   };
 }
