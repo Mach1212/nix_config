@@ -60,6 +60,7 @@
         };
       }))
       gnomeExtensions.dash-to-panel
+      gnomeExtensions.arcmenu
       gnomeExtensions.blur-my-shell
       gnomeExtensions.date-menu-formatter
       gnomeExtensions.media-controls
