@@ -176,6 +176,10 @@
             "user-theme@gnome-shell-extensions.gcampax.github.com" 
             "drive-menu@gnome-shell-extensions.gcampax.github.com"
             "dash-to-panel@jderose9.github.com"
+            "gtk4-ding@smedius.gitlab.com"
+            "arcmenu@arcmenu.com"
+            "blur-my-shell@aunetx"
+            "mediacontrols@cliffniff.github.com"
           ];
         };
         "org/gnome/desktop/wm/preferences" = {
@@ -192,6 +196,45 @@
         # "org/gnome/desktop/screensaver" = {
         #   picture-uri = "";
         # };
+        "org/gnome/shell/extensions/gtk4-ding" = {
+          icon-size = "small";
+          show-network-volumes = true;
+        };
+        "org/gnome/shell/extensions/dash-to-panel" = {
+          panel-element-positions = ''{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"2":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'';
+          appicon-margin = 0;
+          appicon-padding = 6;
+          dot-style-focused = "DASHES";
+          dot-style-unfocused = "DASHES";
+          hide-overview-on-startup = true;
+          tray-size = 16;
+          leftbox-size = 16;
+          tray-padding = 4;
+          status-icon-padding = 4;
+          leftbox-padding = 4;
+        };
+        "org/gnome/shell/extensions/arcmenu" = {
+          menu-layout = "Eleven";
+          menu-height = 750;
+          left-panel-width = 175;
+          menu-item-icon-size = "Medium";
+          custom-menu-button-icon = "/home/${primaryUser}/.config/windows-icon.png";
+          alphabetize-all-programs = false;
+        };
+        "org/gnome/shell/extensions/blur-my-shell/panel" = {
+          override-background = false;
+          customize = true;
+          sigma = 10;
+        };
+        "org/gnome/shell/extensions/date-menu-formatter" = {
+          text-align = "center";
+          pattern = ''MM/dd/yy\\nHH : mm a'';
+          update-level = 0;
+        };
+        "gnome/shell/extensions/mediacontrols" = {
+          show-controls-icons = false;
+          show-label = false;
+        };
       };
     };
     
@@ -209,6 +252,10 @@
     };
     home.file.".config/background-dark.jpg".source = pkgs.fetchurl {
       url = "https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-blue-stock-official-3840x2400-5630.jpg";
+      hash = "sha256-1UJiAyV0sVzPVB5A+hNHX/s52GgsGTg+kX8+1ei7ynE=";
+    };
+    home.file.".config/windows-icon.png".source = pkgs.fetchurl {
+      url = "https://download2277.mediafire.com/v7897qevihyg8LlgUlQFyP8MF4BpyN3_ScaLLG9YKD07AhXPsPyq7bGkmMfBl14MPzxBssXEu-lfOAIrLlegxOsbW4zYob0_sZZOAwLN06qcOKqBCDyuvFXnYssuA82r9-4iZlzRpMxPqhe3MAGRKJHeh28ABhqSK08F4hsl-CEqvA/ct0qkuhl5m32x26/image-199-removebg-preview.png";
       hash = "sha256-1UJiAyV0sVzPVB5A+hNHX/s52GgsGTg+kX8+1ei7ynE=";
     };
   };
