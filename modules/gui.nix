@@ -212,6 +212,7 @@
           tray-padding = 4;
           status-icon-padding = 4;
           leftbox-padding = 4;
+          animate-appicon-hover = true;
         };
         "org/gnome/shell/extensions/arcmenu" = {
           menu-layout = "Eleven";
@@ -260,9 +261,9 @@
       url = "https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-blue-stock-official-3840x2400-5630.jpg";
       hash = "sha256-1UJiAyV0sVzPVB5A+hNHX/s52GgsGTg+kX8+1ei7ynE=";
     };
-    # home.file.".config/windows-icon.png".source = pkgs.fetchurl {
-    #   url = "https://drive.usercontent.google.com/uc?id=1oevGvxjvQzwtgn00sbB8_kTyQ8ZGkAYn&authuser=0&export=download";
-    #   hash = "sha256-FDAOGpX9oiS18xEYbEyfEft9kbFCbRncBaHoIJ5qV3c=";
-    # };
+    home.file.".config/windows-icon.png".source = pkgs.fetchurl {
+      url = "https://drive.usercontent.google.com/uc?id=1oevGvxjvQzwtgn00sbB8_kTyQ8ZGkAYn&authuser=0&export=download";
+      hash = "sha256-FDAOGpX9oiS18xEYbEyfEft9kbFCbRncBaHoIJ5qV3c=";
+    };
   };
 }
