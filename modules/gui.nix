@@ -44,8 +44,10 @@
     ]);
     systemPackages = with pkgs; [
       sassc
-      gnome.adwaita-icon-theme
+      gnome-menus
       sysprof
+      wl-clipboard
+      gnome.adwaita-icon-theme
       gnome-extension-manager
       gnome.gnome-shell
       gnome.gnome-tweaks
@@ -58,13 +60,11 @@
         };
       }))
       gnomeExtensions.dash-to-panel
-      gnomeExtensions.arcmenu
       gnomeExtensions.blur-my-shell
       gnomeExtensions.date-menu-formatter
       gnomeExtensions.media-controls
       gnomeExtensions.gtk4-desktop-icons-ng-ding
       gnomeExtensions.clipboard-history
-      wl-clipboard
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
@@ -187,6 +187,7 @@
             "blur-my-shell@aunetx"
             "mediacontrols@cliffniff.github.com"
             "gestureImprovements@gestures"
+            "clipboard-history@alexsaveau.dev"
           ];
         };
         "org/gnome/desktop/wm/preferences" = {
@@ -269,6 +270,9 @@
         "org/gnome/shell/extensions/gestureImprovements" = {
           default-overview = true;
           default-session-workspace = true;
+        };
+        "com/mattjakeman/ExtensionManager" = {
+          sort-enabled-first = true;
         };
       };
     };
