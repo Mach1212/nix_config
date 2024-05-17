@@ -63,7 +63,7 @@
       gnomeExtensions.date-menu-formatter
       gnomeExtensions.media-controls
       gnomeExtensions.gtk4-desktop-icons-ng-ding
-      gnomeExtensions.unite
+      gnomeExtensions.clipboard-history
       wl-clipboard
     ];
   };
@@ -186,6 +186,7 @@
             "arcmenu@arcmenu.com"
             "blur-my-shell@aunetx"
             "mediacontrols@cliffniff.github.com"
+            "gestureImprovements@gestures"
           ];
         };
         "org/gnome/desktop/wm/preferences" = {
@@ -257,13 +258,17 @@
           custom-font = "AurulentSansM Nerd Font Mono 10";
         };
         "org/gnome/shell" = {
-          favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-dev.desktop" "org.gnome.Console.desktop" "vesktop.desktop"];
+          favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-dev.desktop" "org.gnome.Console.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
         };
         "org/gnome/nautilus/preferences" = {
           default-folder-viewer = "list-view";
         };
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
+        };
+        "org/gnome/shell/extensions/gestureImprovements" = {
+          default-overview = true;
+          default-session-workspace = true;
         };
       };
     };
