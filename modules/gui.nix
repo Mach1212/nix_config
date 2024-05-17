@@ -57,6 +57,7 @@
           hash = "sha256-8I1uQOEjIwIg2WCxYxlVj2I025/L209K5gg2NPSV5Qo=";
         };
       }))
+      xorg.xprop
       gnomeExtensions.dash-to-panel
       gnomeExtensions.arcmenu
       gnomeExtensions.blur-my-shell
