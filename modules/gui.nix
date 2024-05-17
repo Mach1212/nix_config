@@ -275,6 +275,9 @@
         "com/mattjakeman/ExtensionManager" = {
           sort-enabled-first = true;
         };
+        "org/gnome/shell/keybindings" = {
+          show-screenshot-ui = ["<Shift><Super>s"];
+        };
       };
     };
     

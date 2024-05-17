@@ -135,6 +135,7 @@
               ++ devModules
               ++ sshModules
 	            ++ guiModules
+	            ++ hackModules
               ++ [
 	            ./hosts/mach12/configuration.nix
               ./modules/kubernetes.nix
