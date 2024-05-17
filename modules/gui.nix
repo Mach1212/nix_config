@@ -51,7 +51,21 @@
       gnome.gnome-tweaks
       gnome.gnome-themes-extra
       gnomeExtensions.appindicator
-      gnomeExtensions.gesture-improvements
+      (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
+        src = fetchzip {
+          url = "https://github.com/harshadgavali/gnome-gesture-improvements/files/12841762/gestureImprovements%40gestures.zip";
+          inherit sha256;
+          stripRoot = false;
+          # The download URL may change content over time. This is because the
+          # metadata.json is automatically generated, and parts of it can be changed
+          # without making a new release. We simply substitute the possibly changed fields
+          # with their content from when we last updated, and thus get a deterministic output
+          # hash.
+          postFetch = ''
+            echo "${metadata}" | base64 --decode > $out/metadata.json
+          '';
+        };
+      }))
       gnomeExtensions.dash-to-panel
       gnomeExtensions.arcmenu
       gnomeExtensions.blur-my-shell
