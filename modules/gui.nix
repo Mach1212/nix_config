@@ -52,7 +52,7 @@
       gnome.gnome-themes-extra
       gnomeExtensions.appindicator
       (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
-        src = fetchzip {
+        src = pkgs.fetchzip {
           url = "https://github.com/harshadgavali/gnome-gesture-improvements/files/12841762/gestureImprovements%40gestures.zip";
           inherit sha256;
           stripRoot = false;
