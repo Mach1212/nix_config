@@ -235,6 +235,12 @@
           show-controls-icons = false;
           show-label = false;
         };
+        "/org/gnome/settings-daemon/plugins/color" = {
+          night-light-schedule-to = 3.5;
+          night-light-schedule-from = 22.0;
+          night-light-enabled = true;
+          night-light-temperature = 2362;
+        };
       };
     };
     
