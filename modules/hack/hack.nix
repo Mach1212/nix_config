@@ -5,8 +5,11 @@
     home.packages = with pkgs; [
       ghidra
       burpsuite
-      nmap
       wireshark
+      zap
+      dirbuster
+      sqlmap
+      rustscan
     ];
   };
 }
