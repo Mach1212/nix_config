@@ -55,6 +55,7 @@
         ];
         hackModules = [
           ./modules/hack/aircrack-ng.nix
+          ./modules/hack/hack.nix
         ];
         sshModules = [
           ./modules/ssh.nix
