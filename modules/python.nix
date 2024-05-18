@@ -20,10 +20,10 @@
       ]))
     ];
 
-    # xdg.configFile."pip/pip.conf".text = ''
-    #   [global]
-    #   target=/home/${primaryUser}/.pip-global
-    # '';
+    xdg.configFile."pip/pip.conf".text = ''
+      [global]
+      target=/home/${primaryUser}/.pip-global
+    '';
 
     programs.bash = {
       shellAliases = {
