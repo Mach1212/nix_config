@@ -17,7 +17,7 @@
     home.file.".rustscan.toml".text = ''
       range = { start = 1, end = 65535 }
       batch_size = 600
-      tries = 5
+      tries = 3
       
       # The hashmap of {ports: {1:1}}
       [ports]
