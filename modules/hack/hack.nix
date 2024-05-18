@@ -15,6 +15,8 @@
       exploitdb
       metasploit
       armitage
+      inetutils
+      iw
     ];
     
     home.file.".rustscan.toml".text = ''
