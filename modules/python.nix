@@ -23,6 +23,7 @@
     xdg.configFile."pip/pip.conf".text = ''
       [global]
       target=/home/${primaryUser}/.pip-global
+      upgrade=true
     '';
 
     programs.bash = {
