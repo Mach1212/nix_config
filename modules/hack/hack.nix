@@ -14,6 +14,7 @@
       rustscan
       wpscan
       ssh-audit
+      wireshark
     ];
     
     home.file.".rustscan.toml".text = ''
