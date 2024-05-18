@@ -29,7 +29,7 @@
       enable = true;
       enableCompletion = true;
       shellAliases = {
-        get = "nixshell -p";
+        get = "nix-shell -p";
         cd = "z ";
         grep = "rg";
         find = "fd";
