@@ -11,6 +11,7 @@
       sqlmap
       rustscan
       wpscan
+      ssh-audit
     ];
   };
 }
