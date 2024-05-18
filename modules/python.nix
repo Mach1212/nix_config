@@ -22,7 +22,7 @@
 
     xdg.configFile."pip/pip.conf".text = ''
       [global]
-      user=true
+      target=/home/${primaryUser}/.pip-global
     '';
 
     programs.bash = {
