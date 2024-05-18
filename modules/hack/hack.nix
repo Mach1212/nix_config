@@ -12,6 +12,9 @@
       rustscan
       wpscan
       ssh-audit
+      exploitdb
+      metasploit
+      armitage
     ];
     
     home.file.".rustscan.toml".text = ''
