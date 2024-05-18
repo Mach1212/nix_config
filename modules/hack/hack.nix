@@ -3,20 +3,17 @@
 {
   home-manager.users.${primaryUser} = {
     home.packages = with pkgs; [
+      inetutils
+      iw
       ghidra
       burpsuite
       wireshark
       zap
-      dirbuster
+      gobuster
       sqlmap
       rustscan
       wpscan
       ssh-audit
-      exploitdb
-      metasploit
-      armitage
-      inetutils
-      iw
     ];
     
     home.file.".rustscan.toml".text = ''
