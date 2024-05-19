@@ -55,6 +55,7 @@
       pkgs.kubernetes-helm
       pkgs.ansible-lint
       pkgs.kompose
+      pkgs.kail
     ];
 
     programs.bash = {
