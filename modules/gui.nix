@@ -260,7 +260,7 @@
           custom-font = "AurulentSansM Nerd Font Mono 10";
         };
         "org/gnome/shell" = {
-          favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-dev.desktop" "org.gnome.Console.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
+          favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-beta.desktop" "org.gnome.Console.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
         };
         "org/gnome/nautilus/preferences" = {
           default-folder-viewer = "list-view";
