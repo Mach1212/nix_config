@@ -5,7 +5,7 @@
     home.packages = with pkgs; [
       aircrack-ng
       wifite2
-      cowpatty
+      bettercap
     ];
   };
 }
