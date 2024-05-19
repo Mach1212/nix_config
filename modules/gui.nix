@@ -282,7 +282,7 @@
     };
     
     home.packages = [
-      pkgs.microsoft-edge-dev
+      pkgs.microsoft-edge-beta
       pkgs.betterdiscordctl
       pkgs.vesktop
       pkgs.spotify
