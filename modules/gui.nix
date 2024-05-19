@@ -278,6 +278,9 @@
         "org/gnome/shell/keybindings" = {
           show-screenshot-ui = ["<Shift><Super>s"];
         };
+        "org.gnome.terminal.legacy" = {
+          headerbar = false;
+        };
       };
     };
     
