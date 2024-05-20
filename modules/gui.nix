@@ -66,6 +66,7 @@
       gnomeExtensions.media-controls
       gnomeExtensions.gtk4-desktop-icons-ng-ding
       gnomeExtensions.clipboard-history
+      gnomeExtensions.gsconnect
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
