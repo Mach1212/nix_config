@@ -143,6 +143,7 @@
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
               ./modules/speedtest.nix
+              ./modules/openvpn.nix
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem
