@@ -3,7 +3,7 @@
 {
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      pkgs.speedtest
+      pkgs.speedtest-cli
     ];
   };
 }
