@@ -142,6 +142,7 @@
 	            ./hosts/mach12/configuration.nix
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
+              ./modules/speedtest.nix
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem

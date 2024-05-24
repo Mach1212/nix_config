@@ -190,6 +190,7 @@
             "mediacontrols@cliffniff.github.com"
             "gestureImprovements@gestures"
             "clipboard-history@alexsaveau.dev"
+            "gsconnect@andyholmes.github.io"
           ];
         };
         "org/gnome/desktop/wm/preferences" = {
@@ -223,7 +224,7 @@
           status-icon-padding = 4;
           leftbox-padding = 4;
           animate-appicon-hover = true;
-          click-action = "LAUNCH";
+          # click-action = "LAUNCH";
         };
         "org/gnome/shell/extensions/arcmenu" = {
           menu-layout = "Eleven";
