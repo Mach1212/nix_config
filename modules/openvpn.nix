@@ -3,7 +3,8 @@
 {
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      pkgs.openvpn3
+      pkgs.openvpn
+      # pkgs.openvpn3
     ];
   };
 }
