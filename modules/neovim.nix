@@ -11,7 +11,7 @@
     home.packages =
       let
         rust = pkgs.rust-bin.stable.latest.default.override {
-          extensions = [ "core" ];
+          extensions = [ "rust-std" ];
           targets = [ "wasm32-unknown-unknown" ];
         };
       in
