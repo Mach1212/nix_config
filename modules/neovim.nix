@@ -12,7 +12,7 @@
       let
         rust = pkgs.rust-bin.stable.latest.default.override {
           extensions = [ "rust-src" ];
-          targets = [ "arm-unknown-linux-gnueabihf" ];
+          targets = [ "wasm32-unknown-unknown" ];
         };
       in
       [
