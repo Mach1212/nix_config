@@ -10,6 +10,7 @@
       pkgs.ripgrep
       pkgs.fd
       pkgs.rcon
+      pkgs.lm_sensors
     ];
 
     programs.neovim = {
@@ -38,6 +39,7 @@
         ps = "procs";
         tree = "ls --tree";
         rmzi = "rm -rf *Zone.Identifier";
+        perfmon = ''watch -n.1 "sensors | rg 'CPU|PPT'"'';
 
         grepl = "rg -i 'warn\w*|fatal\w*|error\w*|e\d{3,4}|fail\w*'";
         greplp = "grepl --passthrough";
