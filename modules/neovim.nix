@@ -18,7 +18,7 @@
         # extensions = [ "rust-src" ];
         targets = [ "wasm32-unknown-unknown" ];
       }
-      pkgs.rust-bin.selectLatestNightlyWith (toolchain: toolchain.default)
+      # pkgs.rust-bin.selectLatestNightlyWith (toolchain: toolchain.default)
       # pkgs.poetry
       pkgs.gum
       pkgs.ripgrep
