@@ -14,7 +14,11 @@
       pkgs.unzip
       pkgs.lazygit
       pkgs.gitflow
-      pkgs.rust-bin.stable.latest.default
+      pkgs.rust-bin.stable.latest.default.override {
+        # extensions = [ "rust-src" ];
+        targets = [ "wasm32-unknown-unknown" ];
+      }
+      pkgs.rust-bin.selectLatestNightlyWith (toolchain: toolchain.default)
       # pkgs.poetry
       pkgs.gum
       pkgs.ripgrep
