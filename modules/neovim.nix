@@ -8,25 +8,32 @@
 
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
   home-manager.users."${primaryUser}" = {
-    home.packages = [
-      pkgs.gcc
-      pkgs.wget
-      pkgs.unzip
-      pkgs.lazygit
-      pkgs.gitflow
-      pkgs.rust-bin.stable.latest.default
-      # pkgs.poetry
-      pkgs.gum
-      pkgs.ripgrep
-      pkgs.nodejs_22
-      pkgs.lua54Packages.luarocks-nix
-      pkgs.go
-      pkgs.php83Packages.composer
-      pkgs.jdk22
-      pkgs.gnumake
-      pkgs.shellcheck
-      pkgs.cmake
-    ];
+    home.packages =
+      let
+        rust = pkgs.rust-bin.stable.latest.default.override {
+          extensions = [ "rust-src" ];
+          targets = [ "arm-unknown-linux-gnueabihf" ];
+        };
+      in
+      [
+        pkgs.gcc
+        pkgs.wget
+        pkgs.unzip
+        pkgs.lazygit
+        pkgs.gitflow
+        rust
+        # pkgs.poetry
+        pkgs.gum
+        pkgs.ripgrep
+        pkgs.nodejs_22
+        pkgs.lua54Packages.luarocks-nix
+        pkgs.go
+        pkgs.php83Packages.composer
+        pkgs.jdk22
+        pkgs.gnumake
+        pkgs.shellcheck
+        pkgs.cmake
+      ];
 
     programs.bash = {
       bashrcExtra = ''
