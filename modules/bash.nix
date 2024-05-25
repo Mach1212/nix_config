@@ -11,6 +11,7 @@
       pkgs.fd
       pkgs.rcon
       pkgs.lm_sensors
+      pkgs.ryzenadj
     ];
 
     programs.neovim = {
