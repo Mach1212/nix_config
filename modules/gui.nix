@@ -19,7 +19,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.sysprof.enable = true;
-  
+
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   environment = {
@@ -70,7 +70,7 @@
     ];
   };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  
+
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "AurulentSansMono" ]; })
   ];
@@ -93,11 +93,11 @@
             hash = "sha256-I/U+ebpRM0sXZchs/viRmfX1ZeJgei41ax/dlcDWxu8=";
           };
 
-          nativeBuildInputs = [ 
+          nativeBuildInputs = [
             pkgs.gtk4
             pkgs.gnome.gnome-shell
           ];
-          
+
           buildInputs = [
             pkgs.gnome.gnome-themes-extra
             pkgs.sassc
@@ -178,9 +178,9 @@
           tap-to-click = true;
         };
         "org/gnome/shell" = {
-          disabled-extensions = [];
+          disabled-extensions = [ ];
           enabled-extensions = [
-            "user-theme@gnome-shell-extensions.gcampax.github.com" 
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
             "drive-menu@gnome-shell-extensions.gcampax.github.com"
             "dash-to-panel@jderose9.github.com"
             "date-menu-formatter@marcinjakubowski.github.com"
@@ -262,7 +262,7 @@
           custom-font = "AurulentSansM Nerd Font Mono 10";
         };
         "org/gnome/shell" = {
-          favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-beta.desktop" "org.gnome.Console.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
+          favorite-apps = [ "org.gnome.Nautilus.desktop" "microsoft-edge-beta.desktop" "org.gnome.Console.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
         };
         "org/gnome/nautilus/preferences" = {
           default-folder-viewer = "list-view";
@@ -278,14 +278,14 @@
           sort-enabled-first = true;
         };
         "org/gnome/shell/keybindings" = {
-          show-screenshot-ui = ["<Shift><Super>s"];
+          show-screenshot-ui = [ "<Shift><Super>s" ];
         };
         "org.gnome.terminal.legacy" = {
           headerbar = false;
         };
       };
     };
-    
+
     home.packages = [
       pkgs.microsoft-edge-beta
       pkgs.betterdiscordctl
@@ -306,4 +306,13 @@
       hash = "sha256-FDAOGpX9oiS18xEYbEyfEft9kbFCbRncBaHoIJ5qV3c=";
     };
   };
+
+  networking.firewall.allowedTCPPortRanges = [
+    # KDE Connect
+    { from = 1714; to = 1764; }
+  ];
+  networking.firewall.allowedUDPPortRanges = [
+    # KDE Connect
+    { from = 1714; to = 1764; }
+  ];
 }
