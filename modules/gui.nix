@@ -283,40 +283,44 @@
         };
         "org/gnome/shell/keybindings" = {
           show-screenshot-ui = [ "<Shift><Super>s" ];
+          switch-applications = [ ];
+          switch-applications-backwards = [ ];
+          switch-windows = ''<Alt>Tab'';
+          switch-windows-backward = ''<Shift><Alt>Tab'';
+
+          "org.gnome.terminal.legacy" = {
+            headerbar = false;
+          };
         };
-        "org.gnome.terminal.legacy" = {
-          headerbar = false;
-        };
+      };
+
+      home.packages = [
+        pkgs.microsoft-edge-beta
+        pkgs.betterdiscordctl
+        pkgs.vesktop
+        pkgs.spotify
+      ];
+
+      home.file.".config/background-light.jpg".source = pkgs.fetchurl {
+        url = "https://4kwallpapers.com/images/wallpapers/windows-11-blue-stock-white-background-light-official-3840x2400-5616.jpg";
+        hash = "sha256-o3SRpeR54ZHP5Ue0hEJgN0Vc6KrP96sV+RklMwwkhk8=";
+      };
+      home.file.".config/background-dark.jpg".source = pkgs.fetchurl {
+        url = "https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-blue-stock-official-3840x2400-5630.jpg";
+        hash = "sha256-1UJiAyV0sVzPVB5A+hNHX/s52GgsGTg+kX8+1ei7ynE=";
+      };
+      home.file.".config/windows-icon.png".source = pkgs.fetchurl {
+        url = "https://drive.usercontent.google.com/uc?id=1oevGvxjvQzwtgn00sbB8_kTyQ8ZGkAYn&authuser=0&export=download";
+        hash = "sha256-FDAOGpX9oiS18xEYbEyfEft9kbFCbRncBaHoIJ5qV3c=";
       };
     };
 
-    home.packages = [
-      pkgs.microsoft-edge-beta
-      pkgs.betterdiscordctl
-      pkgs.vesktop
-      pkgs.spotify
+    networking.firewall.allowedTCPPortRanges = [
+      # KDE Connect
+      { from = 1714; to = 1764; }
     ];
-
-    home.file.".config/background-light.jpg".source = pkgs.fetchurl {
-      url = "https://4kwallpapers.com/images/wallpapers/windows-11-blue-stock-white-background-light-official-3840x2400-5616.jpg";
-      hash = "sha256-o3SRpeR54ZHP5Ue0hEJgN0Vc6KrP96sV+RklMwwkhk8=";
-    };
-    home.file.".config/background-dark.jpg".source = pkgs.fetchurl {
-      url = "https://4kwallpapers.com/images/wallpapers/windows-11-dark-mode-blue-stock-official-3840x2400-5630.jpg";
-      hash = "sha256-1UJiAyV0sVzPVB5A+hNHX/s52GgsGTg+kX8+1ei7ynE=";
-    };
-    home.file.".config/windows-icon.png".source = pkgs.fetchurl {
-      url = "https://drive.usercontent.google.com/uc?id=1oevGvxjvQzwtgn00sbB8_kTyQ8ZGkAYn&authuser=0&export=download";
-      hash = "sha256-FDAOGpX9oiS18xEYbEyfEft9kbFCbRncBaHoIJ5qV3c=";
-    };
-  };
-
-  networking.firewall.allowedTCPPortRanges = [
-    # KDE Connect
-    { from = 1714; to = 1764; }
-  ];
-  networking.firewall.allowedUDPPortRanges = [
-    # KDE Connect
-    { from = 1714; to = 1764; }
-  ];
-}
+    networking.firewall.allowedUDPPortRanges = [
+      # KDE Connect
+      { from = 1714; to = 1764; }
+    ];
+  }
