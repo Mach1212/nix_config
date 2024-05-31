@@ -71,9 +71,9 @@
           ./modules/k3s.nix
           ./modules/ssh/mach12_pub.nix
         ];
-        iso = system 
-        ++ sshModules
-        ++ [
+        iso = system
+          ++ sshModules
+          ++ [
           <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix>
           ./hosts/iso/configuration.nix
         ];
@@ -95,7 +95,7 @@
           {
             specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
             system = "x86_64-linux";
-            modules = system 
+            modules = system
               ++ sshModules
               ++ kubeModules;
           };
@@ -136,14 +136,16 @@
             modules = system
               ++ devModules
               ++ sshModules
-	            ++ guiModules
-	            ++ hackModules
+              ++ guiModules
+              ++ hackModules
               ++ [
-	            ./hosts/mach12/configuration.nix
+              ./hosts/mach12/configuration.nix
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
               ./modules/speedtest.nix
               ./modules/openvpn.nix
+            ] ++ [
+              ./modules/arduino.nix
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem
