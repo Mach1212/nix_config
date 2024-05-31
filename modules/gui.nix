@@ -300,6 +300,7 @@
       pkgs.betterdiscordctl
       pkgs.vesktop
       pkgs.spotify
+      pkgs.arduino-ide
     ];
 
     home.file.".config/background-light.jpg".source = pkgs.fetchurl {
