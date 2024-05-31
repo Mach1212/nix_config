@@ -9,14 +9,14 @@
 
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      (pkgs.python312.withPackages (python-pkgs: [
-        python-pkgs.pip
-        python-pkgs.setuptools
-        python-pkgs.numpy
-        python-pkgs.pandas
-        python-pkgs.requests
-        python-pkgs.matplotlib
-        python-pkgs.seaborn
+      (pkgs.python312.withPackages (python-pkgs: with python-pkgs; [
+        pip
+        setuptools
+        numpy
+        pandas
+        requests
+        matplotlib
+        seaborn
       ]))
     ];
 
@@ -24,7 +24,7 @@
       [global]
       target=/home/${primaryUser}/.pip-global
       upgrade=true
-      upgrade-strategy=only-if-needed
+      upgrade-strategy= only-if-needed
     '';
 
     programs.bash = {
