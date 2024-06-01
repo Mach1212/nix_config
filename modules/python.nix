@@ -17,6 +17,7 @@
         requests
         matplotlib
         seaborn
+        pyserial
       ]))
     ];
 
