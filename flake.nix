@@ -32,7 +32,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, nix-snapd, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, nix-snapd, nixos-hardware, ... }@inputs: {
     nixosConfigurations =
       let
         base = [
