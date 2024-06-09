@@ -25,9 +25,13 @@
     #   url = "git+ssh://git@github.com/Mach1212/k3s.git";
     #   flake = false;
     # };
+    nix-snapd = {
+      url = "github:nix-community/nix-snapd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, nix-snapd, ... }@inputs: {
     nixosConfigurations =
       let
         base = [
@@ -146,6 +150,10 @@
               ./modules/openvpn.nix
             ] ++ [
               ./modules/arduino.nix
+              nix-snapd.nixosModules.default
+              {
+                services.snap.enable = true;
+              }
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem
