@@ -29,6 +29,7 @@
       url = "github:nix-community/nix-snapd";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-wsl, rust-overlay, nix-snapd, ... }@inputs: {
@@ -142,6 +143,9 @@
               ++ sshModules
               ++ guiModules
               ++ hackModules
+              ++ [
+              <nixos-hardware/lenovo/thinkpad/e14/amd>
+            ]
               ++ [
               ./hosts/mach12/configuration.nix
               ./modules/kubernetes.nix

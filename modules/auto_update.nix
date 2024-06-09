@@ -21,6 +21,8 @@
       "nix-config "
       "--update-input"
       "nix-snapd"
+      "--update-input"
+      "nixos-hardware"
       "--commit-lock-file"
       "-L"
     ];

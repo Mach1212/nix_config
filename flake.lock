@@ -123,11 +123,11 @@
     "nix-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1717202712,
-        "narHash": "sha256-h7dQENLoxgCt36q2U3G7BjADps5KIK33jx8xbg2LiSI=",
+        "lastModified": 1717954350,
+        "narHash": "sha256-Q2R2kTwGqhGoKZgv0lAQnrLNko5BaFd11oPUbXxZFbA=",
         "owner": "Mach1212",
         "repo": "nix_config",
-        "rev": "9786141c5b4f682586c1e8907847d1fccee24e5b",
+        "rev": "bddc6d6efeab31ce69de3e08c22a5e6069375ebe",
         "type": "github"
       },
       "original": {
@@ -155,6 +155,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "nix-snapd",
+        "type": "github"
+      }
+    },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1717828156,
+        "narHash": "sha256-YvstO0lobf3JWQuAfZCLYRTROC2ZDEgtWeQtWbO49p4=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "057a7996d012f342a38a26261ee529cebb1755ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
         "type": "github"
       }
     },
@@ -260,6 +276,7 @@
         "home-manager": "home-manager",
         "nix-config": "nix-config",
         "nix-snapd": "nix-snapd",
+        "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
         "rust-overlay": "rust-overlay",
