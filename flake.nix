@@ -82,6 +82,12 @@
           <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix>
           ./hosts/iso/configuration.nix
         ];
+        gameModules = [
+          nix-snapd.nixosModules.default
+          {
+            services.snap.enable = true;
+          }
+        ];
       in
       {
         amd64_iso = nixpkgs.lib.nixosSystem
@@ -143,6 +149,7 @@
               ++ sshModules
               ++ guiModules
               ++ hackModules
+              ++ gameModules
               ++ [
               ./hosts/mach12/configuration.nix
               nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
@@ -152,10 +159,6 @@
               ./modules/openvpn.nix
             ] ++ [
               ./modules/arduino.nix
-              nix-snapd.nixosModules.default
-              {
-                services.snap.enable = true;
-              }
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem
