@@ -145,7 +145,7 @@
               ++ hackModules
               ++ [
               ./hosts/mach12/configuration.nix
-              nixos-hardware.lenovo-thinkpad-e14-amd
+              nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
               ./modules/kubernetes.nix
               ./modules/dynamic_linking.nix
               ./modules/speedtest.nix
