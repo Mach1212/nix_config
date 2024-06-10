@@ -31,7 +31,7 @@
       enable = true;
       enableCompletion = true;
       shellAliases = {
-        get = "nix-shell -p";
+        get = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
         cd = "z ";
         grep = "rg";
         find = "fd";
@@ -55,11 +55,12 @@
         export EDITOR=nvim
       '';
       initExtra =
-        let complete_alias_path = builtins.fetchGit
-          {
-            url = "https://github.com/cykerway/complete-alias.git";
-            rev = "7f2555c2fe7a1f248ed2d4301e46c8eebcbbc4e2";
-          } + "/complete_alias";
+        let
+          complete_alias_path = builtins.fetchGit
+            {
+              url = "https://github.com/cykerway/complete-alias.git";
+              rev = "7f2555c2fe7a1f248ed2d4301e46c8eebcbbc4e2";
+            } + "/complete_alias";
         in
         builtins.readFile (complete_alias_path)
         + ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"'';
