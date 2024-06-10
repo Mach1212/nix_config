@@ -84,8 +84,10 @@
         ];
         gameModules = [
           nix-snapd.nixosModules.default
+          ./modules/mangohud.nix
+          ./modules/snap.nix
           {
-            services.snap.enable = true;
+            programs.gamemode.enable = true;
           }
         ];
       in
