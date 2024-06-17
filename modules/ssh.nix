@@ -1,4 +1,4 @@
-{ config, pkgs, primaryUser, auth, ... }:
+{ config, pkgs, primaryUser, ... }:
 
 {
   imports = [
