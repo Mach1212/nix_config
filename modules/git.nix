@@ -1,4 +1,4 @@
-{ config, pkgs, lib, primaryUser, ... }:
+{ config, pkgs, lib, primaryUser, auth, ... }:
 
 {
   home-manager.users."${primaryUser}" = {
@@ -14,14 +14,24 @@
         };
       }
       {
-        "mach12" = {
-          userName = "Mach1212";
-          userEmail = "maciej.pruchnik@gmail.com";
-          extraConfig = {
-            credential = { helper = "store"; };
-            branch = { autosetuprebase = "always"; };
-          };
-        };
+        "mach12" = lib.mkMerge [
+          {
+            "mach12" = {
+              userName = "Mach1212";
+              userEmail = "maciej.pruchnik@gmail.com";
+            };
+            "work" = {
+              userName = "Maciej-Pruchnik";
+              userEmail = "maciej.pruchnik@ibm.com";
+            };
+          }."${auth}"
+          {
+            extraConfig = {
+              credential = { helper = "store"; };
+              branch = { autosetuprebase = "always"; };
+            };
+          }
+        ];
         "nixos" = { };
       }."${primaryUser}"
     ];

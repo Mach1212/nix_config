@@ -94,19 +94,19 @@
       {
         amd64_iso = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; auth = [ "mach12" ]; };
             system = "x86_64-linux";
             modules = iso;
           };
         arm64_iso = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; auth = [ "mach12" ]; };
             system = "aarch64-linux";
             modules = iso;
           };
         amd64_kube_worker = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; auth = [ "mach12" ]; };
             system = "x86_64-linux";
             modules = system
               ++ sshModules
@@ -114,7 +114,7 @@
           };
         arm64_kube_worker = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; auth = [ "mach12" ]; };
             system = "aarch64-linux";
             modules = system
               ++ sshModules
@@ -122,7 +122,7 @@
           };
         arm64_kube_master = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; auth = [ "mach12" ]; };
             system = "aarch64-linux";
             modules = system
               ++ sshModules
@@ -130,13 +130,13 @@
           };
         mach12rpi = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "rpi"; hostname = "mach12rpi"; };
+            specialArgs = { inherit inputs; primaryUser = "rpi"; hostname = "mach12rpi"; auth = [ "mach12" ]; };
             system = "aarch64-linux";
             modules = system;
           };
         wsl = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "wsl"; };
+            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "wsl"; auth = [ "mach12" ]; };
             system = "x86_64-linux";
             modules = system
               ++ wslModules
@@ -144,7 +144,7 @@
           };
         mach12laptop = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; };
+            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; auth = [ "mach12" ]; };
             system = "x86_64-linux";
             modules = system
               ++ devModules
@@ -165,7 +165,7 @@
           };
         mach12wsl = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "wsl"; };
+            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "wsl"; auth = [ "mach12" ]; };
             system = "x86_64-linux";
             modules = system
               ++ wslModules
@@ -176,9 +176,20 @@
               ./modules/dynamic_linking.nix
             ];
           };
+        mach12work = nixpkgs.lib.nixosSystem
+          {
+            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "work"; auth = [ "work" ]; };
+            system = "x86_64-linux";
+            modules = system
+              ++ wslModules
+              ++ devModules
+              ++ [
+              ./modules/dynamic_linking.nix
+            ];
+          };
         mach12read = nixpkgs.lib.nixosSystem
           {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "booktop"; };
+            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "booktop"; auth = [ "mach12" ]; };
             system = "x86_64-linux";
             modules = system
               ++ sshModules
