@@ -58,13 +58,12 @@
       gnome.gnome-tweaks
       gnome.gnome-themes-extra
       gnomeExtensions.appindicator
-      gnomeExtensions.x11-gestures
-      # (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
-      #   src = fetchzip {
-      #     url = "https://github.com/harshadgavali/gnome-gesture-improvements/files/12841762/gestureImprovements%40gestures.zip";
-      #     hash = "sha256-8I1uQOEjIwIg2WCxYxlVj2I025/L209K5gg2NPSV5Qo=";
-      #   };
-      # }))
+      (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
+        src = fetchzip {
+          url = "https://github.com/harshadgavali/gnome-gesture-improvements/files/12841762/gestureImprovements%40gestures.zip";
+          hash = "sha256-8I1uQOEjIwIg2WCxYxlVj2I025/L209K5gg2NPSV5Qo=";
+        };
+      }))
       gnomeExtensions.dash-to-panel
       gnomeExtensions.arcmenu
       gnomeExtensions.blur-my-shell
@@ -195,8 +194,7 @@
             "arcmenu@arcmenu.com"
             "blur-my-shell@aunetx"
             "mediacontrols@cliffniff.github.com"
-            # "gestureImprovements@gestures"
-            "x11gestures@joseexposito.github.io"
+            "gestureImprovements@gestures"
             "clipboard-history@alexsaveau.dev"
             "gsconnect@andyholmes.github.io"
           ];
@@ -323,8 +321,6 @@
   services.logind = {
     lidSwitchDocked = "suspend";
   };
-
-  services.touchegg.enable = true;
 
   networking.firewall.allowedTCPPortRanges = [
     # KDE Connect
