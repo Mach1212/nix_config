@@ -161,6 +161,15 @@
               ./modules/openvpn.nix
             ] ++ [
               ./modules/arduino.nix
+              ({ pkgs, primaryUser }: {
+                home-manager.users."${primaryUser}" = {
+                  programs.zellij = {
+                    settings = {
+                      copy_command = "wl-copy";
+                    };
+                  };
+                };
+              })
             ];
           };
         mach12wsl = nixpkgs.lib.nixosSystem
