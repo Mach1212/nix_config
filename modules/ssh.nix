@@ -1,4 +1,4 @@
-{ config, pkgs, primaryUser, ... }:
+{ config, pkgs, primaryUser, auth, ... }:
 
 {
   imports = [
@@ -6,12 +6,15 @@
   ];
 
   sops.secrets = {
-    "ssh/id_rsa" = {
+    "ssh/private/${auth}" = {
       owner = primaryUser;
       path = "/home/${primaryUser}/.ssh/id_rsa";
     };
+    "ssh/public/${auth}" = {
+      owner = primaryUser;
+      path = "/home/${primaryUser}/.ssh/id_rsa.pub";
+    };
   };
-
 
   services.openssh = {
     enable = true;

@@ -5,14 +5,6 @@
     pkgs.wslu
   ];
 
-  environment.systemPackages = lib.mkDefault [
-    (import ./win32yank.nix { inherit pkgs; })
-  ];
-
-  specialisation.nonLocalYank.configuration = {
-    environment.systemPackages = [ ];
-  };
-
   wsl = {
     enable = true;
     defaultUser = "${primaryUser}";

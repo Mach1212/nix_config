@@ -57,6 +57,7 @@
         devModules = [
           ./modules/neovim.nix
           ./modules/zellij.nix
+          ./modules/dynamic_linking.nix
         ];
         hackModules = [
           ./modules/hack/aircrack-ng.nix
@@ -156,7 +157,6 @@
               ./hosts/mach12/configuration.nix
               nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
               ./modules/kubernetes.nix
-              ./modules/dynamic_linking.nix
               ./modules/speedtest.nix
               ./modules/openvpn.nix
             ] ++ [
@@ -173,7 +173,6 @@
               ++ sshModules
               ++ [
               ./modules/kubernetes.nix
-              ./modules/dynamic_linking.nix
             ];
           };
         mach12work = nixpkgs.lib.nixosSystem
@@ -184,7 +183,7 @@
               ++ wslModules
               ++ devModules
               ++ [
-              ./modules/dynamic_linking.nix
+              ./modules/ssh.nix
             ];
           };
         mach12read = nixpkgs.lib.nixosSystem
