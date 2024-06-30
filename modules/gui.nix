@@ -58,7 +58,6 @@
       gnome.gnome-tweaks
       gnome.gnome-themes-extra
       gnomeExtensions.appindicator
-      touchegg
       gnomeExtensions.x11-gestures
       # (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
       #   src = fetchzip {
@@ -76,6 +75,7 @@
       gnomeExtensions.gsconnect
     ];
   };
+
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   fonts.packages = with pkgs; [
@@ -196,6 +196,7 @@
             "blur-my-shell@aunetx"
             "mediacontrols@cliffniff.github.com"
             # "gestureImprovements@gestures"
+            "x11gestures@joseexposito.github.io"
             "clipboard-history@alexsaveau.dev"
             "gsconnect@andyholmes.github.io"
           ];
@@ -322,6 +323,8 @@
   services.logind = {
     lidSwitchDocked = "suspend";
   };
+
+  services.touchegg.enable = true;
 
   networking.firewall.allowedTCPPortRanges = [
     # KDE Connect
