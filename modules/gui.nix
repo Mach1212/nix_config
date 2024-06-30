@@ -11,6 +11,7 @@
             rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
             sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
           };
+          nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.cmake ];
         });
       });
     })
