@@ -161,7 +161,7 @@
               ./modules/openvpn.nix
             ] ++ [
               ./modules/arduino.nix
-              ({ pkgs, primaryUser }: {
+              ({ pkgs, primaryUser, ... }: {
                 home-manager.users."${primaryUser}" = {
                   programs.zellij = {
                     settings = {
