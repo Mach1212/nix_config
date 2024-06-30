@@ -316,6 +316,10 @@
     };
   };
 
+  services.logind = {
+    lidSwitchDocked = "suspend";
+  };
+
   networking.firewall.allowedTCPPortRanges = [
     # KDE Connect
     { from = 1714; to = 1764; }
