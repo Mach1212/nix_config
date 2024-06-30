@@ -174,7 +174,7 @@
           color-scheme = "prefer-dark";
         };
         "org/gnome/desktop/peripherals/mouse" = {
-          speed = 1.0;
+          speed = 0.0;
           accel-profile = "flat";
         };
         "org/gnome/desktop/peripherals/touchpad" = {
@@ -288,9 +288,8 @@
           switch-windows = ''<Alt>Tab'';
           switch-windows-backward = ''<Shift><Alt>Tab'';
         };
-
-        "org.gnome.terminal.legacy" = {
-          headerbar = false;
+        "org/gnome/shell/extensions/gsconnect/device/2eb7dc7a_46ab_441f_9a89_c41dc32ab8d0/plugin/telephony" = {
+          ringing-pause = true;
         };
       };
     };
