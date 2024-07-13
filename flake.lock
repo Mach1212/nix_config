@@ -3,11 +3,11 @@
     "astro-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1719706541,
-        "narHash": "sha256-/qitkx1ANC1LJOUr1Ht6tkrP0X42G1aHy4UrylOQ0Wk=",
+        "lastModified": 1720893196,
+        "narHash": "sha256-vfAuETXRdJziNRxQGMcMUKPxj1aUrDRh9dH7f2st/TQ=",
         "owner": "Mach1212",
         "repo": "astro_config",
-        "rev": "78da107ccc70303b615ba530ea45c81b10e7c8c3",
+        "rev": "5f7f5c6debc5d7cabfa14980f6ce11fe79e13935",
         "type": "github"
       },
       "original": {
@@ -123,11 +123,11 @@
     "nix-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1719778998,
-        "narHash": "sha256-eB3VQQzSH+DtmYf2sft249kPfvFISPmldKy1b6rxUsM=",
+        "lastModified": 1719780076,
+        "narHash": "sha256-W9z865kSw2YxTHcaDZnjLD5ftLPWweaJRayIXHod7GU=",
         "owner": "Mach1212",
         "repo": "nix_config",
-        "rev": "6fd5e937ecb5ccb03162f5154ffda2090a853e11",
+        "rev": "7f0e637ebb280b3c00e43df009ca118942030541",
         "type": "github"
       },
       "original": {
