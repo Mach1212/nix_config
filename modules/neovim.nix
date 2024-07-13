@@ -29,6 +29,7 @@
       pkgs.gnumake
       pkgs.shellcheck
       pkgs.cmake
+      pkgs.lazydocker
     ];
 
     programs.bash = {
