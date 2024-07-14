@@ -302,13 +302,13 @@
       pkgs.vesktop
       pkgs.spotify
       pkgs.arduino-ide
-      pkgs.badlion-client.overrideAttrs
-      (old: {
-        src = pkgs.fetchurl {
-          url = "https://client-updates-cdn77.badlion.net/BadlionClient";
-          hash = "sha256-9elNLSqCO21m1T2D+WABKotD9FfW3FrcOxbnPdyVd+w=";
-        };
-      })
+      (pkgs.badlion-client.overrideAttrs
+        (old: {
+          src = pkgs.fetchurl {
+            url = "https://client-updates-cdn77.badlion.net/BadlionClient";
+            hash = "sha256-9elNLSqCO21m1T2D+WABKotD9FfW3FrcOxbnPdyVd+w=";
+          };
+        }))
     ];
 
     home.file.".config/background-light.jpg".source = pkgs.fetchurl {
