@@ -302,6 +302,7 @@
       pkgs.vesktop
       pkgs.spotify
       pkgs.arduino-ide
+      pkgs.badlion-client
     ];
 
     home.file.".config/background-light.jpg".source = pkgs.fetchurl {
