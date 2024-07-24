@@ -1,12 +1,13 @@
 { config, pkgs, primaryUser, ... }:
 
 {
+  virtualisation.docker.enable = true;
 
-  users.users.${primaryUser}.extraGroups = [ "dialout" ];
+  users.users.${primaryUser}.extraGroups = [ "docker" ];
 
   home-manager.users."${primaryUser}" = {
     home.packages = [
-      pkgs.arduino-ide
+      pkgs.docker
     ];
   };
 }
