@@ -159,6 +159,7 @@
               ./modules/kubernetes.nix
               ./modules/speedtest.nix
               ./modules/openvpn.nix
+              ./modules/docker.nix
             ] ++ [
               ./modules/arduino.nix
               ({ pkgs, primaryUser, ... }: {

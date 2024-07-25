@@ -22,6 +22,7 @@
       pkgs.gum
       pkgs.ripgrep
       pkgs.nodejs_22
+      pkgs.yarn
       pkgs.lua54Packages.luarocks-nix
       pkgs.go
       pkgs.php83Packages.composer
