@@ -38,7 +38,6 @@
       cheese # webcam tool
       gnome-music
       epiphany # web browser
-      gnome-terminal
       # geary # email reader
       evince # document viewer
       gnome-characters
@@ -54,6 +53,7 @@
       sysprof
       wl-clipboard
       gnome.adwaita-icon-theme
+      gnome.gnome-terminal
       gnome-extension-manager
       gnome.gnome-shell
       gnome.gnome-tweaks
@@ -269,7 +269,7 @@
           custom-font = "AurulentSansM Nerd Font Mono 10";
         };
         "org/gnome/shell" = {
-          favorite-apps = [ "org.gnome.Nautilus.desktop" "microsoft-edge-beta.desktop" "org.gnome.Console.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
+          favorite-apps = [ "org.gnome.Nautilus.desktop" "microsoft-edge-beta.desktop" "org.gnome.Terminal.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
         };
         "org/gnome/nautilus/preferences" = {
           default-folder-viewer = "list-view";
