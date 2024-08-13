@@ -31,6 +31,7 @@
     gnome.excludePackages = (with pkgs; [
       gnome-photos
       gnome-tour
+      gnome-terminal
       gedit # text editor
       xterm
     ]) ++ (with pkgs.gnome; [
