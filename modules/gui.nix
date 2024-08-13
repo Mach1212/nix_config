@@ -31,7 +31,6 @@
     gnome.excludePackages = (with pkgs; [
       gnome-photos
       gnome-tour
-      gnome-terminal
       gedit # text editor
       xterm
     ]) ++ (with pkgs.gnome; [
@@ -39,6 +38,7 @@
       cheese # webcam tool
       gnome-music
       epiphany # web browser
+      gnome-terminal
       # geary # email reader
       evince # document viewer
       gnome-characters
