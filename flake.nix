@@ -80,7 +80,7 @@
         iso = system
           ++ sshModules
           ++ [
-          <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix>
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix"
           ./hosts/iso/configuration.nix
         ];
         gameModules = [
