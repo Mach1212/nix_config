@@ -70,6 +70,7 @@
         ];
         guiModules = [
           ./modules/gui.nix
+          ./modules/fonts.nix
         ];
         kubeModules = [
           ./hosts/kube/configuration.nix
@@ -80,7 +81,8 @@
         iso = system
           ++ sshModules
           ++ [
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix"
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel.nix"
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
           ./hosts/iso/configuration.nix
         ];
         gameModules = [

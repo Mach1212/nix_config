@@ -7,6 +7,7 @@
     in
     ''
       if [ ! -d ${path} ]; then
+        mkdir -p ${path}
         cp -r ${inputs.nix-config} ${path}
       fi
     '';
