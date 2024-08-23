@@ -12,10 +12,6 @@
     };
     "ssh/public/${auth}" = {
       owner = primaryUser;
-      path = "/home/${primaryUser}/.ssh/id_rsa.pub";
-    };
-    "ssh/public/${auth}" = {
-      owner = primaryUser;
       path = "/home/${primaryUser}/.ssh/authorized_keys";
     };
   };
