@@ -25,7 +25,7 @@
       [global]
       target=/home/${primaryUser}/.pip-global
       upgrade=true
-      upgrade-strategy= only-if-needed
+      upgrade-strategy=only-if-needed
     '';
 
     programs.bash = {
