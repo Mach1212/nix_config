@@ -8,7 +8,7 @@
     ''
       if [ ! -d ${path} ]; then
         mkdir -p ${path}
-        cp -r ${inputs.astro-config} ${path}
+        cp -r ${inputs.astro-config.outPath} ${path}
         chmod -R 777 ${path}
         rm -rf ~/.pip-global
       fi
