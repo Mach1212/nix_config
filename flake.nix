@@ -42,7 +42,6 @@
         ];
         system = base ++ [
           home-manager.nixosModules.home-manager
-          inputs.nixvim.homeManagerModules.nixvim
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
