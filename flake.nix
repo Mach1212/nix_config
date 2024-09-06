@@ -2,6 +2,10 @@
   description = "Nixos config flake";
 
   inputs = {
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
     home-manager = {
@@ -42,6 +46,7 @@
         ];
         system = base ++ [
           home-manager.nixosModules.home-manager
+          inputs.nixvim.homeManagerModules.nixvim
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
@@ -95,56 +100,6 @@
         ];
       in
       {
-        amd64_iso = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; auth = "mach12"; };
-            system = "x86_64-linux";
-            modules = iso;
-          };
-        arm64_iso = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "iso"; auth = "mach12"; };
-            system = "aarch64-linux";
-            modules = iso;
-          };
-        amd64_kube_worker = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; auth = "mach12"; };
-            system = "x86_64-linux";
-            modules = system
-              ++ sshModules
-              ++ kubeModules;
-          };
-        arm64_kube_worker = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "worker"; auth = "mach12"; };
-            system = "aarch64-linux";
-            modules = system
-              ++ sshModules
-              ++ kubeModules;
-          };
-        arm64_kube_master = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "master"; auth = "mach12"; };
-            system = "aarch64-linux";
-            modules = system
-              ++ sshModules
-              ++ kubeModules;
-          };
-        mach12rpi = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "rpi"; hostname = "mach12rpi"; auth = "mach12"; };
-            system = "aarch64-linux";
-            modules = system;
-          };
-        wsl = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "nixos"; hostname = "wsl"; auth = "mach12"; };
-            system = "x86_64-linux";
-            modules = system
-              ++ wslModules
-              ++ devModules;
-          };
         mach12laptop = nixpkgs.lib.nixosSystem
           {
             specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "laptop"; auth = "mach12"; };
@@ -165,26 +120,10 @@
             ] ++ [
               ./modules/arduino.nix
               ({ pkgs, primaryUser, ... }: {
-                home-manager.users."${primaryUser}" = {
-                  programs.zellij = {
-                    settings = {
-                      copy_command = "wl-copy";
-                    };
-                  };
+                home-manager.users."${primaryUser}".programs.zellij.settings = {
+                  copy_command = "wl-copy";
                 };
               })
-            ];
-          };
-        mach12wsl = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "wsl"; auth = "mach12"; };
-            system = "x86_64-linux";
-            modules = system
-              ++ wslModules
-              ++ devModules
-              ++ sshModules
-              ++ [
-              ./modules/kubernetes.nix
             ];
           };
         mach12work = nixpkgs.lib.nixosSystem
@@ -196,17 +135,6 @@
               ++ devModules
               ++ [
               ./modules/ssh.nix
-            ];
-          };
-        mach12read = nixpkgs.lib.nixosSystem
-          {
-            specialArgs = { inherit inputs; primaryUser = "mach12"; hostname = "booktop"; auth = "mach12"; };
-            system = "x86_64-linux";
-            modules = system
-              ++ sshModules
-              ++ guiModules
-              ++ [
-              ./modules/foliate.nix
             ];
           };
       };

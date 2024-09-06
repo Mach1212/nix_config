@@ -3,7 +3,6 @@
 {
   imports = [
     ./python.nix
-    ./clone_astro_config.nix
   ];
 
   nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
