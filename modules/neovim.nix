@@ -1,36 +1,54 @@
-{ config, pkgs, inputs, primaryUser, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  primaryUser,
+  ...
+}: {
   imports = [
     ./python.nix
   ];
 
-  nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+  nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
   home-manager.users."${primaryUser}" = {
-    home.packages = [
-      pkgs.gcc
-      pkgs.wget
-      pkgs.unzip
-      pkgs.lazygit
-      pkgs.gitflow
-      (pkgs.rust-bin.stable.latest.default.override {
-        extensions = [ "rust-std" ];
-        targets = [ "wasm32-unknown-unknown" ];
+    home.packages = with pkgs; [
+      gcc
+      wget
+      unzip
+      lazygit
+      gitflow
+      (rust-bin.stable.latest.default.override {
+        extensions = ["rust-std"];
+        targets = ["wasm32-unknown-unknown"];
       })
-      # pkgs.poetry
-      pkgs.gum
-      pkgs.ripgrep
-      pkgs.nodejs_22
-      pkgs.yarn
-      pkgs.lua54Packages.luarocks-nix
-      pkgs.go
-      pkgs.php83Packages.composer
-      pkgs.jdk22
-      pkgs.gnumake
-      pkgs.shellcheck
-      pkgs.cmake
-      pkgs.lazydocker
+      # poetry
+      gum
+      ripgrep
+      nodejs_22
+      yarn
+      lua54Packages.luarocks-nix
+      go
+      php83Packages.composer
+      jdk22
+      gnumake
+      shellcheck
+      cmake
+      lazydocker
+      nixd
+      alejandra
+      firefox
     ];
+
+    programs.firefox = {
+      enable = true;
+      profiles.selenium = {
+        id = 0;
+        name = "selenium";
+        extensions = with config.nur.repos.rycee.firefox-addons; [
+          darkreader
+        ];
+      };
+    };
 
     programs.bash = {
       bashrcExtra = ''
@@ -47,7 +65,7 @@
         fi
 
         npm set prefix $HOME/.npm-global
-        
+
         export PATH=$HOME/.npm-global/bin:$PATH
         export PATH=$HOME/scripts:$PATH
         export NVIM_APPNAME=astro_config
