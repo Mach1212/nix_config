@@ -46,9 +46,6 @@
   } @ inputs: {
     nixosConfigurations = let
       base = [
-        ({primaryUser, ...}: {
-          home-manager.users."${primaryUser}".home.stateVersion = "24.11";
-        })
         ./hosts/users.nix
         ./hosts/hostname.nix
         ./hosts/time.nix
@@ -57,6 +54,9 @@
         base
         ++ [
           home-manager.nixosModules.home-manager
+          ({primaryUser, ...}: {
+            home-manager.users."${primaryUser}".home.stateVersion = "24.05";
+          })
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
