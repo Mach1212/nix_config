@@ -1,6 +1,9 @@
-{ pkgs, lib, primaryUser, ... }:
-
 {
+  pkgs,
+  lib,
+  primaryUser,
+  ...
+}: {
   nixpkgs.overlays = [
     (final: prev: {
       gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
@@ -11,7 +14,7 @@
             rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
             sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
           };
-          nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.cmake ];
+          nativeBuildInputs = old.nativeBuildInputs ++ [pkgs.cmake];
         });
       });
     })
@@ -22,31 +25,33 @@
     libinput.enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    excludePackages = [ pkgs.xterm ];
+    excludePackages = [pkgs.xterm];
   };
 
   services.sysprof.enable = true;
 
   environment = {
-    gnome.excludePackages = (with pkgs; [
-      gnome-photos
-      gnome-tour
-      gedit # text editor
-      xterm
-    ]) ++ (with pkgs.gnome; [
-      # gnome-shell-extensions
-      cheese # webcam tool
-      gnome-music
-      epiphany # web browser
-      # geary # email reader
-      evince # document viewer
-      gnome-characters
-      totem # video player
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-    ]);
+    gnome.excludePackages =
+      (with pkgs; [
+        gnome-photos
+        gnome-tour
+        gedit # text editor
+        xterm
+      ])
+      ++ (with pkgs.gnome; [
+        # gnome-shell-extensions
+        # cheese # webcam tool
+        gnome-music
+        epiphany # web browser
+        # geary # email reader
+        evince # document viewer
+        gnome-characters
+        totem # video player
+        tali # poker game
+        iagno # go game
+        hitori # sudoku game
+        atomix # puzzle game
+      ]);
     systemPackages = with pkgs; [
       sassc
       gnome-menus
@@ -76,10 +81,10 @@
     ];
   };
 
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "AurulentSansMono" ]; })
+    (nerdfonts.override {fonts = ["AurulentSansMono"];})
   ];
 
   home-manager.users."${primaryUser}" = {
@@ -140,23 +145,23 @@
             hash = "sha256-jN55je9BPHNZi5+t3IoJoslAzphngYFbbYIbG/d7NeU=";
           };
 
-          nativeBuildInputs = [ pkgs.gtk3 ];
+          nativeBuildInputs = [pkgs.gtk3];
 
           installPhase = ''
             mkdir -p $out/share/icons
 
             patchShebangs install.sh
-            
+
             if [ -d /home/mach12/.config/gtk-4.0/settings.ini ]; then
               echo Removing gtk-4.0/setings.ini
               rm /home/${primaryUser}/.config/gtk-4.0/settings.ini
             fi
-            
+
             if [ -d /home/mach12/.config/gtk-3.0/settings.ini ]; then
               echo Removing gtk-3.0/setings.ini
               rm /home/${primaryUser}/.config/gtk-3.0/settings.ini
             fi
-            
+
             ./install.sh -a -d $out/share/icons
           '';
 
@@ -185,7 +190,7 @@
           tap-to-click = true;
         };
         "org/gnome/shell" = {
-          disabled-extensions = [ ];
+          disabled-extensions = [];
           enabled-extensions = [
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "drive-menu@gnome-shell-extensions.gcampax.github.com"
@@ -262,14 +267,14 @@
           night-light-temperature = 2362;
         };
         "org/gnome/mutter" = {
-          experimental-features = [ "scale-monitor-framebuffer" ];
+          experimental-features = ["scale-monitor-framebuffer"];
         };
         "org/gnome/Console" = {
           use-system-font = false;
           custom-font = "AurulentSansM Nerd Font Mono 10";
         };
         "org/gnome/shell" = {
-          favorite-apps = [ "org.gnome.Nautilus.desktop" "microsoft-edge-beta.desktop" "org.gnome.Terminal.desktop" "vesktop.desktop" "org.gnome.Geary.desktop" ];
+          favorite-apps = ["org.gnome.Nautilus.desktop" "microsoft-edge-beta.desktop" "org.gnome.Terminal.desktop" "vesktop.desktop" "org.gnome.Geary.desktop"];
         };
         "org/gnome/nautilus/preferences" = {
           default-folder-viewer = "list-view";
@@ -285,9 +290,9 @@
           sort-enabled-first = true;
         };
         "org/gnome/shell/keybindings" = {
-          show-screenshot-ui = [ "<Shift><Super>s" ];
-          switch-applications = [ ];
-          switch-applications-backwards = [ ];
+          show-screenshot-ui = ["<Shift><Super>s"];
+          switch-applications = [];
+          switch-applications-backwards = [];
           switch-windows = ''<Alt>Tab'';
           switch-windows-backward = ''<Shift><Alt>Tab'';
         };
@@ -333,10 +338,16 @@
 
   networking.firewall.allowedTCPPortRanges = [
     # KDE Connect
-    { from = 1714; to = 1764; }
+    {
+      from = 1714;
+      to = 1764;
+    }
   ];
   networking.firewall.allowedUDPPortRanges = [
     # KDE Connect
-    { from = 1714; to = 1764; }
+    {
+      from = 1714;
+      to = 1764;
+    }
   ];
 }
