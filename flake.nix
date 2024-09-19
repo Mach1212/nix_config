@@ -54,9 +54,6 @@
         base
         ++ [
           home-manager.nixosModules.home-manager
-          ({primaryUser, ...}: {
-            home-manager.users."${primaryUser}".home.stateVersion = "24.05";
-          })
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
