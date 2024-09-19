@@ -54,12 +54,8 @@
         base
         ++ [
           home-manager.nixosModules.home-manager
-          ({
-            primaryUser,
-            inputs,
-            ...
-          }: {
-            inputs.home-manager.users."${primaryUser}" = {
+          ({primaryUser, ...}: {
+            home-manager.users."${primaryUser}" = {
               home.username = primaryUser;
               home.homeDirectory = "/home/${primaryUser}";
               home.stateVersion = "24.11";
