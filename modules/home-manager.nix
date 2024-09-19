@@ -4,7 +4,7 @@
   primaryUser,
   ...
 }: {
-  home-manager.users.${primaryUser} = {pkgs, ...}: {
+  home-manager.users.${primaryUser} = {
     home.username = primaryUser;
     home.homeDirectory = "/home/${primaryUser}";
     home.stateVersion = "24.11";
