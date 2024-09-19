@@ -25,7 +25,7 @@ in {
   #   net.ipv6.conf.lo.disable_ipv6 = 1
   # '';
 
-  home-manager.users."$primaryUser" = {
+  home-manager.users.${primaryUser} = {
     xdg.configFile."pip/pip.conf".text = ''
       [global]
       upgrade=true
