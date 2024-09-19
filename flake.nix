@@ -54,14 +54,7 @@
         base
         ++ [
           home-manager.nixosModules.home-manager
-          ({primaryUser, ...}: {
-            home-manager.users."${primaryUser}".home = {
-              stateVersion = "24.11";
-              username = primaryUser;
-              homeDirectory = "/home/${primaryUser}";
-            };
-          })
-          # ./modules/home-manager.nix
+          ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
           ./modules/starship.nix
