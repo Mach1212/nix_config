@@ -7,6 +7,6 @@
   home-manager.users.${primaryUser}.home = {
     username = primaryUser;
     homeDirectory = "/home/${primaryUser}";
-    stateVersion = "24.11";
+    stateVersion = "24.05";
   };
 }
