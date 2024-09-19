@@ -56,9 +56,9 @@
           home-manager.nixosModules.home-manager
           ({primaryUser, ...}: {
             home-manager.users."${primaryUser}".home = {
+              stateVersion = "24.11";
               username = primaryUser;
               homeDirectory = "/home/${primaryUser}";
-              stateVersion = "24.11";
             };
           })
           # ./modules/home-manager.nix
