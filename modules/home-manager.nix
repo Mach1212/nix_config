@@ -4,7 +4,7 @@
   primaryUser,
   ...
 }: {
-  home-manager.users.asdf.home = {
+  home-manager.users.${primaryUser}.home = {
     username = primaryUser;
     homeDirectory = "/home/${primaryUser}";
     stateVersion = "24.11";
