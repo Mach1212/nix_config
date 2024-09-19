@@ -44,11 +44,6 @@
     nur,
     ...
   } @ inputs: {
-    homeConfigurations = {
-      mach12 = home-manager.lib.homeManagerConfiguration {
-        stateVersion = "24.11";
-      };
-    };
     nixosConfigurations = let
       base = [
         ./hosts/users.nix
@@ -58,9 +53,10 @@
       system =
         base
         ++ [
-          home-manager.nixosModules.home-manager
           ({primaryUser, ...}: {
+            home-manager.users."${primaryUser}".home.stateVersion = "24.11";
           })
+          home-manager.nixosModules.home-manager
           ./modules/home-manager.nix
           ./modules/bash.nix
           ./modules/git.nix
