@@ -57,6 +57,7 @@
           ({
             primaryUser,
             inputs,
+            ...
           }: {
             inputs.home-manager.users."${primaryUser}" = {
               home.username = primaryUser;
