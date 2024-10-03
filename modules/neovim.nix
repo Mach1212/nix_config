@@ -37,6 +37,8 @@
       nixd
       alejandra
       firefox
+      deadnix
+      statix
     ];
 
     programs.firefox = {
