@@ -46,6 +46,7 @@
         name = "selenium";
         extensions = with config.nur.repos.rycee.firefox-addons; [
           darkreader
+          dracula-dark-colorscheme
         ];
       };
     };

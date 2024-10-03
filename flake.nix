@@ -71,6 +71,7 @@
         ./modules/neovim.nix
         ./modules/zellij.nix
         ./modules/dynamic_linking.nix
+        ./modules/podman.nix
       ];
       hackModules = [
         ./modules/hack/aircrack-ng.nix
