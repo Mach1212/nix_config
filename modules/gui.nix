@@ -104,14 +104,14 @@
             hash = "sha256-I/U+ebpRM0sXZchs/viRmfX1ZeJgei41ax/dlcDWxu8=";
           };
 
-          nativeBuildInputs = [
-            pkgs.gtk4
-            pkgs.gnome.gnome-shell
+          nativeBuildInputs = with pkgs; [
+            gtk4
+            gnome.gnome-shell
           ];
 
-          buildInputs = [
-            pkgs.gnome.gnome-themes-extra
-            pkgs.sassc
+          buildInputs = with pkgs; [
+            gnome.gnome-themes-extra
+            sassc
           ];
 
           installPhase = ''
