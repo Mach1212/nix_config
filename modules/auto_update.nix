@@ -10,12 +10,12 @@
     enable = true;
     flake = inputs.self.outPath;
     flags = [
-      # "--update-input"
-      # "nixpkgs"
-      # "--update-input"
-      # "nixos-wsl"
-      # "--update-input"
-      # "home-manager"
+      "--update-input"
+      "nixpkgs"
+      "--update-input"
+      "nixos-wsl"
+      "--update-input"
+      "home-manager"
       "--update-input"
       "sops-nix "
       "--update-input"

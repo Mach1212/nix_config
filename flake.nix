@@ -58,7 +58,7 @@
           ./modules/bash.nix
           ./modules/git.nix
           ./modules/starship.nix
-          ./modules/auto_update.nix
+          # ./modules/auto_update.nix
           ./modules/clone_nix_config.nix
         ];
       wslModules = [
