@@ -60,7 +60,7 @@
       gnome.adwaita-icon-theme
       gnome.gnome-terminal
       gnome-extension-manager
-      gnome.gnome-shell
+      gnome-shell
       gnome.gnome-tweaks
       gnome-themes-extra
       gnomeExtensions.appindicator
@@ -107,7 +107,7 @@
 
           nativeBuildInputs = with pkgs; [
             gtk4
-            gnome.gnome-shell
+            gnome-shell
           ];
 
           buildInputs = with pkgs; [
