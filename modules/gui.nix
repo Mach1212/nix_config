@@ -62,7 +62,7 @@
       gnome-extension-manager
       gnome.gnome-shell
       gnome.gnome-tweaks
-      pkgs.gnome.gnome-themes-extra
+      gnome-themes-extra
       gnomeExtensions.appindicator
       (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
         src = fetchzip {
@@ -111,7 +111,7 @@
           ];
 
           buildInputs = with pkgs; [
-            gnome.gnome-themes-extra
+            gnome-themes-extra
             sassc
           ];
 
