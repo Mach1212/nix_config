@@ -57,7 +57,7 @@
       gnome-menus
       sysprof
       wl-clipboard
-      # gnome.adwaita-icon-theme
+      adwaita-icon-theme
       gnome-terminal
       gnome-extension-manager
       gnome-shell
@@ -101,7 +101,7 @@
           src = pkgs.fetchFromGitHub {
             owner = "vinceliuice";
             repo = "fluent-gtk-theme";
-            rev = "755f3ed0ce5bdfa87a733cda48ab8402b9b6c2ad";
+            rev = "1c7d2c97605c1fccc36a48c1c711ca5c19baec98";
             hash = "sha256-I/U+ebpRM0sXZchs/viRmfX1ZeJgei41ax/dlcDWxu8=";
           };
 
