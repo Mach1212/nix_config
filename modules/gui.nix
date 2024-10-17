@@ -57,7 +57,7 @@
       gnome-menus
       sysprof
       wl-clipboard
-      gnome.adwaita-icon-theme
+      # gnome.adwaita-icon-theme
       gnome.gnome-terminal
       gnome-extension-manager
       gnome-shell
