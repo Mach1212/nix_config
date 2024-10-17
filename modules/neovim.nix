@@ -36,7 +36,6 @@
       lazydocker
       nixd
       alejandra
-      firefox
       deadnix
       statix
     ];
