@@ -61,7 +61,7 @@
       gnome-terminal
       gnome-extension-manager
       gnome-shell
-      gnome.gnome-tweaks
+      gnome-tweaks
       gnome-themes-extra
       gnomeExtensions.appindicator
       (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
@@ -81,7 +81,7 @@
     ];
   };
 
-  services.udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+  services.udev.packages = with pkgs; [gnome-settings-daemon];
 
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["AurulentSansMono"];})
