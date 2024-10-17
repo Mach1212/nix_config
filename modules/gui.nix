@@ -62,7 +62,7 @@
       gnome-extension-manager
       gnome.gnome-shell
       gnome.gnome-tweaks
-      gnome.gnome-themes-extra
+      pkgs.gnome.gnome-themes-extra
       gnomeExtensions.appindicator
       (gnomeExtensions.gesture-improvements.overrideAttrs (oldAttrs: {
         src = fetchzip {
