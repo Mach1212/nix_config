@@ -77,6 +77,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  boot.kernelParams = ["video=HDMI-1:2560x1440@59.96"];
+  boot.initrd.availableKernelModules = ["amdgpu"];
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # This value determines the NixOS release from which the default
