@@ -146,6 +146,27 @@
               })
             ];
         };
+      mach12wsl =
+        nixpkgs.lib.nixosSystem
+        {
+          specialArgs = {
+            inherit inputs;
+            primaryUser = "mach12";
+            hostname = "code";
+            auth = "mach12";
+          };
+          system = "x86_64-linux";
+          modules =
+            system
+            ++ wslModules
+            ++ sshModules
+            ++ devModules
+            ++ [
+              ./modules/kubernetes.nix
+              ./modules/speedtest.nix
+              ./modules/openvpn.nix
+            ];
+        };
       mach12work =
         nixpkgs.lib.nixosSystem
         {
