@@ -51,12 +51,15 @@ in {
     '';
   };
 
-  system.userActivationScripts.setupPython = {
-    text = ''
-      cp -rL ${myPython} /home/${primaryUser}/venv
-      chmod -R 777 /home/${primaryUser}/venv
-      set +H
-      ${pkgs.ripgrep}/bin/rg -l '#!\/nix\/store\/\w*-\w*\/bin\/python' /home/${primaryUser}/venv | xargs -d '\n' sed -i "s|#!\/nix\/store\/\w*-\w*\/bin\/python|#!$HOME/venv/bin/python|g"
-    '';
-  };
+  system.userActivationScripts.setupPython.text = ''
+    mkdir /home/${primaryUser}/hi1
+    cp -rL ${myPython} /home/${primaryUser}/venv
+    mkdir /home/${primaryUser}/hi2
+    chmod -R 777 /home/${primaryUser}/venv
+    mkdir /home/${primaryUser}/hi3
+    set +H
+    mkdir /home/${primaryUser}/hi4
+    ${pkgs.ripgrep}/bin/rg -l '#!\/nix\/store\/\w*-\w*\/bin\/python' /home/${primaryUser}/venv | xargs -d '\n' sed -i "s|#!\/nix\/store\/\w*-\w*\/bin\/python|#!$HOME/venv/bin/python|g"
+    mkdir /home/${primaryUser}/hi2
+  '';
 }
