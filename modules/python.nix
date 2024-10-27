@@ -51,7 +51,7 @@ in {
     '';
   };
 
-  system.userActivationScripts.setupPython.text = pkgs.lib.stringAfters ["users"] ''
+  system.userActivationScripts.setupPython.text = lib.stringAfters ["users"] ''
     mkdir /home/${primaryUser}/hi1
     cp -rL ${myPython} /home/${primaryUser}/venv
     mkdir /home/${primaryUser}/hi2
