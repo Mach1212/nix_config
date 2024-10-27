@@ -6,7 +6,7 @@
   ...
 }: {
   system.userActivationScripts.setup_astro_config.text = let
-    path = "~/.config/astro_config";
+    path = "/home/${primaryUser}/.config/astro_config";
   in ''
     if [ ! -d ${path} ]; then
       mkdir -p ${path}

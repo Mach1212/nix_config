@@ -6,7 +6,7 @@
   ...
 }: {
   system.userActivationScripts.setup_nix_config.text = let
-    path = "~/nix_config";
+    path = "/home/${primaryUser}/nix_config";
   in ''
     if [ ! -d ${path} ]; then
       mkdir -p ${path}

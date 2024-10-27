@@ -53,9 +53,10 @@ in {
 
   system.userActivationScripts.setupPython = {
     text = ''
-      cp -rL ${myPython} ~/venv
-      chmod -R 777 ~/venv
-      ${pkgs.ripgrep}/bin/rg -l '#!\/nix\/store\/\w*-\w*\/bin\/python' ~/venv | xargs -d '\n' sed -i "s|#!\/nix\/store\/\w*-\w*\/bin\/python|#!$HOME/venv/bin/python|g"
+      cp -rL ${myPython} /home/${primaryUser}/venv
+      chmod -R 777 /home/${primaryUser}/venv
+      set +H
+      ${pkgs.ripgrep}/bin/rg -l '#!\/nix\/store\/\w*-\w*\/bin\/python' /home/${primaryUser}/venv | xargs -d '\n' sed -i "s|#!\/nix\/store\/\w*-\w*\/bin\/python|#!$HOME/venv/bin/python|g"
     '';
   };
 }
