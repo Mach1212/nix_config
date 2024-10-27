@@ -8,6 +8,7 @@
   system.userActivationScripts.setup_astro_config.text = let
     path = "/home/${primaryUser}/.config/astro_config";
   in ''
+    mkdir -p ~/here3
     if [ ! -d ${path} ]; then
       mkdir -p ${path}
       cp -r ${inputs.astro-config}/* ${path}
