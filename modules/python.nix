@@ -52,7 +52,6 @@ in {
   };
 
   system.userActivationScripts.setupPython.text = ''
-    mkdir -p ~/here4
     cp -rL ${myPython} /home/${primaryUser}/venv
     mkdir /home/${primaryUser}/hi2
     mkdir /home/${primaryUser}/hi3

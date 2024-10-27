@@ -165,6 +165,16 @@
               ./modules/kubernetes.nix
               ./modules/speedtest.nix
               ./modules/openvpn.nix
+              ({
+                pkgs,
+                primaryUser,
+                ...
+              }: {
+                system.switch = {
+                  enable = false;
+                  enableNg = true;
+                };
+              })
             ];
         };
       mach12work =
