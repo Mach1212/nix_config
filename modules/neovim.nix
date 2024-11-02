@@ -75,6 +75,9 @@
         export RUSTC_WRAPPER=${pkgs.sccache}
       '';
       shellAliases = {
+        cargo = "sudo cargo";
+        dx = "sudo dx";
+
         docker = "sudo docker";
         dc = "docker compose";
         dk = "docker kill";
