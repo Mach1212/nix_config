@@ -46,6 +46,7 @@
       deadnix
       statix
       sccache
+      mold
     ];
 
     programs.firefox = {
