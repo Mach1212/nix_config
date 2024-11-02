@@ -47,6 +47,7 @@
       statix
       sccache
       mold
+      lld
     ];
 
     programs.firefox = {
