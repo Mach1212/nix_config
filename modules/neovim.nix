@@ -17,10 +17,10 @@
       unzip
       lazygit
       gitflow
-      (rust-bin.stable.latest.default.override {
-        extensions = ["rust-std"];
-        targets = ["wasm32-unknown-unknown"];
-      })
+      # (rust-bin.stable.latest.default.override {
+      #   extensions = ["rust-std"];
+      #   targets = ["wasm32-unknown-unknown"];
+      # })
       (
         rust-bin.selectLatestNightlyWith (toolchain:
           toolchain.default.override {
