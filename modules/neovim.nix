@@ -72,6 +72,7 @@
         export PATH=$HOME/.npm-global/bin:$PATH
         export PATH=$HOME/scripts:$PATH
         export NVIM_APPNAME=astro_config
+        export RUSTC_WRAPPER=${pkgs.sccache}
       '';
       shellAliases = {
         docker = "sudo docker";
