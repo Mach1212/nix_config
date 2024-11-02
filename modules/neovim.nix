@@ -21,6 +21,12 @@
         extensions = ["rust-std"];
         targets = ["wasm32-unknown-unknown"];
       })
+      rust-bin.selectLatestNightlyWith
+      (toolchain:
+        toolchain.default.override {
+          extensions = ["rust-std" "rustc-codegen-cranelift-preview"];
+          targets = ["wasm32-unknown-unknown"];
+        })
       # poetry
       gum
       ripgrep
