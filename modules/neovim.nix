@@ -38,6 +38,7 @@
       alejandra
       deadnix
       statix
+      sccache
     ];
 
     programs.firefox = {

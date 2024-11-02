@@ -53,8 +53,6 @@ in {
 
   system.userActivationScripts.setupPython.text = ''
     cp -rL ${myPython} /home/${primaryUser}/venv
-    mkdir /home/${primaryUser}/hi2
-    mkdir /home/${primaryUser}/hi3
     set +H
     ${pkgs.ripgrep}/bin/rg -l '#!\/nix\/store\/\w*-\w*\/bin\/python' /home/${primaryUser}/venv | xargs -d '\n' sed -i "s|#!\/nix\/store\/\w*-\w*\/bin\/python|#!$HOME/venv/bin/python|g"
   '';
