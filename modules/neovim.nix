@@ -81,6 +81,7 @@
         export PATH=$HOME/scripts:$PATH
         export NVIM_APPNAME=astro_config
         export RUSTC_WRAPPER=${pkgs.sccache}
+        export PATH=/root/.cargo/bin:$PATH
       '';
       shellAliases = {
         cargo = "sudo cargo";
