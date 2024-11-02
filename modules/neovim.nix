@@ -24,7 +24,7 @@
       (
         rust-bin.selectLatestNightlyWith (toolchain:
           toolchain.default.override {
-            extensions = ["rustc-codegen-cranelift-preview"];
+            extensions = ["rust-src" "rustc-codegen-cranelift-preview"];
             targets = ["wasm32-unknown-unknown"];
           })
       )
