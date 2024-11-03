@@ -81,7 +81,7 @@
         export PATH=$HOME/.npm-global/bin:$PATH
         export PATH=$HOME/scripts:$PATH
         export NVIM_APPNAME=astro_config
-        export RUSTC_WRAPPER=${pkgs.sccache}
+        export RUSTC_WRAPPER=${pkgs.sccache}/bin/sccache
         export PATH=/root/.cargo/bin:$PATH
       '';
       shellAliases = {
