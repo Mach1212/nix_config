@@ -165,6 +165,7 @@
               ./modules/kubernetes.nix
               ./modules/speedtest.nix
               ./modules/openvpn.nix
+              ./modules/ollama.nix
               ({...}: {
                 system.switch = {
                   enable = false;
