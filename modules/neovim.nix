@@ -42,6 +42,7 @@
       cmake
       lazydocker
       nixd
+      tailwindcss
       alejandra
       deadnix
       statix
@@ -80,9 +81,9 @@
 
         export PATH=$HOME/.npm-global/bin:$PATH
         export PATH=$HOME/scripts:$PATH
+        export PATH=/root/.cargo/bin:$PATH
         export NVIM_APPNAME=astro_config
         export RUSTC_WRAPPER=${pkgs.sccache}/bin/sccache
-        export PATH=/root/.cargo/bin:$PATH
       '';
       shellAliases = {
         docker = "sudo docker";
