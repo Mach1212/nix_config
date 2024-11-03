@@ -85,9 +85,6 @@
         export PATH=/root/.cargo/bin:$PATH
       '';
       shellAliases = {
-        cargo = "sudo cargo";
-        dx = "sudo dx";
-
         docker = "sudo docker";
         dc = "docker compose";
         dk = "docker kill";
