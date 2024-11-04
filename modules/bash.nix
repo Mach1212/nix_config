@@ -1,6 +1,9 @@
-{ config, pkgs, primaryUser, ... }:
-
 {
+  config,
+  pkgs,
+  primaryUser,
+  ...
+}: {
   home-manager.users.${primaryUser} = {
     home.packages = [
       pkgs.eza
@@ -12,6 +15,7 @@
       pkgs.rcon
       pkgs.lm_sensors
       pkgs.ryzenadj
+      pkgs.rsync
     ];
 
     programs.neovim = {
@@ -38,6 +42,7 @@
         cat = "bat";
         ls = "exa";
         ps = "procs";
+        cp = "rsync";
         tree = "ls --tree";
         rmzi = "rm -rf *Zone.Identifier";
         perfmon = ''watch -n.1 "sensors | rg 'CPU|PPT'"'';
@@ -54,15 +59,16 @@
         export PATH=$HOME/.cargo/bin:$PATH
         export EDITOR=nvim
       '';
-      initExtra =
-        let
-          complete_alias_path = builtins.fetchGit
-            {
-              url = "https://github.com/cykerway/complete-alias.git";
-              rev = "7f2555c2fe7a1f248ed2d4301e46c8eebcbbc4e2";
-            } + "/complete_alias";
-        in
-        builtins.readFile (complete_alias_path)
+      initExtra = let
+        complete_alias_path =
+          builtins.fetchGit
+          {
+            url = "https://github.com/cykerway/complete-alias.git";
+            rev = "7f2555c2fe7a1f248ed2d4301e46c8eebcbbc4e2";
+          }
+          + "/complete_alias";
+      in
+        builtins.readFile complete_alias_path
         + ''complete -F _complete_alias "''${!BASH_ALIASES[@]}"'';
     };
   };
