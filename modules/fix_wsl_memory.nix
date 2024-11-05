@@ -16,7 +16,7 @@ in {
   };
 
   systemd.services.${name} = {
-    script = "echo RUNNING && ${pkgs.python313} ${inputs.fix-wsl-memory}/drop_cache_if_idle";
+    script = "echo RUNNING && ${pkgs.python313}/bin/python ${inputs.fix-wsl-memory}/drop_cache_if_idle";
     serviceConfig = {
       Type = "oneshot";
       User = "root";
