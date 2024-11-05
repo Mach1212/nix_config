@@ -5,6 +5,11 @@
   primaryUser,
   ...
 }: {
+  imports = [
+    ./python.nix
+    ./fix_wsl_memory.nix
+  ];
+
   home-manager.users."${primaryUser}".home.packages = [
     pkgs.wslu
   ];

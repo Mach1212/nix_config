@@ -21,6 +21,10 @@
       url = "github:Mach1212/nix_config";
       flake = false;
     };
+    wsl-memory-fix = {
+      url = "github:validatedev/drop-cache-if-idle";
+      flake = false;
+    };
     # k3s = {
     #   url = "git+ssh://git@github.com/Mach1212/k3s.git";
     #   flake = false;
@@ -34,11 +38,9 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     nixos-wsl,
-    rust-overlay,
     nix-snapd,
     nixos-hardware,
     nur,
