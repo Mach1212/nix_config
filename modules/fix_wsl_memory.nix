@@ -7,6 +7,7 @@ in {
   ];
 
   systemd.timers.${name} = {
+    wantedBy = ["timers.target"];
     timerConfig = {
       OnBootSec = frequency;
       OnUnitActiveSec = frequency;
