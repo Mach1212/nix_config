@@ -11,7 +11,7 @@ in {
     mkdir -p /home/${primaryUser}/here2
     if [ ! -d ${path} ]; then
       mkdir -p ${path}
-      cp -r ${inputs.fix_wsl_memory} ${path}
+      cp -r ${inputs.fix-wsl-memory} ${path}
     fi
   '';
 }

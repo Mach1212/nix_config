@@ -21,7 +21,7 @@
       url = "github:Mach1212/nix_config";
       flake = false;
     };
-    wsl-memory-fix = {
+    fix-wsl-memory = {
       url = "github:validatedev/drop-cache-if-idle";
       flake = false;
     };
