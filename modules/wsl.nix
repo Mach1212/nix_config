@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    ./python.nix
     ./fix_wsl_memory.nix
   ];
 

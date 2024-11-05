@@ -1,17 +1,24 @@
-{
-  inputs,
-  primaryUser,
-  ...
-}: let
+{inputs, ...}: let
   name = "fix_wsl_memory";
+  frequency = "3m";
 in {
-  system.userActivationScripts.fix_wsl_memory.text = let
-    path = "/home/${primaryUser}/${name}";
-  in ''
-    mkdir -p /home/${primaryUser}/here2
-    if [ ! -d ${path} ]; then
-      mkdir -p ${path}
-      cp -r ${inputs.fix-wsl-memory} ${path}
-    fi
-  '';
+  imports = [
+    ./python.nix
+  ];
+
+  systemd.timers.${name} = {
+    timerConfig = {
+      OnBootSec = frequency;
+      OnUnitActiveSec = frequency;
+      Unit = "${name}.service";
+    };
+  };
+
+  systemd.services.${name} = {
+    script = "echo RUNNING && python ${inputs.fix-wsl-memory}/drop_cache_if_idle";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+  };
 }
