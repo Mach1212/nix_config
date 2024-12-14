@@ -21,7 +21,7 @@
     programs.neovim = {
       enable = true;
       defaultEditor = true;
-      viAlias = true;
+      # viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
     };
@@ -35,6 +35,8 @@
       enable = true;
       enableCompletion = true;
       shellAliases = {
+        vi = "nix run /home/mach12/projects/nixvim_config/";
+
         get = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
         cd = "z ";
         grep = "rg";

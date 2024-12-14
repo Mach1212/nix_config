@@ -121,11 +121,11 @@
     "nix-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1731529437,
-        "narHash": "sha256-OjEh8XeC0x6EdQj5GQ1D3CuxTC0NFvwZrvkNjawGMaI=",
+        "lastModified": 1733723156,
+        "narHash": "sha256-58llDIK3G2H+/FueyN7j1YTtUbxeAYebj1QTs4+aPH4=",
         "owner": "Mach1212",
         "repo": "nix_config",
-        "rev": "751f404fd580199c8ed838764f592f0570eda064",
+        "rev": "11ae7b59fad2a910574fe43fa0b01f02622e2433",
         "type": "github"
       },
       "original": {
