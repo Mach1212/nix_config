@@ -10,7 +10,9 @@
       settings = {
         pane_frames = false;
         keybinds = {
-          normal = "hi";
+          normal = {
+            "bind \"Ctrl g\"" = {SwitchToMode = "locked";};
+          };
         };
       };
     };
