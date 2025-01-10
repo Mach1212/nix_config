@@ -19,8 +19,8 @@
             "unbind \"Ctrl s\"" = "//";
             "unbind \"Ctrl o\"" = "//";
             "unbind \"Ctrl q\"" = "//";
-            "unbind \"Alt h\"" = "//";
-            "unbind \"Alt l\"" = "//";
+            "unbind \"Alt h\";" = "//";
+            "unbind \"Alt l\";" = "//";
             "bind \"Alt g\"" = {SwitchToMode = "locked";};
             "bind \"Alt p\"" = {SwitchToMode = "pane";};
             "bind \"Alt j\"" = {MoveFocusOrTab = "Left";};
