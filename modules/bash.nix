@@ -35,7 +35,7 @@
       enable = true;
       enableCompletion = true;
       shellAliases = {
-        vi = "nix run /home/mach12/projects/nixvim_config/";
+        vi = "/home/mach12/projects/nixvim_config/result/bin/nvim";
 
         get = "NIXPKGS_ALLOW_UNFREE=1 nix-shell -p";
         cd = "z ";
