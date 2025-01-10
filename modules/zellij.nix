@@ -11,14 +11,14 @@
         pane_frames = false;
         keybinds = {
           normal = {
-            "unbind \"Ctrl g\"" = "//";
-            "unbind \"Ctrl p\"" = "//";
-            "unbind \"Ctrl t\"" = "//";
-            "unbind \"Ctrl n\"" = "//";
-            "unbind \"Ctrl h\"" = "//";
-            "unbind \"Ctrl s\"" = "//";
-            "unbind \"Ctrl o\"" = "//";
-            "unbind \"Ctrl q\"" = "//";
+            "unbind \"Ctrl g\";" = "//";
+            "unbind \"Ctrl p\";" = "//";
+            "unbind \"Ctrl t\";" = "//";
+            "unbind \"Ctrl n\";" = "//";
+            "unbind \"Ctrl h\";" = "//";
+            "unbind \"Ctrl s\";" = "//";
+            "unbind \"Ctrl o\";" = "//";
+            "unbind \"Ctrl q\";" = "//";
             "unbind \"Alt h\";" = "//";
             "unbind \"Alt l\";" = "//";
             "bind \"Alt g\"" = {SwitchToMode = "locked";};
