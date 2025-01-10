@@ -27,7 +27,7 @@
             "bind \"Alt t\"" = {SwitchToMode = "tab";};
             "bind \"Alt s\"" = {SwitchToMode = "search";};
             "bind \"Alt o\"" = {SwitchToMode = "session";};
-            "bind \"Alt q\"" = "{Quit;}";
+            "bind \"Alt q\"" = {"Quit;" = "//";};
             "unbind \"Alt h\"" = "//";
             "unbind \"Alt l\"" = "//";
           };
