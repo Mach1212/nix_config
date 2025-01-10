@@ -19,6 +19,8 @@
             "unbind \"Ctrl s\"" = "//";
             "unbind \"Ctrl o\"" = "//";
             "unbind \"Ctrl q\"" = "//";
+            "unbind \"Alt h\"" = "//";
+            "unbind \"Alt l\"" = "//";
             "bind \"Alt g\"" = {SwitchToMode = "locked";};
             "bind \"Alt p\"" = {SwitchToMode = "pane";};
             "bind \"Alt j\"" = {MoveFocusOrTab = "Left";};
@@ -28,8 +30,6 @@
             "bind \"Alt s\"" = {SwitchToMode = "search";};
             "bind \"Alt o\"" = {SwitchToMode = "session";};
             "bind \"Alt q\" {Quit;};" = "//";
-            "unbind \"Alt h\"" = "//";
-            "unbind \"Alt l\"" = "//";
           };
           locked = {
             "bind \"Alt g\"" = {SwitchToMode = "normal";};
