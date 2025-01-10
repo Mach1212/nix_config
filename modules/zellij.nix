@@ -12,7 +12,7 @@
         keybinds = {
           normal = {
             "unbind \"Ctrl g\" //" = "";
-            # "unbind \"Ctrl p\" //" = "";
+            "unbind \"Ctrl p\" //" = "";
             # "unbind \"Ctrl t\" //" = "";
             # "unbind \"Ctrl n\" //" = "";
             # "unbind \"Ctrl s\" //" = "";
@@ -23,8 +23,8 @@
             "unbind \"Alt l\" //" = "";
             "bind \"Alt g\"" = {SwitchToMode = "locked";};
             "bind \"Alt p\"" = {SwitchToMode = "pane";};
-            "bind \"Alt k\"" = {MoveFocusOrTab = "Left";};
-            "bind \"Alt j\"" = {MoveFocusOrTab = "Right";};
+            "bind \"Alt j\"" = {MoveFocusOrTab = "Left";};
+            "bind \"Alt \"" = {MoveFocusOrTab = "Right";};
             "bind \"Alt h\"" = {SwitchToMode = "move";};
             # "bind \"Alt h\"" = {SwitchToMode = "move";};
             # "bind \"Alt t\"" = {SwitchToMode = "tab";};
@@ -33,8 +33,8 @@
             # "bind \"Alt q\" {Quit;} //" = "";
           };
           move = {
-            "unbind \"Ctrl h\" //" = "";
-            "bind \"Alt h\"" = {SwitchToMode = "normal";};
+            "unbind \"Ctrl p\" //" = "";
+            "bind \"Alt p\"" = {SwitchToMode = "normal";};
           };
           locked = {
             "unbind \"Ctrl g\" //" = "";
