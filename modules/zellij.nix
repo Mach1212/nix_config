@@ -24,7 +24,7 @@
             "bind \"Alt g\"" = {SwitchToMode = "locked";};
             "bind \"Alt p\"" = {SwitchToMode = "pane";};
             "bind \"Alt j\"" = {MoveFocusOrTab = "Left";};
-            "bind \"Alt \"" = {MoveFocusOrTab = "Right";};
+            "bind \"Alt k\"" = {MoveFocusOrTab = "Right";};
             "bind \"Alt h\"" = {SwitchToMode = "move";};
             # "bind \"Alt h\"" = {SwitchToMode = "move";};
             # "bind \"Alt t\"" = {SwitchToMode = "tab";};
