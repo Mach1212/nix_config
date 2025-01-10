@@ -32,7 +32,7 @@
             # "bind \"Alt o\"" = {SwitchToMode = "session";};
             # "bind \"Alt q\" {Quit;} //" = "";
           };
-          move = {
+          pane = {
             "unbind \"Ctrl p\" //" = "";
             "bind \"Alt p\"" = {SwitchToMode = "normal";};
           };
