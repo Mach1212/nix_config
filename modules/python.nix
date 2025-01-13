@@ -15,17 +15,21 @@
       python312Packages.virtualenv
     ];
 
-    installPhase = ''
-      virtualenv $out
-    '';
+    installPhase =
+      #bash
+      ''
+        virtualenv $out
+      '';
   };
 in {
   home-manager.users.${primaryUser} = {
-    xdg.configFile."pip/pip.conf".text = ''
-      [global]
-      upgrade=true
-      upgrade-strategy=only-if-needed
-    '';
+    xdg.configFile."pip/pip.conf".text =
+      #toml
+      ''
+        [global]
+        upgrade=true
+        upgrade-strategy=only-if-needed
+      '';
 
     programs.bash.bashrcExtra = let
       pythonldlibpath = lib.makeLibraryPath (with pkgs; [
@@ -54,9 +58,11 @@ in {
       '';
   };
 
-  system.userActivationScripts.setupPython.text = ''
-    cp -rL ${myPython} /home/${primaryUser}/venv
-    set +H
-    ${pkgs.ripgrep}/bin/rg -l '#!\/nix\/store\/\w*-\w*\/bin\/python' /home/${primaryUser}/venv | xargs -d '\n' sed -i "s|#!\/nix\/store\/\w*-\w*\/bin\/python|#!$HOME/venv/bin/python|g"
-  '';
+  system.userActivationScripts.setupPython.text =
+    #bash
+    ''
+      cp -rL ${myPython} /home/${primaryUser}/venv
+      set +H
+      ${pkgs.ripgrep}/bin/rg -l '#!\/nix\/store\/\w*-\w*\/bin\/python' /home/${primaryUser}/venv | xargs -d '\n' sed -i "s|#!\/nix\/store\/\w*-\w*\/bin\/python|#!$HOME/venv/bin/python|g"
+    '';
 }
