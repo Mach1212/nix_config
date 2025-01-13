@@ -44,11 +44,14 @@ in {
         xz
         systemd
       ]);
-    in ''
-      export PYTHONHOME=$HOME/venv
-      export PATH=$HOME/venv/bin:$PATH
-      export LD_LIBRARY_PATH="${pythonldlibpath}"
-    '';
+    in
+      #bash
+      ''
+        export VIRTUAL_ENV='/home/mach12/venv'
+        # export PYTHONPATH=$HOME/venv
+        export PATH=$HOME/venv/bin:$PATH
+        export LD_LIBRARY_PATH="${pythonldlibpath}"
+      '';
   };
 
   system.userActivationScripts.setupPython.text = ''
