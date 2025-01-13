@@ -45,7 +45,7 @@ in {
         systemd
       ]);
     in ''
-      export PYTHONPATH=$HOME/venv
+      export PYTHONHOME=$HOME/venv
       export PATH=$HOME/venv/bin:$PATH
       export LD_LIBRARY_PATH="${pythonldlibpath}"
     '';
