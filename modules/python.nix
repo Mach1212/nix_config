@@ -12,7 +12,7 @@
     phases = ["installPhase"];
 
     buildInputs = with pkgs; [
-      python312Packages.virtualenv
+      python310Packages.virtualenv
     ];
 
     installPhase =
@@ -51,9 +51,9 @@ in {
     in
       #bash
       ''
-        export VIRTUAL_ENV='/home/mach12/venv'
-        # export PYTHONPATH=$HOME/venv
-        export PATH=$HOME/venv/bin:$PATH
+        # export VIRTUAL_ENV='/home/mach12/venv'
+        export PYTHONPATH=$HOME/venv
+        export PATH=$VIRTUAL_ENV/bin:$PATH
         export LD_LIBRARY_PATH="${pythonldlibpath}"
       '';
   };
