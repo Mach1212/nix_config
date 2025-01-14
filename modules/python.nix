@@ -53,7 +53,7 @@ in {
       ''
         # export VIRTUAL_ENV='/home/mach12/venv'
         export PYTHONPATH=$HOME/venv
-        export PATH=$VIRTUAL_ENV/bin:$PATH
+        export PATH=$HOME/venv/bin:$PATH
         export LD_LIBRARY_PATH="${pythonldlibpath}"
       '';
   };
