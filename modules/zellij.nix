@@ -220,10 +220,10 @@
             };
           };
         };
-        plugins = {
-          "compact-bar location=" = "zellij:compact-bar";
-        };
-        simplified_ui = true;
+        # plugins = {
+        #   "compact-bar location=" = "zellij:compact-bar";
+        # };
+        # simplified_ui = true;
       };
     };
   };
