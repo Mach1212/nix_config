@@ -66,13 +66,6 @@
               SwitchToMode = "Normal";
             };
           };
-          move = {
-            "bind \"Alt m\"" = {SwitchToMode = "Normal";};
-            "bind \"h\" \"Left\"" = {MovePane = "Left";};
-            "bind \"j\" \"Down\"" = {MovePane = "Down";};
-            "bind \"k\" \"Up\"" = {MovePane = "Up";};
-            "bind \"l\" \"Right\"" = {MovePane = "Right";};
-          };
           tab = {
             "bind \"Alt t\"" = {SwitchToMode = "Normal";};
             "bind \"b\"" = {
@@ -150,18 +143,6 @@
                 SwitchToMode = "EnterSearch";
               };
             };
-            search = {
-              "bind \"Alt s\"" = {SwitchToMode = "Normal";};
-              "bind \"n\"" = {Search = "down";};
-              "bind \"p\"" = {Search = "up";};
-              "bind \"c\"" = {SearchToggleOption = "CaseSensitivity";};
-              "bind \"w\"" = {SearchToggleOption = "Wrap";};
-              "bind \"o\"" = {SearchToggleOption = "WholeWord";};
-            };
-            entersearch = {
-              "bind \"Alt c\" \"Esc\"" = {SwitchToMode = "Scroll";};
-              "bind \"Enter\" " = {SwitchToMode = "Search";};
-            };
             renametab = {
               "bind \"Alt c\"" = {SwitchToMode = "Normal";};
               "bind \"Enter\" " = {
@@ -214,9 +195,6 @@
             };
             "shared_except \"tab\" \"locked\"" = {
               "bind \"Alt t\"" = {SwitchToMode = "Tab";};
-            };
-            "shared_except \"move\" \"locked\"" = {
-              "bind \"Alt m\"" = {SwitchToMode = "Move";};
             };
           };
         };
