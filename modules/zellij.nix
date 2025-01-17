@@ -122,27 +122,6 @@
               "GoToTab 9 //" = "";
               SwitchToMode = "Normal";
             };
-            scroll = {
-              "bind \"Alt s\"" = {SwitchToMode = "Normal";};
-              "bind \"d\"" = {"HalfPageScrollDown //" = "";};
-              "bind \"u\"" = {"HalfPageScrollUp //" = "";};
-              "bind \"j\" \"Down\"" = {"ScrollDown //" = "";};
-              "bind \"k\" \"Up\"" = {"ScrollUp //" = "";};
-              "bind \"Home\"" = {
-                "ScrollToTop //" = "";
-                SwitchToMode = "Normal";
-              };
-              "bind \"End\"" = {
-                "ScrollToBottom //" = "";
-                SwitchToMode = "Normal";
-              };
-              "bind \"PageDown\"" = {"PageScrollDown //" = "";};
-              "bind \"PageUp\"" = {"PageScrollUp //" = "";};
-              "bind \"s\"" = {
-                "SearchInput 0 //" = "";
-                SwitchToMode = "EnterSearch";
-              };
-            };
             session = {
               "bind \"Alt c\"" = {SwitchToMode = "Normal";};
               "bind \"d\"" = {"Detach //" = "";};
