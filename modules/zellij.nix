@@ -150,13 +150,6 @@
                 SwitchToMode = "Tab";
               };
             };
-            renamepane = {
-              "bind \"Alt c\"" = {SwitchToMode = "Normal";};
-              "bind \"Enter\"" = {
-                "UndoRenamePane //" = "";
-                SwitchToMode = "Pane";
-              };
-            };
             session = {
               "bind \"Alt c\"" = {SwitchToMode = "Normal";};
               "bind \"d\"" = {"Detach //" = "";};
