@@ -143,13 +143,6 @@
                 SwitchToMode = "EnterSearch";
               };
             };
-            renametab = {
-              "bind \"Alt c\"" = {SwitchToMode = "Normal";};
-              "bind \"Enter\" " = {
-                "UndoRenameTab //" = "";
-                SwitchToMode = "Tab";
-              };
-            };
             session = {
               "bind \"Alt c\"" = {SwitchToMode = "Normal";};
               "bind \"d\"" = {"Detach //" = "";};
