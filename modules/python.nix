@@ -12,7 +12,7 @@
     phases = ["installPhase"];
 
     buildInputs = with pkgs; [
-      python310Packages.virtualenv
+      python312Packages.virtualenv
     ];
 
     installPhase =
