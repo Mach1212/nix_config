@@ -49,6 +49,7 @@
       sccache
       mold
       lld
+      nodemon
     ];
 
     programs.firefox = {
