@@ -182,7 +182,7 @@
             };
           };
           session = {
-            "bind \"Alt s\"" = {SwitchToMode = "Normal";};
+            "bind \"Alt o\"" = {SwitchToMode = "Normal";};
             "bind \"d\"" = {"Detach //" = "";};
             "bind \"w\"" = {
               "LaunchOrFocusPlugin \"session-manager\"" = {
