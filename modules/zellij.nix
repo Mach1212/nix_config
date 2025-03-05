@@ -16,7 +16,7 @@
             "bind \"Alt g\"" = {SwitchToMode = "Normal";};
           };
           resize = {
-            "bind \"Alt r\"" = {SwitchToMode = "Normal";};
+            "bind \"Alt n\"" = {SwitchToMode = "Normal";};
             "bind \"h\" \"Left\"" = {Resize = "Increase Left";};
             "bind \"j\" \"Down\"" = {Resize = "Increase Down";};
             "bind \"k\" \"Up\"" = {Resize = "Increase Up";};
@@ -199,6 +199,8 @@
             "bind \"Alt q\"" = {"Quit //" = "";};
             "bind \"Alt [\"" = {"PreviousSwapLayout //" = "";};
             "bind \"Alt ]\"" = {"NextSwapLayout //" = "";};
+            "bind \"Alt i\"" = {"MoveTab \"Left\" //" = "";};
+            "bind \"Alt o\"" = {"MoveTab \"Right\" //" = "";};
           };
           "shared_except \"normal\" \"locked\"" = {
             "bind \"Enter\" \"Esc\"" = {SwitchToMode = "Normal";};
@@ -207,7 +209,7 @@
             "bind \"Alt p\"" = {SwitchToMode = "Pane";};
           };
           "shared_except \"resize\" \"locked\"" = {
-            "bind \"Alt r\"" = {SwitchToMode = "Resize";};
+            "bind \"Alt n\"" = {SwitchToMode = "Resize";};
           };
           "shared_except \"scroll\" \"locked\"" = {
             "bind \"Alt s\"" = {SwitchToMode = "Scroll";};
