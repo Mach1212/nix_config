@@ -5,23 +5,23 @@
   ...
 }: {
   home-manager.users.${primaryUser} = {
-    home.packages = [
-      pkgs.eza
-      pkgs.bat
-      pkgs.procs
-      pkgs.htop
-      pkgs.ripgrep
-      pkgs.fd
-      pkgs.rcon
-      pkgs.lm_sensors
-      pkgs.ryzenadj
-      pkgs.rsync
+    home.packages = with pkgs; [
+      eza
+      bat
+      procs
+      htop
+      ripgrep
+      fd
+      rcon
+      lm_sensors
+      ryzenadj
+      rsync
     ];
 
     programs.neovim = {
       enable = true;
       defaultEditor = true;
-      # viAlias = true;
+      viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
     };

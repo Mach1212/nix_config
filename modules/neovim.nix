@@ -12,7 +12,9 @@
   nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
   home-manager.users."${primaryUser}" = {
     home.packages = with pkgs; [
+      xdg-utils
       gcc
+      libgcc
       wget
       unzip
       lazygit
@@ -95,6 +97,8 @@
         export RUSTC_WRAPPER=${pkgs.sccache}/bin/sccache
       '';
       shellAliases = {
+        vi = "/home/mach12/projects/nixvim_config/result/bin/nvim";
+        nvim = ''/home/mach12/projects/nixvim_config/result/bin/nvim --cmd "let g:auto_session_enabled = v:false"'';
         docker = "sudo docker";
         dc = "docker compose";
         dk = "docker kill";

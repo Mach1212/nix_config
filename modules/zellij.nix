@@ -182,7 +182,7 @@
             };
           };
           session = {
-            "bind \"Alt o\"" = {SwitchToMode = "Normal";};
+            "bind \"Alt d\"" = {SwitchToMode = "Normal";};
             "bind \"d\"" = {"Detach //" = "";};
             "bind \"w\"" = {
               "LaunchOrFocusPlugin \"session-manager\"" = {
@@ -215,7 +215,7 @@
             "bind \"Alt s\"" = {SwitchToMode = "Scroll";};
           };
           "shared_except \"session\" \"locked\"" = {
-            "bind \"Alt o\"" = {SwitchToMode = "Session";};
+            "bind \"Alt d\"" = {SwitchToMode = "Session";};
           };
           "shared_except \"tab\" \"locked\"" = {
             "bind \"Alt t\"" = {SwitchToMode = "Tab";};
