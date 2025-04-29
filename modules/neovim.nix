@@ -52,6 +52,8 @@
       mold
       lld
       nodemon
+      openssl
+      pkg-config
     ];
 
     programs.firefox = {
